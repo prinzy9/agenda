@@ -52,8 +52,8 @@ export class AppComponent {
 
       },
       slotDuration: '01:00:00',
-      slotMinTime: '09:00:00',
-      slotMaxTime: '18:00:00',
+      slotMinTime: '08:00:00',
+      slotMaxTime: '19:00:00',
       // slotMinWidth: 10,
 
       events: [//https://fullcalendar.io/docs/resources-and-events
@@ -61,22 +61,22 @@ export class AppComponent {
           id: '1',
           resourceId: 'a',
           title: 'Mario Rossi - Installazione software',
-          start: '2024-09-13T09:00:00',
-          end: '2024-09-13T13:00:00'
+          start: '2024-09-16T09:00:00',
+          end: '2024-09-16T13:00:00'
         },
         {
           id: '2',
           resourceId: 'b',
           title: 'Luca Bianchi - Manutenzione server',
-          start: '2024-09-14T09:00:00',
-          end: '2024-09-14T13:00:00'
+          start: '2024-09-16T09:00:00',
+          end: '2024-09-16T13:00:00'
         },
         {
           id: '3',
           resourceId: 'b',
           title: 'Luca Bianchi - Manutenzione server',
-          start: '2024-09-14T14:00:00',
-          end: '2024-09-14T18:00:00'
+          start: '2024-09-16T14:00:00',
+          end: '2024-09-16T18:00:00'
         }
       ]
     };
