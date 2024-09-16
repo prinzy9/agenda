@@ -24,6 +24,8 @@ export class AppComponent {
   calendarOptions: CalendarOptions = {};
   bodyContent: string = '';
 
+
+
   constructor() {
     this.calendarOptions = {
       eventClick: (info) => {
@@ -33,12 +35,16 @@ export class AppComponent {
       timeZone: 'Europe/Rome',
       handleWindowResize: true,
       contentHeight: '85vh',
-      // slotMinWidth: 100, // larghezza minima delle slot
       locale: itLocale, // seleziona la lingua Italiana
       aspectRatio: 2, // larghezza / altezza
       initialView: 'resourceTimelineDay', // vista iniziale
-      // defaultView: 'resourceTimelinedWeek',
-      // initialView: 'timeGrid',
+      businessHours: {
+        // days of week. an array of zero-based day of week integers (0=Sunday)
+        daysOfWeek: [1, 2, 3, 4, 5], // Lunedì - Venerdì
+        startTime: '00:00', // a start time (09:00 in this example)
+        endTime: '24:00' // an end time (18:00 in this example)
+
+      },
       resourceAreaColumns: [
         {
           field: 'fname',
@@ -60,7 +66,7 @@ export class AppComponent {
       headerToolbar: {
         left: 'prev,next today',
         center: 'title',
-        right: 'resourceTimelineDay,resourceTimelineWeek,resourceTimelineMonth'
+        right: 'resourceTimelineDay,resourceTimelineWeek,resourceTimelineMonth,resourceTimelineYear'
       },
       // resourceAreaHeaderContent: 'Dipendenti',
       plugins: [resourceTimelinePlugin], // Registra i plugin qui
@@ -90,23 +96,23 @@ export class AppComponent {
           id: '1',
           resourceId: 'a',
           title: 'Mario Rossi - Installazione software',
-          start: '2024-09-16T00:00:00',
-          end: '2024-09-16T24:00:00'
+          start: '2024-09-17T00:00:00',
+          end: '2024-09-17T24:00:00'
         },
 
         {
           id: '2',
           resourceId: 'b',
           title: 'Luca Bianchi - Manutenzione server',
-          start: '2024-09-16T09:00:00',
-          end: '2024-09-16T13:00:00'
+          start: '2024-09-18T00:00:00',
+          end: '2024-09-18T13:00:00'
         },
         {
           id: '3',
           resourceId: 'b',
           title: 'Luca Bianchi - Manutenzione server',
-          start: '2024-09-16T14:00:00',
-          end: '2024-09-16T18:00:00'
+          start: '2024-09-18T14:00:00',
+          end: '2024-09-19T00:00:00'
         }
 
       ],
@@ -115,6 +121,7 @@ export class AppComponent {
 
   }
 
+  // gestione dell'eventuale click su un evento
   onClickEvent(info: any) {
     console.log('clicked on event: ', info.event);
     this.bodyContent = info.event.title;
