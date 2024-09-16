@@ -1,47 +1,41 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FullCalendarModule } from '@fullcalendar/angular'; // FullCalendar
-import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { CalendarModule } from 'primeng/calendar'; // PrimeNG Calendar
 import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
 import itLocale from '@fullcalendar/core/locales/it';
 import { CalendarOptions } from '@fullcalendar/core';
-import { Boundary, Placement, PopperOptions } from 'popper.js';
-import Tooltip from 'tooltip.js';
+import { DialogModule } from 'primeng/dialog';
+// import { NoopAnimationsModule } from '@angular/platform-browser/animations'; // Importa qui
 
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FullCalendarModule, CalendarModule, DynamicDialogModule],
+  imports: [RouterOutlet, FullCalendarModule, CalendarModule, DialogModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
+
 export class AppComponent {
   visible: boolean = false;
   title = 'Elmi Agenda';
   calendarOptions: CalendarOptions = {};
+  bodyContent: string = '';
 
   constructor() {
     this.calendarOptions = {
-      eventDidMount: function (info) {
-        new Tooltip(info.el, {
-          title: info.event.title,
-          placement: 'top',
-          trigger: 'hover',
-          container: 'body',
-
-
-        });
+      eventClick: (info) => {
+        this.onClickEvent(info);
       },
-
-
       schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives', // licenza non commerciale per FullCalendar Scheduler
-      // timeZone: 'Europe/Rome',
+      timeZone: 'Europe/Rome',
+      handleWindowResize: true,
+      contentHeight: '85vh',
       // slotMinWidth: 100, // larghezza minima delle slot
       locale: itLocale, // seleziona la lingua Italiana
-      // aspectRatio: 3.5, // larghezza / altezza
+      aspectRatio: 2, // larghezza / altezza
       initialView: 'resourceTimelineDay', // vista iniziale
       // defaultView: 'resourceTimelinedWeek',
       // initialView: 'timeGrid',
@@ -52,11 +46,11 @@ export class AppComponent {
         },
         {
           field: 'iname',
-          headerContent: 'int.'
+          headerContent: 'Int.'
         },
         {
           field: 'imobile',
-          headerContent: 'mobile'
+          headerContent: 'Mobile'
         }
       ],
       resources: [
@@ -88,7 +82,7 @@ export class AppComponent {
         { weekday: 'long', day: 'numeric' },
 
       ],
-      slotMinTime: '07:00:00',
+      slotMinTime: '00:00:00',
       slotMaxTime: '23:00:00',
 
       events: [//https://fullcalendar.io/docs/resources-and-events
@@ -119,6 +113,12 @@ export class AppComponent {
 
     };
 
+  }
+
+  onClickEvent(info: any) {
+    console.log('clicked on event: ', info.event);
+    this.bodyContent = info.event.title;
+    this.visible = true;
   }
 
 }

@@ -12,3 +12,9 @@ a.fc-timeline-slot-cushion.fc-scrollgrid-sync-inner {
     padding: 5px;
    
 }
+
+.wrap-calendar th a,
+.wrap-calendar .fc-toolbar-title
+{
+    text-transform: capitalize;
+}

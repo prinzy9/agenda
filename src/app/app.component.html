@@ -1,2 +1,18 @@
-<full-calendar [options]="calendarOptions"></full-calendar>
+<div class="container">
+    <div class="wrap-calendar">
+        <full-calendar [options]="calendarOptions"></full-calendar>
+    </div>
+</div>
 <router-outlet />
+<p-dialog 
+        header="Informazioni:" 
+        [(visible)]="visible" 
+        [modal]="true" 
+        [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" 
+        [style]="{ width: '50vw' }" 
+        [draggable]="false" 
+        [resizable]="false">
+            <p>
+               {{bodyContent}}
+            </p>
+    </p-dialog>
