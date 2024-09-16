@@ -32,15 +32,7 @@
               "node_modules/primeng/resources/primeng.min.css",
               "node_modules/primeicons/primeicons.css"
             ],
-            "scripts": [
-              "node_modules/@fullcalendar/premium-common/index.global.min.js",
-              "node_modules/@fullcalendar/daygrid/index.global.min.js",
-              "node_modules/@fullcalendar/timegrid/index.global.min.js",
-              "node_modules/@fullcalendar/interaction/index.global.min.js",
-              "node_modules/@fullcalendar/resource/index.global.min.js",
-              "node_modules/@fullcalendar/resource-timegrid/index.global.min.js",
-              "node_modules/@fullcalendar/timeline/index.global.js"
-            ]
+            "scripts": [ ]
           },
           "configurations": {
             "production": {

@@ -1,69 +1,105 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FullCalendarModule } from '@fullcalendar/angular'; // FullCalendar
-import dayGridPlugin from '@fullcalendar/daygrid'; // plugin day grid
-import timeGridPlugin from '@fullcalendar/timegrid'; // plugin time grid
-import interactionPlugin from '@fullcalendar/interaction'; // for user interactions
-import resourceTimeGridPlugin from '@fullcalendar/resource-timegrid';
-import timelinePlugin from '@fullcalendar/resource-timeline';
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { CalendarModule } from 'primeng/calendar'; // PrimeNG Calendar
 import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
 import itLocale from '@fullcalendar/core/locales/it';
 import { CalendarOptions } from '@fullcalendar/core';
+import { Boundary, Placement, PopperOptions } from 'popper.js';
+import Tooltip from 'tooltip.js';
+
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FullCalendarModule, CalendarModule],
+  imports: [RouterOutlet, FullCalendarModule, CalendarModule, DynamicDialogModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  visible: boolean = false;
   title = 'Elmi Agenda';
   calendarOptions: CalendarOptions = {};
 
   constructor() {
     this.calendarOptions = {
+      eventDidMount: function (info) {
+        new Tooltip(info.el, {
+          title: info.event.title,
+          placement: 'top',
+          trigger: 'hover',
+          container: 'body',
+
+
+        });
+      },
+
+
       schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives', // licenza non commerciale per FullCalendar Scheduler
+      // timeZone: 'Europe/Rome',
+      // slotMinWidth: 100, // larghezza minima delle slot
       locale: itLocale, // seleziona la lingua Italiana
-      aspectRatio: 3.5, // larghezza / altezza
+      // aspectRatio: 3.5, // larghezza / altezza
       initialView: 'resourceTimelineDay', // vista iniziale
       // defaultView: 'resourceTimelinedWeek',
       // initialView: 'timeGrid',
+      resourceAreaColumns: [
+        {
+          field: 'fname',
+          headerContent: 'Dipendenti'
+        },
+        {
+          field: 'iname',
+          headerContent: 'int.'
+        },
+        {
+          field: 'imobile',
+          headerContent: 'mobile'
+        }
+      ],
       resources: [
-        { id: 'a', title: 'Mario Rossi' },
-        { id: 'b', title: 'Luca Bianchi' }
+        { id: 'a', fname: 'Mario Rossi', iname: '140', imobile: '+3934567890' },
+        { id: 'b', fname: 'Luca Bianchi', iname: '112', imobile: '+3934567890' }
       ],
       headerToolbar: {
         left: 'prev,next today',
         center: 'title',
         right: 'resourceTimelineDay,resourceTimelineWeek,resourceTimelineMonth'
       },
-      resourceAreaHeaderContent: 'Dipendenti',
+      // resourceAreaHeaderContent: 'Dipendenti',
       plugins: [resourceTimelinePlugin], // Registra i plugin qui
       editable: true,
       selectable: true,
       views: {
+
         resourceTimelineFourDays: {
+
           type: 'resourceTimeline',
           duration: { days: 4 },
 
         },
 
       },
-      slotDuration: '01:00:00',
-      slotMinTime: '08:00:00',
-      slotMaxTime: '19:00:00',
-      // slotMinWidth: 10,
+      slotDuration: '24:00:00',
+      // slotLabelInterval: '12:00:00',
+      slotLabelFormat: [
+        { weekday: 'long', day: 'numeric' },
+
+      ],
+      slotMinTime: '07:00:00',
+      slotMaxTime: '23:00:00',
 
       events: [//https://fullcalendar.io/docs/resources-and-events
         {
           id: '1',
           resourceId: 'a',
           title: 'Mario Rossi - Installazione software',
-          start: '2024-09-16T09:00:00',
-          end: '2024-09-16T13:00:00'
+          start: '2024-09-16T00:00:00',
+          end: '2024-09-16T24:00:00'
         },
+
         {
           id: '2',
           resourceId: 'b',
@@ -78,8 +114,11 @@ export class AppComponent {
           start: '2024-09-16T14:00:00',
           end: '2024-09-16T18:00:00'
         }
-      ]
+
+      ],
+
     };
 
   }
+
 }

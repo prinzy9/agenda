@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+a.fc-timeline-slot-cushion.fc-scrollgrid-sync-inner {
+ margin: auto !important
+}
+
+.tooltip {
+    z-index: 1;
+    background-color: azure;
+    color: black;
+    height: 200px;
+    width: 200px;
+    padding: 5px;
+   
+}
