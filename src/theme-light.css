@@ -1,0 +1,35 @@
+/*  src/theme-light.css */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+
+
+button.fc-today-button.fc-button.fc-button-primary{
+    background-color: rgb(59, 130, 246);
+}
+
+button.fc-next-button.fc-button.fc-button-primary {
+    background-color: rgb(59, 130, 246);
+}
+
+button.fc-prev-button.fc-button.fc-button-primary {
+    background-color: rgb(59, 130, 246);
+}
+
+button.fc-dayGridMonth-button.fc-button.fc-button-primary {
+    background-color: rgb(59, 130, 246); 
+}
+
+button.fc-dayGridWeek-button.fc-button.fc-button-primary.fc-button-active {
+    background-color: rgb(59, 130, 246); 
+}
+
+button.fc-dayGridDay-button.fc-button.fc-button-primary {
+    background-color: rgb(59, 130, 246); 
+}
+
+button.fc-dayGridDay-button.fc-button.fc-button-primary.fc-button-active {
+    background-color: rgb(59, 130, 246);
+}
+
+button.fc-dayGridWeek-button.fc-button.fc-button-primary {
+    background-color: rgb(59, 130, 246);
+}

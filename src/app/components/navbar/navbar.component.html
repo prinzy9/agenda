@@ -1,0 +1,14 @@
+<p-menubar [model]="items">
+    <ng-template pTemplate="item" let-item >
+        <ng-container *ngIf="item.route">
+            <a [routerLink]="item.route" class="p-menuitem-link">
+                <span [class]="item.icon"></span>
+                <span class="ml-2">{{ item.label }}</span>
+            </a>
+        </ng-container>
+    </ng-template>
+
+    <ng-template pTemplate="end" >
+       <app-toggle-theme />
+    </ng-template>
+</p-menubar>

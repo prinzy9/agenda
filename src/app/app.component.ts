@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FullCalendarModule } from '@fullcalendar/angular'; // FullCalendar
 import { CalendarModule } from 'primeng/calendar'; // PrimeNG Calendar
@@ -6,27 +6,28 @@ import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
 import itLocale from '@fullcalendar/core/locales/it';
 import { CalendarOptions } from '@fullcalendar/core';
 import { DialogModule } from 'primeng/dialog';
-// import { NoopAnimationsModule } from '@angular/platform-browser/animations'; // Importa qui
-
-
+import { CommonModule } from '@angular/common';
+import { PrimeNGConfig } from 'primeng/api';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FullCalendarModule, CalendarModule, DialogModule],
+  imports: [RouterOutlet, FullCalendarModule, CalendarModule, DialogModule, CommonModule, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
+  ngOnInit() {
+    this.primengConfig.ripple = true;
+  }
   visible: boolean = false;
   title = 'Elmi Agenda';
   calendarOptions: CalendarOptions = {};
   bodyContent: string = '';
 
-
-
-  constructor() {
+  constructor(private primengConfig: PrimeNGConfig) {
     this.calendarOptions = {
       eventClick: (info) => {
         this.onClickEvent(info);
@@ -68,22 +69,18 @@ export class AppComponent {
         center: 'title',
         right: 'resourceTimelineDay,resourceTimelineWeek,resourceTimelineMonth,resourceTimelineYear'
       },
-      // resourceAreaHeaderContent: 'Dipendenti',
       plugins: [resourceTimelinePlugin], // Registra i plugin qui
       editable: true,
       selectable: true,
       views: {
 
         resourceTimelineFiveDays: {
-
           type: 'resourceTimeline',
           duration: { days: 5 },
-
         },
 
       },
       slotDuration: '24:00:00',
-      // slotLabelInterval: '12:00:00',
       slotLabelFormat: [
         { weekday: 'long', day: 'numeric' },
 
@@ -123,7 +120,6 @@ export class AppComponent {
 
   // gestione dell'eventuale click su un evento
   onClickEvent(info: any) {
-    console.log('clicked on event: ', info.event);
     this.bodyContent = info.event.title;
     this.visible = true;
   }

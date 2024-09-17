@@ -1,9 +1,15 @@
+<!-- Navbar -->
+ <app-navbar></app-navbar>
+<div class="wrap-body">
+<!-- Fullcalendar -->
 <div class="container">
     <div class="wrap-calendar">
         <full-calendar [options]="calendarOptions"></full-calendar>
     </div>
 </div>
+<!-- Rotte -->
 <router-outlet />
+<!-- Modal onClick -->
 <p-dialog 
         header="Informazioni:" 
         [(visible)]="visible" 
@@ -16,3 +22,5 @@
                {{bodyContent}}
             </p>
     </p-dialog>
+
+</div>

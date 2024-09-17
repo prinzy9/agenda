@@ -1,20 +1,37 @@
+@import "primeng/resources/primeng.css";
+@import "primeflex/primeflex.css";
+@import "primeicons/primeicons.css";
+
+
 /* You can add global styles to this file, and also import other style files */
 a.fc-timeline-slot-cushion.fc-scrollgrid-sync-inner {
  margin: auto !important
 }
-
-/* .tooltip {
-    z-index: 1;
-    background-color: azure;
-    color: black;
-    height: 200px;
-    width: 200px;
-    padding: 5px;
-   
-} */
-
+.wrap-calendar {
+    padding-top: 0.3rem;
+}
 .wrap-calendar th a,
 .wrap-calendar .fc-toolbar-title
 {
     text-transform: capitalize;
+}
+
+.toggle.p-inputswitch {
+    width: 6rem;
+    height: 3.5rem;
+}
+
+.toggle  .p-inputswitch-slider::before {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-top: -1.8rem;
+    left: 0.1rem;
+    background: transparent;
+    font-size: 2.5rem;
+    content: "🌞";
+}
+
+.toggle.p-inputswitch-checked .p-inputswitch-slider::before {
+    content: "🌙" !important;
+    transform: translateX(2.3rem) !important;
 }
