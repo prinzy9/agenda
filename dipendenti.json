@@ -1,0 +1,151 @@
+{
+    "resources": [
+        {
+            "id": "a", 
+            "fname": "Mario Rossi", 
+            "iname": "140", 
+            "imobile": "+3934567890"
+        },
+        {
+            "id": "b", 
+            "fname": "Luca Bianchi", 
+            "iname": "120", 
+            "imobile": "+3934567890"
+        },  
+        {
+            "id": "c", 
+            "fname": "Giuseppe Verdi", 
+            "iname": "250", 
+            "imobile": "+3934567890"
+        },
+        {
+            "id": "d", 
+            "fname": "Alessandro Gialli", 
+            "iname": "396", 
+            "imobile": "+3934567890"
+        },
+        {
+            "id": "e", 
+            "fname": "Marco Rosso", 
+            "iname": "990", 
+            "imobile": "+3934567890"
+        },
+        {
+            "id": "f", 
+            "fname": "Francesco Bianchi", 
+            "iname": "100", 
+            "imobile": "+3934567890"
+        },
+        {
+            "id": "g", 
+            "fname": "Alessandro Verdi", 
+            "iname": "180", 
+            "imobile": "+3934567890"
+        },
+        {
+            "id": "h", 
+            "fname": "Marco Gialli", 
+            "iname": "940", 
+            "imobile": "+3934567890"
+        },
+        {   
+            "id": "i", 
+            "fname": "Ignazio Sammarco", 
+            "iname": "847", 
+            "imobile": "+3934567890"
+        },
+        {
+            "id": "j", 
+            "fname": "Marco Rossi", 
+            "iname": "48", 
+            "imobile": "+3934567890"
+        },
+        {
+            "id": "k",  
+            "fname": "Alessandro Bianchi", 
+            "iname": "140", 
+            "imobile": "+3934567890"   
+        }
+    
+    ],
+
+    "events": [
+        {
+          "id": "1",
+          "resourceId": "a",
+          "title": "09.00 -18.00 Installazione software",
+          "start": "2024-09-17T00:00:00",
+          "end": "2024-09-17T24:00:00"
+        },
+        {
+          "id": "2",
+          "resourceId": "b",
+          "title": "09.00 -18.00 Installazione software",
+          "start": "2024-09-17T00:00:00",
+          "end": "2024-09-17T24:00:00"
+        },
+        {
+          "id": "3",
+          "resourceId": "c",    
+          "title": "09.00 -18.00 Installazione software",
+          "start": "2024-09-17T00:00:00",
+          "end": "2024-09-17T24:00:00"
+        },
+        {
+          "id": "4",
+          "resourceId": "d",
+          "title": "09.00 -18.00 Installazione software",
+          "start": "2024-09-17T00:00:00",
+          "end": "2024-09-17T24:00:00"
+        },
+        {
+          "id": "5",
+          "resourceId": "e",    
+          "title": "09.00 -18.00 Installazione software",
+          "start": "2024-09-17T00:00:00",
+          "end": "2024-09-17T24:00:00"
+        },
+        {
+          "id": "6",
+          "resourceId": "f",
+          "title": "09.00 -18.00 Installazione software",   
+          "start": "2024-09-17T00:00:00",
+          "end": "2024-09-17T24:00:00"
+        },
+        {
+          "id": "7",
+          "resourceId": "g",
+          "title": "09.00 -18.00 Installazione software",
+          "start": "2024-09-17T00:00:00",  
+          "end": "2024-09-17T24:00:00"
+        },
+        {
+          "id": "8",
+          "resourceId": "h",
+          "title": "09.00 -18.00 Installazione software",
+          "start": "2024-09-17T00:00:00",
+          "end": "2024-09-17T24:00:00"
+        },
+        {
+          "id": "9",
+          "resourceId": "i",
+          "title": "09.00 -18.00 Installazione software",
+          "start": "2024-09-17T00:00:00",   
+          "end": "2024-09-17T24:00:00"
+        },
+        {
+          "id": "10",
+          "resourceId": "j",
+          "title": "09.00 -18.00 Installazione software",
+          "start": "2024-09-17T00:00:00",
+          "end": "2024-09-17T24:00:00"
+        },
+        {
+          "id": "11",
+          "resourceId": "k",
+          "title": "09.00 -18.00 Installazione software",
+          "start": "2024-09-17T00:00:00",
+          "end": "2024-09-17T24:00:00"
+        }
+    ]
+}
