@@ -9,6 +9,7 @@ import { DialogModule } from 'primeng/dialog';
 import { CommonModule } from '@angular/common';
 import { PrimeNGConfig } from 'primeng/api';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +22,14 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 export class AppComponent implements OnInit {
   ngOnInit() {
     this.primengConfig.ripple = true;
+    this.http.get('http://localhost:3000/resources').subscribe((resources) => {
+      this.calendarOptions.resources = resources;
+    });
+
+    this.http.get('http://localhost:3000/events').subscribe((events) => {
+      this.calendarOptions.events = events;
+    });
+
   }
   visible: boolean = false;
   bodyContent: string = '';
@@ -28,7 +37,7 @@ export class AppComponent implements OnInit {
   calendarOptions: CalendarOptions = {};
 
 
-  constructor(private primengConfig: PrimeNGConfig) {
+  constructor(private primengConfig: PrimeNGConfig, private http: HttpClient) {
     this.calendarOptions = {
       eventClick: (info) => {
         this.onClickEvent(info);
@@ -61,10 +70,11 @@ export class AppComponent implements OnInit {
           headerContent: 'Mobile'
         }
       ],
-      resources: [
-        { id: 'a', fname: 'Mario Rossi', iname: '140', imobile: '+3934567890' },
-        { id: 'b', fname: 'Luca Bianchi', iname: '112', imobile: '+3934567890' }
-      ],
+      // resources: 'http://localhost:3000/resources'
+      // [
+      // { id: 'a', fname: 'Mario Rossi', iname: '140', imobile: '+3934567890' },
+      // { id: 'b', fname: 'Luca Bianchi', iname: '112', imobile: '+3934567890' }]
+      // ,
       headerToolbar: {
         left: 'prev,next today',
         center: 'title',
@@ -89,31 +99,33 @@ export class AppComponent implements OnInit {
       slotMinTime: '00:00:00',
       slotMaxTime: '23:00:00',
 
-      events: [//https://fullcalendar.io/docs/resources-and-events
-        {
-          id: '1',
-          resourceId: 'a',
-          title: '09.00 -18.00 Installazione software',
-          start: '2024-09-17T00:00:00',
-          end: '2024-09-17T24:00:00'
-        },
+      // events: 'http://localhost:3000/events',
+      //  [ {
+      //     id: '1',
+      //     resourceId: 'a',
+      //     title: '09.00 -18.00 Installazione software',
+      //     start: '2024-09-17T00:00:00',
+      //     end: '2024-09-17T24:00:00'
+      //   },
 
-        {
-          id: '2',
-          resourceId: 'b',
-          title: 'Manutenzione server',
-          start: '2024-09-18T00:00:00',
-          end: '2024-09-18T13:00:00'
-        },
-        {
-          id: '3',
-          resourceId: 'b',
-          title: 'Manutenzione server',
-          start: '2024-09-18T14:00:00',
-          end: '2024-09-19T00:00:00'
-        }
+      //   {
+      //     id: '2',
+      //     resourceId: 'b',
+      //     title: 'Manutenzione server',
+      //     start: '2024-09-18T00:00:00',
+      //     end: '2024-09-18T13:00:00'
+      //   },
+      //   {
+      //     id: '3',
+      //     resourceId: 'b',
+      //     title: 'Manutenzione server',
+      //     start: '2024-09-18T14:00:00',
+      //     end: '2024-09-19T00:00:00'
+      //   }
 
-      ],
+      // ],
+
+
 
     };
 
