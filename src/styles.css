@@ -3,7 +3,7 @@ a.fc-timeline-slot-cushion.fc-scrollgrid-sync-inner {
  margin: auto !important
 }
 
-.tooltip {
+/* .tooltip {
     z-index: 1;
     background-color: azure;
     color: black;
@@ -11,7 +11,7 @@ a.fc-timeline-slot-cushion.fc-scrollgrid-sync-inner {
     width: 200px;
     padding: 5px;
    
-}
+} */
 
 .wrap-calendar th a,
 .wrap-calendar .fc-toolbar-title

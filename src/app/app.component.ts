@@ -74,10 +74,10 @@ export class AppComponent {
       selectable: true,
       views: {
 
-        resourceTimelineFourDays: {
+        resourceTimelineFiveDays: {
 
           type: 'resourceTimeline',
-          duration: { days: 4 },
+          duration: { days: 5 },
 
         },
 
@@ -95,7 +95,7 @@ export class AppComponent {
         {
           id: '1',
           resourceId: 'a',
-          title: 'Mario Rossi - Installazione software',
+          title: '09.00 -18.00 Installazione software',
           start: '2024-09-17T00:00:00',
           end: '2024-09-17T24:00:00'
         },
@@ -103,14 +103,14 @@ export class AppComponent {
         {
           id: '2',
           resourceId: 'b',
-          title: 'Luca Bianchi - Manutenzione server',
+          title: 'Manutenzione server',
           start: '2024-09-18T00:00:00',
           end: '2024-09-18T13:00:00'
         },
         {
           id: '3',
           resourceId: 'b',
-          title: 'Luca Bianchi - Manutenzione server',
+          title: 'Manutenzione server',
           start: '2024-09-18T14:00:00',
           end: '2024-09-19T00:00:00'
         }
