@@ -3,35 +3,19 @@
 @import "primeicons/primeicons.css";
 
 
-/* You can add global styles to this file, and also import other style files */
+/* Centra gli header del calendar */
 a.fc-timeline-slot-cushion.fc-scrollgrid-sync-inner {
  margin: auto !important
 }
+
+/* Crea un padding tra la Navbar ed il Calendar */
 .wrap-calendar {
-    padding-top: 0.3rem;
+    padding-top: 1.5rem;
 }
+
+/* Capitalizza i nomi dei Giorni, Mesi della Header del calendar */
 .wrap-calendar th a,
 .wrap-calendar .fc-toolbar-title
 {
     text-transform: capitalize;
-}
-
-.toggle.p-inputswitch {
-    width: 6rem;
-    height: 3.5rem;
-}
-
-.toggle  .p-inputswitch-slider::before {
-    width: 2.5rem;
-    height: 2.5rem;
-    margin-top: -1.8rem;
-    left: 0.1rem;
-    background: transparent;
-    font-size: 2.5rem;
-    content: "🌞";
-}
-
-.toggle.p-inputswitch-checked .p-inputswitch-slider::before {
-    content: "🌙" !important;
-    transform: translateX(2.3rem) !important;
 }

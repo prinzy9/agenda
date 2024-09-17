@@ -23,9 +23,10 @@ export class AppComponent implements OnInit {
     this.primengConfig.ripple = true;
   }
   visible: boolean = false;
+  bodyContent: string = '';
   title = 'Elmi Agenda';
   calendarOptions: CalendarOptions = {};
-  bodyContent: string = '';
+
 
   constructor(private primengConfig: PrimeNGConfig) {
     this.calendarOptions = {

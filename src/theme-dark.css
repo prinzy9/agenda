@@ -1,2 +1,8 @@
 /*  src/theme-dark.css */
 @import "primeng/resources/themes/lara-dark-blue/theme.css";
+
+.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider:before {
+    background-color: rgb(55, 65, 81);
+    content: "🌙";
+    transform: translateX(1.3rem);    
+}
