@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { PrimeNGConfig } from 'primeng/api';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClient } from '@angular/common/http';
+import { timeInterval } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -42,6 +43,20 @@ export class AppComponent implements OnInit {
       eventClick: (info) => {
         this.onClickEvent(info);
       },
+
+      resourceAreaWidth: '25%',
+
+      dayMaxEventRows: true,
+      displayEventTime: false,
+      eventOrderStrict: true,
+      dayMaxEvents: 2,
+      eventMaxStack: 1,
+      eventDisplay: 'listItem',
+      slotDuration: '24:00:00',
+      defaultRangeSeparator: ' - ',
+
+
+
       schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives', // licenza non commerciale per FullCalendar Scheduler
       timeZone: 'Europe/Rome',
       handleWindowResize: true,
@@ -63,6 +78,8 @@ export class AppComponent implements OnInit {
         },
         {
           field: 'iname',
+          headerClassNames: 'interno',
+          cellClassNames: 'interno',
           headerContent: 'Int.'
         },
         {
@@ -76,22 +93,24 @@ export class AppComponent implements OnInit {
       // { id: 'b', fname: 'Luca Bianchi', iname: '112', imobile: '+3934567890' }]
       // ,
       headerToolbar: {
-        left: 'prev,next today',
+        left: 'prev,next resourceTimelineYear today',
         center: 'title',
-        right: 'resourceTimelineDay,resourceTimelineWeek,resourceTimelineMonth,resourceTimelineYear'
+        right: 'resourceTimelineDay,resourceTimelineWeek,resourceTimelineMonth'
       },
       plugins: [resourceTimelinePlugin], // Registra i plugin qui
       editable: true,
       selectable: true,
       views: {
-
         resourceTimelineFiveDays: {
           type: 'resourceTimeline',
           duration: { days: 5 },
         },
 
       },
-      slotDuration: '24:00:00',
+      // slotDuration: '24:00:00',
+      // dayHeaderClassNames: [
+      //   'mattina', 'pomeriggio'
+      // ],
       slotLabelFormat: [
         { weekday: 'long', day: 'numeric' },
 
@@ -125,7 +144,18 @@ export class AppComponent implements OnInit {
 
       // ],
 
+      // eventDidMount: function (info) {
+      //   if (info.event.start) {
+      //     const eventStartHour = new Date(info.event.start).getHours();
 
+      //     if (eventStartHour < 12) {
+      //       info.el.classList.add('mattina');
+      //     } else {
+      //       info.el.classList.add('pomeriggio');
+      //     }
+
+      //   }
+      // }
 
     };
 

@@ -9,6 +9,8 @@
     </ng-template>
 
     <ng-template pTemplate="end" >
+        <p-menu #menu [model]="utenti" [popup]="true" />
+    <!-- <p-button (onClick)="menu.toggle($event)" icon="pi pi-ellipsis-v"/> -->
        <app-toggle-theme />
     </ng-template>
 </p-menubar>
