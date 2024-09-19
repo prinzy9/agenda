@@ -144,7 +144,15 @@
         {
           "id": "9",
           "resourceId": "i",
-          "title": "09.00 -18.00 Installazione software",
+          "title": "09.00 -14.00 Insegnare Angular",
+          "start": "2024-09-17T00:00:00",   
+          "end": "2024-09-17T24:00:00"
+        },
+        
+        {
+          "id": "9",
+          "resourceId": "i",
+          "title": "18.00 -22.00 Prendere multe come polizia municipale a Luca Princivalli presso Mondello",
           "start": "2024-09-17T00:00:00",   
           "end": "2024-09-17T24:00:00"
         },

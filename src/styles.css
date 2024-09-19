@@ -22,5 +22,10 @@ a.fc-timeline-slot-cushion.fc-scrollgrid-sync-inner {
 
 .interno {
     width: 3.125rem;
+    text-align: center;
+}
+.fc-datagrid-cell,
+.fc-datagrid-cell-frame {
+   text-align: center;
 }
 

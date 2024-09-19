@@ -53,9 +53,6 @@ export class AppComponent implements OnInit {
       eventMaxStack: 1,
       eventDisplay: 'listItem',
       slotDuration: '24:00:00',
-      defaultRangeSeparator: ' - ',
-
-
 
       schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives', // licenza non commerciale per FullCalendar Scheduler
       timeZone: 'Europe/Rome',
@@ -74,7 +71,8 @@ export class AppComponent implements OnInit {
       resourceAreaColumns: [
         {
           field: 'fname',
-          headerContent: 'Dipendenti'
+          headerContent: 'Dipendenti',
+
         },
         {
           field: 'iname',
@@ -84,14 +82,11 @@ export class AppComponent implements OnInit {
         },
         {
           field: 'imobile',
-          headerContent: 'Mobile'
+          headerContent: 'Mobile',
+
         }
       ],
-      // resources: 'http://localhost:3000/resources'
-      // [
-      // { id: 'a', fname: 'Mario Rossi', iname: '140', imobile: '+3934567890' },
-      // { id: 'b', fname: 'Luca Bianchi', iname: '112', imobile: '+3934567890' }]
-      // ,
+
       headerToolbar: {
         left: 'prev,next resourceTimelineYear today',
         center: 'title',
@@ -107,55 +102,13 @@ export class AppComponent implements OnInit {
         },
 
       },
-      // slotDuration: '24:00:00',
-      // dayHeaderClassNames: [
-      //   'mattina', 'pomeriggio'
-      // ],
+
       slotLabelFormat: [
         { weekday: 'long', day: 'numeric' },
 
       ],
       slotMinTime: '00:00:00',
       slotMaxTime: '23:00:00',
-
-      // events: 'http://localhost:3000/events',
-      //  [ {
-      //     id: '1',
-      //     resourceId: 'a',
-      //     title: '09.00 -18.00 Installazione software',
-      //     start: '2024-09-17T00:00:00',
-      //     end: '2024-09-17T24:00:00'
-      //   },
-
-      //   {
-      //     id: '2',
-      //     resourceId: 'b',
-      //     title: 'Manutenzione server',
-      //     start: '2024-09-18T00:00:00',
-      //     end: '2024-09-18T13:00:00'
-      //   },
-      //   {
-      //     id: '3',
-      //     resourceId: 'b',
-      //     title: 'Manutenzione server',
-      //     start: '2024-09-18T14:00:00',
-      //     end: '2024-09-19T00:00:00'
-      //   }
-
-      // ],
-
-      // eventDidMount: function (info) {
-      //   if (info.event.start) {
-      //     const eventStartHour = new Date(info.event.start).getHours();
-
-      //     if (eventStartHour < 12) {
-      //       info.el.classList.add('mattina');
-      //     } else {
-      //       info.el.classList.add('pomeriggio');
-      //     }
-
-      //   }
-      // }
 
     };
 
