@@ -9,8 +9,12 @@
     </ng-template>
 
     <ng-template pTemplate="end" >
-        <p-menu #menu [model]="utenti" [popup]="true" />
-    <!-- <p-button (onClick)="menu.toggle($event)" icon="pi pi-ellipsis-v"/> -->
+        <div class="flex align-items-center gap-2">
+        <p-menu #menu [model]="giorni" [popup]="true" />
+    <p-button (onClick)="menu.toggle($event)" [rounded]="true" [text]="true" size="large" icon="pi pi-calendar-clock"/>
+    
        <app-toggle-theme />
+        </div>
+
     </ng-template>
 </p-menubar>

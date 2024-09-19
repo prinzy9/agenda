@@ -6,27 +6,50 @@ import { ToggleThemeComponent } from '../toggle-theme/toggle-theme.component';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MenuModule } from 'primeng/menu';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [MenubarModule, ToggleThemeComponent, CommonModule, MenuModule, ToastModule],
+  imports: [MenubarModule, ToggleThemeComponent, CommonModule, MenuModule, ToastModule, ButtonModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements OnInit {
   items: MenuItem[] = [];
-  utenti: MenuItem[] = [];
+  giorni: MenuItem[] = [];
+
   constructor(private router: Router) { }
 
 
   ngOnInit() {
 
-    this.utenti = [
+    this.giorni = [
       {
-        label: 'Logout',
-        icon: 'pi pi-power-off',
-      }]
+        label: 'giorni:',
+        items: [
+          {
+            label: '1',
+            command: () => {
+              this.router.navigate(['/Home']);
+            }
+          },
+          {
+            label: '7',
+            command: () => {
+              this.router.navigate(['/Home']);
+            }
+          },
+          {
+            label: '31',
+            command: () => {
+              this.router.navigate(['/Home']);
+            }
+          },
+        ]
+
+      }
+    ]
 
     this.items = [
       {

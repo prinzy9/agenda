@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { FullCalendarModule } from '@fullcalendar/angular'; // FullCalendar
+import { FullCalendarComponent, FullCalendarModule } from '@fullcalendar/angular'; // FullCalendar
 import { CalendarModule } from 'primeng/calendar'; // PrimeNG Calendar
 import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
 import itLocale from '@fullcalendar/core/locales/it';
@@ -11,6 +11,7 @@ import { PrimeNGConfig } from 'primeng/api';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClient } from '@angular/common/http';
 import { timeInterval } from 'rxjs';
+import { CalendarviewService } from './services/calendarview.service';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +22,11 @@ import { timeInterval } from 'rxjs';
 })
 
 export class AppComponent implements OnInit {
+  @ViewChild('calendar')
+  calendarComponent!: FullCalendarComponent;
+
   ngOnInit() {
+
     this.primengConfig.ripple = true;
     this.http.get('http://localhost:3000/resources').subscribe((resources) => {
       this.calendarOptions.resources = resources;
@@ -38,7 +43,7 @@ export class AppComponent implements OnInit {
   calendarOptions: CalendarOptions = {};
 
 
-  constructor(private primengConfig: PrimeNGConfig, private http: HttpClient) {
+  constructor(private primengConfig: PrimeNGConfig, private http: HttpClient, private calendarView: CalendarviewService) {
     this.calendarOptions = {
       eventClick: (info) => {
         this.onClickEvent(info);
@@ -120,4 +125,11 @@ export class AppComponent implements OnInit {
     this.visible = true;
   }
 
+  changeView(view: string) {
+    let calendarApi = this.calendarComponent.getApi(); // Ottieni l'API del calendario
+    calendarApi.changeView(view);
+  }
 }
+
+
+

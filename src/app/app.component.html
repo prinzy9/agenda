@@ -3,8 +3,10 @@
 <div class="wrap-body">
 <!-- Fullcalendar -->
 <div class="container">
+    <button pButton type="button" label="Vista Settimana" (click)="changeView('resourceTimelineWeek')"></button>
+
     <div class="wrap-calendar">
-        <full-calendar [options]="calendarOptions"></full-calendar> 
+        <full-calendar #calendar [options]="calendarOptions"></full-calendar> 
     </div>
 </div>
 <!-- Rotte -->
