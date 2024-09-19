@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
-import { FullCalendarComponent } from '@fullcalendar/angular';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CalendarviewService {
-  calendarComponent!: FullCalendarComponent;
+  private viewChangeSource = new Subject<string>();
 
-  constructor() { }
+  // Observable a cui il componente principale si iscrive
+  viewChange$ = this.viewChangeSource.asObservable();
+
+  // Metodo per emettere il cambiamento di vista
   changeView(view: string) {
-    let calendarApi = this.calendarComponent.getApi(); // Ottieni l'API del calendario
-    calendarApi.changeView(view);
+    this.viewChangeSource.next(view);
   }
 }

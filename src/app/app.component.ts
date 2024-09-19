@@ -10,7 +10,6 @@ import { CommonModule } from '@angular/common';
 import { PrimeNGConfig } from 'primeng/api';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClient } from '@angular/common/http';
-import { timeInterval } from 'rxjs';
 import { CalendarviewService } from './services/calendarview.service';
 
 @Component({
@@ -25,6 +24,7 @@ export class AppComponent implements OnInit {
   @ViewChild('calendar')
   calendarComponent!: FullCalendarComponent;
 
+
   ngOnInit() {
 
     this.primengConfig.ripple = true;
@@ -36,6 +36,10 @@ export class AppComponent implements OnInit {
       this.calendarOptions.events = events;
     });
 
+    this.calendarViewService.viewChange$.subscribe((view: any) => {
+      this.changeView(view);
+    });
+
   }
   visible: boolean = false;
   bodyContent: string = '';
@@ -43,7 +47,7 @@ export class AppComponent implements OnInit {
   calendarOptions: CalendarOptions = {};
 
 
-  constructor(private primengConfig: PrimeNGConfig, private http: HttpClient, private calendarView: CalendarviewService) {
+  constructor(private primengConfig: PrimeNGConfig, private http: HttpClient, private calendarViewService: CalendarviewService) {
     this.calendarOptions = {
       eventClick: (info) => {
         this.onClickEvent(info);
@@ -51,6 +55,7 @@ export class AppComponent implements OnInit {
 
       resourceAreaWidth: '25%',
 
+      initialDate: new Date(),
       dayMaxEventRows: true,
       displayEventTime: false,
       eventOrderStrict: true,
@@ -58,6 +63,7 @@ export class AppComponent implements OnInit {
       eventMaxStack: 1,
       eventDisplay: 'listItem',
       slotDuration: '24:00:00',
+      scrollTime: '00:00:00',
 
       schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives', // licenza non commerciale per FullCalendar Scheduler
       timeZone: 'Europe/Rome',
@@ -93,17 +99,37 @@ export class AppComponent implements OnInit {
       ],
 
       headerToolbar: {
-        left: 'prev,next resourceTimelineYear today',
+        left: 'prev,next today',
         center: 'title',
-        right: 'resourceTimelineDay,resourceTimelineWeek,resourceTimelineMonth'
+        right: 'customYear'
       },
       plugins: [resourceTimelinePlugin], // Registra i plugin qui
       editable: true,
       selectable: true,
       views: {
+
+        customWeek: {
+          type: 'resourceTimeline',  // Può essere qualsiasi tipo di visualizzazione
+          duration: { days: 31 },  // Mostra i 31 giorni a partire dalla data corrente
+          buttonText: 'Settimana'
+        },
+
+        customMonth: {
+          type: 'resourceTimeline',
+          duration: { months: 1 },
+          buttonText: 'Mese'
+        },
+        customYear: {
+          initialDate: new Date(),
+          type: 'resourceTimeline',  // Può essere resourceTimeline o il tipo di visualizzazione che preferisci
+          duration: { years: 1 },    // Mostra un anno intero
+          buttonText: 'Anno'         // Testo del pulsante per la vista annuale
+        },
+
         resourceTimelineFiveDays: {
           type: 'resourceTimeline',
           duration: { days: 5 },
+          initialDate: new Date(),
         },
 
       },

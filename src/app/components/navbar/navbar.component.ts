@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MenuModule } from 'primeng/menu';
 import { ButtonModule } from 'primeng/button';
+import { CalendarviewService } from '../../services/calendarview.service';
 
 @Component({
   selector: 'app-navbar',
@@ -18,45 +19,110 @@ import { ButtonModule } from 'primeng/button';
 export class NavbarComponent implements OnInit {
   items: MenuItem[] = [];
   giorni: MenuItem[] = [];
+  utenti: MenuItem[] = [];
 
-  constructor(private router: Router) { }
+  constructor(private calendarViewService: CalendarviewService) { }
 
+  changeCalendarView(view: string) {
+    this.calendarViewService.changeView(view);  // Emetti il cambiamento di vista
+  }
 
   ngOnInit() {
 
-    this.giorni = [
+    this.utenti = [
       {
-        label: 'giorni:',
+        label: 'Seleziona:',
         items: [
           {
-            label: '1',
+            label: 'Tutti',
             command: () => {
-              this.router.navigate(['/Home']);
+              this.changeCalendarView('resourceTimelineDay');
             }
           },
           {
-            label: '7',
+            label: 'ACG',
             command: () => {
-              this.router.navigate(['/Home']);
+              this.changeCalendarView('resourceTimelineDay');
             }
           },
           {
-            label: '31',
+            label: 'Amministrazione',
             command: () => {
-              this.router.navigate(['/Home']);
+              this.changeCalendarView('resourceTimelineDay');
             }
           },
+          {
+            label: 'COGNOS BI MRO',
+            command: () => {
+              this.changeCalendarView('resourceTimelineDay');
+            }
+          },
+          {
+            label: 'Progetti Speciali',
+            command: () => {
+              this.changeCalendarView('resourceTimelineDay');
+            }
+          },
+          {
+            label: 'EDOC',
+            command: () => {
+              this.changeCalendarView('resourceTimelineDay');
+            }
+          },
+          {
+            label: 'Infrastruttura',
+            command: () => {
+              this.changeCalendarView('resourceTimelineDay');
+            }
+          },
+          {
+            label: 'SAP',
+            command: () => {
+              this.changeCalendarView('resourceTimelineDay');
+            }
+          },
+
         ]
 
       }
-    ]
+    ],
 
-    this.items = [
-      {
-        label: 'Elmi Calendar',
-        icon: 'pi pi-home',
-        route: '/Home',
-      }
-    ]
+      this.giorni = [
+        {
+          label: 'giorni:',
+          items: [
+            {
+              label: '1',
+              command: () => {
+                this.changeCalendarView('resourceTimelineDay');
+              }
+            },
+            {
+              label: '7',
+              command: () => {
+                this.changeCalendarView('customWeek');
+              }
+            },
+            {
+              label: '31',
+              command: () => {
+                this.changeCalendarView('customMonth');
+              }
+            },
+          ]
+
+        }
+      ],
+
+
+
+
+      this.items = [
+        {
+          label: 'Elmi Calendar',
+          icon: 'pi pi-home',
+          route: '/Home',
+        }
+      ]
   }
 }
