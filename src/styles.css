@@ -1,6 +1,7 @@
 @import "primeng/resources/primeng.css";
 @import "primeflex/primeflex.css";
 @import "primeicons/primeicons.css";
+@import "tippy.js/dist/tippy.css";
 
 
 /* Centra gli header del calendar */

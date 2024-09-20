@@ -13,6 +13,8 @@ import { HttpClient } from '@angular/common/http';
 import { CalendarviewService } from './services/calendarview.service';
 
 
+
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -24,6 +26,13 @@ import { CalendarviewService } from './services/calendarview.service';
 export class AppComponent implements OnInit {
   @ViewChild('calendar')
   calendarComponent!: FullCalendarComponent;
+  visible: boolean = false;
+  bodyContent: string = '';
+  title = 'Elmi Agenda';
+  calendarOptions: CalendarOptions = {};
+  hoveredEvent: any = null; // L'evento attualmente hoverato
+  visibleTooltip: boolean = false; // Controlla la visibilità del tooltip
+  visibleClickModal: boolean = false; // Controlla la visibilità del modal su click
 
 
   ngOnInit() {
@@ -40,29 +49,39 @@ export class AppComponent implements OnInit {
     this.calendarViewService.viewChange$.subscribe((view: any) => {
       this.changeView(view);
     });
-
     // Una volta che il calendario è inizializzato, scorri fino a oggi
     setTimeout(() => {
       this.scrollToToday();
     }, 100);  // Un piccolo ritardo per assicurarsi che il calendario sia pronto
-
   }
-  visible: boolean = false;
-  bodyContent: string = '';
-  title = 'Elmi Agenda';
-  calendarOptions: CalendarOptions = {};
+
 
 
   constructor(private primengConfig: PrimeNGConfig, private http: HttpClient, private calendarViewService: CalendarviewService) {
     this.calendarOptions = {
+
+      eventMouseEnter: this.handleMouseEnter.bind(this), // Aggiungi l'evento
+      eventMouseLeave: this.handleMouseLeave.bind(this), // Nascondi il modal
       eventClick: (info) => {
         this.onClickEvent(info);
       },
-      // eventMouseEnter: (info) => { setInterval(() => { this.onMouseEnterEvent(info); }, 10000) },
-
       resourceAreaWidth: '25%',
       // initialDate: new Date(),
       // initialDate: '2022-01-01', //<= prova per vedere se cambia quanlcosa....
+
+
+      // eventContent: function (arg) {
+      //   const eventStart = new Date(arg.event.startStr);
+      //   const hour = eventStart.getHours();
+
+      //   if (hour < 12) {
+      //     return ['Mattina']
+      //   } else {
+      //     return ['Pomeriggio']
+      //   }
+      // },
+
+
       nowIndicator: true,
       dayMaxEventRows: true,
       displayEventTime: false,
@@ -78,14 +97,13 @@ export class AppComponent implements OnInit {
       handleWindowResize: true,
       contentHeight: '85vh',
       locale: itLocale, // seleziona la lingua Italiana
-      aspectRatio: 2, // larghezza / altezza
+      aspectRatio: 2.5, // larghezza / altezza
       initialView: 'resourceTimelineDay', // vista iniziale
       businessHours: {
         // days of week. an array of zero-based day of week integers (0=Sunday)
         daysOfWeek: [1, 2, 3, 4, 5], // Lunedì - Venerdì
         startTime: '00:00', // 
         endTime: '24:00' // 
-
       },
       resourceAreaColumns: [
         {
@@ -105,7 +123,6 @@ export class AppComponent implements OnInit {
 
         }
       ],
-
       headerToolbar: {
         left: 'prev,next today',
         center: 'title',
@@ -115,24 +132,21 @@ export class AppComponent implements OnInit {
       editable: true,
       selectable: true,
       views: {
-
         customWeek: {
           type: 'resourceTimeline',  // Può essere qualsiasi tipo di visualizzazione
-          //  duration: { days: 7 },
-          duration: { days: this.getFineAnnoAsDays(2) },  // Mostra i 31 giorni a partire dalla data corrente
+          duration: { days: 14 },
+          // duration: { days: this.getFineAnnoAsDays(2) },  // Mostra i 31 giorni a partire dalla data corrente
           buttonText: 'Settimana',
           // initialDate: new Date(),
         },
-
         customMonth: {
           type: 'resourceTimeline',
           //  duration: { days: 31 },
-          duration: { days: this.getFineAnnoAsDays(2) },
+          duration: { days: this.getFineAnnoAsDays(1) },
           buttonText: 'Mese',
           // initialDate: this.getInizioAnno(),
           slotLabelFormat: [
             { weekday: 'short', day: 'numeric' },]
-
         },
         customYear: {
           // initialDate: new Date(),
@@ -141,37 +155,52 @@ export class AppComponent implements OnInit {
           buttonText: 'Anno',
           initialDate: this.getInizioAnno(),       // Testo del pulsante per la vista annuale
         },
-
         resourceTimelineFiveDays: {
           type: 'resourceTimeline',
           duration: { days: 5 },
           // initialDate: new Date(),
-        },
-
+        }
       },
-
       slotLabelFormat: [
         { weekday: 'long', day: 'numeric' },
-
       ],
       slotMinTime: '00:00:00',
       slotMaxTime: '24:00:00',
-
     };
-
   }
 
-  // gestione dell'eventuale click su un evento
+  // Quando il mouse entra sull'evento
+  handleMouseEnter(mouseEnterInfo: any) {
+
+    setTimeout(() => {
+      if (!this.visibleClickModal) {
+        this.hoveredEvent = mouseEnterInfo.event;
+        this.visibleTooltip = true;
+      }
+    }, 1500);
+
+    setTimeout(() => {
+
+      this.visibleTooltip = false;
+      this.hoveredEvent = null;
+
+    }, 4000);
+    // Solo se il modal su click non è visibile
+    // Mostra il tooltip
+  };
+
+  // Quando il mouse esce dall'evento
+  handleMouseLeave() {
+    this.visibleTooltip = false; // Nascondi il tooltip
+    this.hoveredEvent = null;
+  }
+
+  // Quando clicchi su un evento
   onClickEvent(info: any) {
     this.bodyContent = info.event.title;
-    this.visible = true;
+    this.visibleClickModal = true; // Mostra il modal
+    this.visibleTooltip = false; // Nascondi il tooltip se era attivo
   }
-
-  // gestione dell'eventuale entrata su un evento
-  // onMouseEnterEvent(info: any) {
-  //   this.bodyContent = info.event.title;
-  //   this.visible = true;
-  // }
 
   // Funzione per emettere il cambiamento di vista
   changeView(view: string) {
@@ -210,6 +239,11 @@ export class AppComponent implements OnInit {
     const msDay = 1000 * 60 * 60 * 24; // Millisecondi in un giorno
     return Math.floor(diff / msDay);
   }
+
+
+
+
+
 }
 
 

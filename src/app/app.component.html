@@ -4,7 +4,10 @@
 <!-- Fullcalendar -->
 <div class="container">
     <div class="wrap-calendar">
-        <full-calendar #calendar [options]="calendarOptions"></full-calendar> 
+        <full-calendar #calendar [options]="calendarOptions" 
+        (eventMouseEnter)="handleMouseEnter($event)" 
+        (eventMouseLeave)="handleMouseLeave()"
+        >></full-calendar> 
     </div>
 </div>
 <!-- Rotte -->
@@ -12,7 +15,7 @@
 <!-- Modal onClick -->
 <p-dialog 
         header="Informazioni:" 
-        [(visible)]="visible" 
+        [(visible)]="visibleClickModal" 
         [modal]="true" 
         [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" 
         [style]="{ width: '50vw' }" 
@@ -22,6 +25,17 @@
                {{bodyContent}}
             </p>
 </p-dialog>
-
+ <!-- Modal per la visualizzazione degli eventi quando si passa il mouse sopra -->
+ <p-dialog header="Dettagli Evento" 
+    [(visible)]="visibleTooltip" 
+     modal="false" 
+    [closable]="false">
+    <div *ngIf="hoveredEvent">
+      <p><strong>Titolo:</strong> {{hoveredEvent.title}}</p>
+      <p><strong>Data di inizio:</strong> {{hoveredEvent.start | date:'fullDate'}}</p>
+      <p><strong>Data di fine:</strong> {{hoveredEvent.end | date:'fullDate'}}</p>
+    </div>
+  </p-dialog>
+<!-- Tooltip che mostra i dettagli dell'evento -->
 
 </div>

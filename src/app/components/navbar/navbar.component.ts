@@ -92,19 +92,19 @@ export class NavbarComponent implements OnInit {
           label: 'giorni:',
           items: [
             {
-              label: '1',
+              label: 'Oggi',
               command: () => {
                 this.changeCalendarView('resourceTimelineDay');
               }
             },
             {
-              label: '7',
+              label: 'Settimana',
               command: () => {
                 this.changeCalendarView('customWeek');
               }
             },
             {
-              label: '31',
+              label: 'Mese',
               command: () => {
                 this.changeCalendarView('customMonth');
               }
