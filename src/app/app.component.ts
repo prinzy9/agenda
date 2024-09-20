@@ -40,6 +40,11 @@ export class AppComponent implements OnInit {
       this.changeView(view);
     });
 
+    // Una volta che il calendario è inizializzato, scorri fino a oggi
+    setTimeout(() => {
+      this.scrollToToday();
+    }, 100);  // Un piccolo ritardo per assicurarsi che il calendario sia pronto
+
   }
   visible: boolean = false;
   bodyContent: string = '';
@@ -55,7 +60,9 @@ export class AppComponent implements OnInit {
 
       resourceAreaWidth: '25%',
 
-      initialDate: new Date(),
+      // initialDate: new Date(),
+      // initialDate: '2022-01-01', //<= prova per vedere se cambia quanlcosa....
+      nowIndicator: true,
       dayMaxEventRows: true,
       displayEventTime: false,
       eventOrderStrict: true,
@@ -75,8 +82,8 @@ export class AppComponent implements OnInit {
       businessHours: {
         // days of week. an array of zero-based day of week integers (0=Sunday)
         daysOfWeek: [1, 2, 3, 4, 5], // Lunedì - Venerdì
-        startTime: '00:00', // a start time (09:00 in this example)
-        endTime: '24:00' // an end time (18:00 in this example)
+        startTime: '00:00', // 
+        endTime: '24:00' // 
 
       },
       resourceAreaColumns: [
@@ -103,33 +110,41 @@ export class AppComponent implements OnInit {
         center: 'title',
         right: 'customYear'
       },
-      plugins: [resourceTimelinePlugin], // Registra i plugin qui
+      plugins: [resourceTimelinePlugin], // plugin registrati
       editable: true,
       selectable: true,
       views: {
 
         customWeek: {
           type: 'resourceTimeline',  // Può essere qualsiasi tipo di visualizzazione
-          duration: { days: 31 },  // Mostra i 31 giorni a partire dalla data corrente
-          buttonText: 'Settimana'
+          //  duration: { days: 7 },
+          duration: { days: this.getFineAnnoAsDays(2) },  // Mostra i 31 giorni a partire dalla data corrente
+          buttonText: 'Settimana',
+          // initialDate: new Date(),
         },
 
         customMonth: {
           type: 'resourceTimeline',
-          duration: { months: 1 },
-          buttonText: 'Mese'
+          //  duration: { days: 31 },
+          duration: { days: this.getFineAnnoAsDays(2) },
+          buttonText: 'Mese',
+          // initialDate: this.getInizioAnno(),
+          slotLabelFormat: [
+            { weekday: 'short', day: 'numeric' },]
+
         },
         customYear: {
-          initialDate: new Date(),
+          // initialDate: new Date(),
           type: 'resourceTimeline',  // Può essere resourceTimeline o il tipo di visualizzazione che preferisci
           duration: { years: 1 },    // Mostra un anno intero
-          buttonText: 'Anno'         // Testo del pulsante per la vista annuale
+          buttonText: 'Anno',
+          initialDate: this.getInizioAnno(),       // Testo del pulsante per la vista annuale
         },
 
         resourceTimelineFiveDays: {
           type: 'resourceTimeline',
           duration: { days: 5 },
-          initialDate: new Date(),
+          // initialDate: new Date(),
         },
 
       },
@@ -139,7 +154,7 @@ export class AppComponent implements OnInit {
 
       ],
       slotMinTime: '00:00:00',
-      slotMaxTime: '23:00:00',
+      slotMaxTime: '24:00:00',
 
     };
 
@@ -154,6 +169,38 @@ export class AppComponent implements OnInit {
   changeView(view: string) {
     let calendarApi = this.calendarComponent.getApi(); // Ottieni l'API del calendario
     calendarApi.changeView(view);
+  }
+
+  // Funzione per spostare la vista del calendario sulla data di oggi
+  scrollToToday() {
+    const calendarApi = this.calendarComponent.getApi(); // Ottieni l'API del calendario
+    const today = new Date();
+
+    // Imposta lo scroll sulla data di oggi
+    calendarApi.gotoDate(today);
+  }
+
+  getInizioAnno() {
+    // Ottieni la data di oggi
+    const oggi = new Date();
+
+    // Ottieni l'anno corrente
+    const annoCorrente = oggi.getFullYear();
+
+    // Crea una nuova data per il 1º gennaio dell'anno corrente
+    const primoGennaio = new Date(annoCorrente, 0, 1);
+    return primoGennaio;
+  }
+
+  getFineAnno(n: number) {
+    const fine = this.getInizioAnno();
+    fine.setFullYear(fine.getFullYear() + n);
+    return fine;
+  }
+  getFineAnnoAsDays(n: number) {
+    const diff = this.getFineAnno(n).getTime() - this.getInizioAnno().getTime();
+    const msDay = 1000 * 60 * 60 * 24; // Millisecondi in un giorno
+    return Math.floor(diff / msDay);
   }
 }
 
