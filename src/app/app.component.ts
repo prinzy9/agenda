@@ -12,6 +12,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClient } from '@angular/common/http';
 import { CalendarviewService } from './services/calendarview.service';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -57,9 +58,9 @@ export class AppComponent implements OnInit {
       eventClick: (info) => {
         this.onClickEvent(info);
       },
+      // eventMouseEnter: (info) => { setInterval(() => { this.onMouseEnterEvent(info); }, 10000) },
 
       resourceAreaWidth: '25%',
-
       // initialDate: new Date(),
       // initialDate: '2022-01-01', //<= prova per vedere se cambia quanlcosa....
       nowIndicator: true,
@@ -166,6 +167,13 @@ export class AppComponent implements OnInit {
     this.visible = true;
   }
 
+  // gestione dell'eventuale entrata su un evento
+  // onMouseEnterEvent(info: any) {
+  //   this.bodyContent = info.event.title;
+  //   this.visible = true;
+  // }
+
+  // Funzione per emettere il cambiamento di vista
   changeView(view: string) {
     let calendarApi = this.calendarComponent.getApi(); // Ottieni l'API del calendario
     calendarApi.changeView(view);
