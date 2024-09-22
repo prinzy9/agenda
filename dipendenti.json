@@ -75,117 +75,205 @@
         {
           "id": "1",
           "resourceId": "a",
+          "res_id": "a",
           "title": "09.00 -13.00 Installazione software",
           "start": "2024-09-18T09:00:00",
-          "end": "2024-09-18T13:00:00"
+          "end": "2024-09-18T13:00:00",
+          "data": "2024-09-18",
+          "fascia": "am"
         },
-        {
-          "id": "1",
-          "resourceId": "a",
-          "title": "09.00 -13.00 Installazione software",
-          "start": "2024-09-18T09:00:00",
-          "end": "2024-09-30T13:00:00"
-        },
-        {
-          "id": "1",
-          "resourceId": "a",
-          "title": "15.00 -18.00 Installazione software",
-          "start": "2024-09-18T15:00:00",
-          "end": "2024-09-18T18:00:00"
-        },
-        {
-          "id": "1",
-          "resourceId": "a",
-          "title": "15.00 -18.00 Installazione software",
-          "start": "2024-09-18T17:00:00",
-          "end": "2024-09-18T20:00:00"
-        },
-        
         {
           "id": "2",
-          "resourceId": "b",
-          "title": "09.00 -18.00 Installazione software",
-          "start": "2024-09-17T00:00:00",
-          "end": "2024-09-17T24:00:00"
+          "resourceId": "a",
+          "res_id": "a",
+          "title": "09.00 -13.00 Installazione software",
+          "start": "2024-09-18T09:00:00",
+          "end": "2024-09-18T13:00:00",
+          "data": "2024-09-18",
+          "fascia": "am"
         },
         {
           "id": "3",
-          "resourceId": "c",    
-          "title": "09.00 -18.00 Installazione software",
-          "start": "2024-09-17T00:00:00",
-          "end": "2024-09-17T24:00:00"
+          "resourceId": "a",
+          "res_id": "a",
+          "title": "15.00 -18.00 Installazione software",
+          "start": "2024-09-18T15:00:00",
+          "end": "2024-09-18T18:00:00",
+          "data": "2024-09-18",
+          "fascia": "pm"
         },
         {
           "id": "4",
-          "resourceId": "d",
-          "title": "09.00 -18.00 Installazione software",
-          "start": "2024-09-17T00:00:00",
-          "end": "2024-09-17T24:00:00"
-        },
-        {
-          "id": "5",
-          "resourceId": "e",    
-          "title": "09.00 -18.00 Installazione software",
-          "start": "2024-09-17T00:00:00",
-          "end": "2024-09-17T24:00:00"
-        },
-        {
-          "id": "6",
-          "resourceId": "f",
-          "title": "09.00 -18.00 Installazione software",   
-          "start": "2024-09-20T00:00:00",
-          "end": "2024-09-20T12:00:00"
-        },
-        {
-          "id": "6",
-          "resourceId": "f",
-          "title": "09.00 -18.00 Installazione software",   
-          "start": "2024-09-20T12:01:00",
-          "end": "2024-09-20T24:00:00"
+          "resourceId": "a",
+          "res_id": "a",
+          "title": "15.00 -18.00 Installazione software",
+          "start": "2024-09-18T17:00:00",
+          "end": "2024-09-18T20:00:00",
+          "data": "2024-09-18",
+          "fascia": "pm"
         },
         
         {
-          "id": "7",
-          "resourceId": "g",
+          "id": "5",
+          "resourceId": "b",
+          "res_id": "b",
           "title": "09.00 -18.00 Installazione software",
-          "start": "2024-09-17T12:01:00",  
-          "end": "2024-09-17T24:00:00"
+          "start": "2024-09-17T00:00:00",
+          "end": "2024-09-17T24:00:00",
+          "data": "2024-09-17",
+          "fascia": "full"
+        },
+        {
+          "id": "6",
+          "resourceId": "c",   
+          "res_id": "c", 
+          "title": "09.00 -18.00 Installazione software",
+          "start": "2024-09-17T00:00:00",
+          "end": "2024-09-17T24:00:00",
+          "data": "2024-09-17",
+          "fascia": "full"
+        },
+        {
+          "id": "7",
+          "resourceId": "d",
+          "res_id": "d",
+          "title": "09.00 -18.00 Installazione software",
+          "start": "2024-09-17T00:00:00",
+          "end": "2024-09-17T24:00:00",
+          "data": "2024-09-17",
+          "fascia": "full"
         },
         {
           "id": "8",
-          "resourceId": "h",
+          "resourceId": "e", 
+          "res_id": "e",   
           "title": "09.00 -18.00 Installazione software",
           "start": "2024-09-17T00:00:00",
-          "end": "2024-09-17T24:00:00"
+          "end": "2024-09-17T24:00:00",
+          "data": "2024-09-17",
+          "fascia": "full"
         },
         {
           "id": "9",
-          "resourceId": "i",
-          "title": "09.00 -14.00 Insegnare Angular",
-          "start": "2024-09-17T00:00:00",   
-          "end": "2024-09-17T24:00:00"
+          "resourceId": "f",
+          "res_id": "f",
+          "title": "09.00 -18.00 Installazione software",   
+          "start": "2024-09-20T00:00:00",
+          "end": "2024-09-20T12:00:00",
+          "data": "2024-09-20",
+          "fascia": "full"
+        },
+        {
+          "id": "16",
+          "resourceId": "f",
+          "res_id": "f",
+          "title": "09.00 -18.00 Installazione software",   
+          "start": "2024-09-20T12:01:00",
+          "end": "2024-09-20T24:00:00",
+          "data": "2024-09-20",
+          "fascia": "full"
+        },
+        {
+          "id": "116",
+          "resourceId": "f",
+          "res_id": "f",
+          "title": "09.00 -13.00 Installazione software",   
+          "start": "2024-09-23T00:00:00",
+          "end": "2024-09-23T13:00:00",
+          "data": "2024-09-23",
+          "fascia": "am"
+        },
+        {
+          "id": "126",
+          "resourceId": "f",
+          "res_id": "f",
+          "title": "09.00 -18.00 Installazione software",   
+          "start": "2024-09-24T00:00:00",
+          "end": "2024-09-24T12:00:00",
+          "data": "2024-09-24",
+          "fascia": "full"
+        },
+        {
+          "id": "26",
+          "resourceId": "f",
+          "res_id": "f",
+          "title": "09.00 -18.00 Installazione software",   
+          "start": "2024-09-23T12:01:00",
+          "end": "2024-09-23T24:00:00",
+          "data": "2024-09-23",
+          "fascia": "full"
+        },
+        {
+          "id": "36",
+          "resourceId": "f",
+          "res_id": "f",
+          "title": "09.00 -18.00 Installazione software",   
+          "start": "2024-09-24T12:01:00",
+          "end": "2024-09-24T24:00:00",
+          "data": "2024-09-24",
+          "fascia": "full"
         },
         
         {
-          "id": "9",
+          "id": "47",
+          "resourceId": "g",
+          "res_id": "g",
+          "title": "09.00 -18.00 Installazione software",
+          "start": "2024-09-17T12:01:00",  
+          "end": "2024-09-17T24:00:00",
+          "data": "2024-09-17",
+          "fascia": "full"
+        },
+        {
+          "id": "85",
+          "resourceId": "h",
+          "res_id": "h",
+          "title": "09.00 -18.00 Installazione software",
+          "start": "2024-09-17T00:00:00",
+          "end": "2024-09-17T24:00:00",
+          "data": "2024-09-17",
+          "fascia": "full"
+        },
+        {
+          "id": "92",
           "resourceId": "i",
+          "res_id": "i",
+          "title": "09.00 -14.00 Insegnare Angular",
+          "start": "2024-09-17T00:00:00",   
+          "end": "2024-09-17T24:00:00",
+          "data": "2024-09-17",
+          "fascia": "full"
+        },
+        
+        {
+          "id": "93",
+          "resourceId": "i",
+          "res_id": "i",
           "title": "18.00 -22.00 Prendere multe come polizia municipale a Luca Princivalli presso Mondello",
           "start": "2024-09-17T00:00:00",   
-          "end": "2024-09-17T24:00:00"
+          "end": "2024-09-17T24:00:00",
+          "data": "2024-09-17",
+          "fascia": "full"
         },
         {
-          "id": "10",
+          "id": "104",
           "resourceId": "j",
+          "res_id": "j",
           "title": "09.00 -18.00 Installazione software",
           "start": "2024-09-17T00:00:00",
-          "end": "2024-09-17T24:00:00"
+          "end": "2024-09-17T24:00:00",
+          "data": "2024-09-17",
+          "fascia": "full"
         },
         {
-          "id": "11",
+          "id": "141",
           "resourceId": "k",
+          "res_id": "k",
           "title": "09.00 -18.00 Installazione software",
           "start": "2024-09-17T00:00:00",
-          "end": "2024-09-17T24:00:00"
+          "end": "2024-09-17T24:00:00",
+          "data": "2024-09-17",
+          "fascia": "full"
         }
     ]
 }

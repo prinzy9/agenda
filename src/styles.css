@@ -11,7 +11,9 @@ a.fc-timeline-slot-cushion.fc-scrollgrid-sync-inner {
 
 /* Crea un padding tra la Navbar ed il Calendar */
 .wrap-calendar {
+    
     padding-top: 1.5rem;
+  
 }
 
 /* Capitalizza i nomi dei Giorni, Mesi della Header del calendar */

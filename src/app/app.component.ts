@@ -12,9 +12,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClient } from '@angular/common/http';
 import { CalendarviewService } from './services/calendarview.service';
 
-
-
-
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -34,16 +31,35 @@ export class AppComponent implements OnInit {
   visibleTooltip: boolean = false; // Controlla la visibilità del tooltip
   visibleClickModal: boolean = false; // Controlla la visibilità del modal su click
 
+  resourses: any = [];
+  events: any = [];
 
   ngOnInit() {
 
     this.primengConfig.ripple = true;
     this.http.get('http://localhost:3000/resources').subscribe((resources) => {
+      this.resourses = resources;
       this.calendarOptions.resources = resources;
     });
 
-    this.http.get('http://localhost:3000/events').subscribe((events) => {
+    this.http.get('http://localhost:3000/events').subscribe((events: any) => {
+      this.events = events;
       this.calendarOptions.events = events;
+      // this.calendarOptions.events = events.map((event: any) => {
+      //   if (event.fascia == "am")
+      //     event.title = 'mattina';
+      //   else
+      //     event.title = 'pomeriggio';
+      //   return {
+      //     id: event.id,
+      //     resourceId: event.res_id,
+      //     title: event.title,
+      //     start: event.start,
+      //     end: event.end,
+      //     data: event.data,
+      //     fascia: event.fascia
+      //   };
+      // });
     });
 
     this.calendarViewService.viewChange$.subscribe((view: any) => {
@@ -54,9 +70,6 @@ export class AppComponent implements OnInit {
       this.scrollToToday();
     }, 100);  // Un piccolo ritardo per assicurarsi che il calendario sia pronto
   }
-
-
-
   constructor(private primengConfig: PrimeNGConfig, private http: HttpClient, private calendarViewService: CalendarviewService) {
     this.calendarOptions = {
 
@@ -172,21 +185,21 @@ export class AppComponent implements OnInit {
   // Quando il mouse entra sull'evento
   handleMouseEnter(mouseEnterInfo: any) {
 
-    setTimeout(() => {
-      if (!this.visibleClickModal) {
-        this.hoveredEvent = mouseEnterInfo.event;
-        this.visibleTooltip = true;
-      }
-    }, 1500);
+    // setTimeout(() => {
+    //   if (!this.visibleClickModal) {
+    //     this.hoveredEvent = mouseEnterInfo.event;
+    //     this.visibleTooltip = true;
+    //   }
+    // }, 1000);
 
-    setTimeout(() => {
+    // setTimeout(() => {
 
-      this.visibleTooltip = false;
-      this.hoveredEvent = null;
+    //   this.visibleTooltip = false;
+    //   this.hoveredEvent = null;
 
-    }, 4000);
-    // Solo se il modal su click non è visibile
-    // Mostra il tooltip
+    // }, 3000);
+    // // Solo se il modal su click non è visibile
+    // // Mostra il tooltip
   };
 
   // Quando il mouse esce dall'evento
@@ -197,7 +210,19 @@ export class AppComponent implements OnInit {
 
   // Quando clicchi su un evento
   onClickEvent(info: any) {
-    this.bodyContent = info.event.title;
+    // this.bodyContent = info.event.title;
+    const resourceId = info.event._def.extendedProps.res_id;
+    const data = info.event._def.extendedProps.data;
+    const fascia = info.event._def.extendedProps.fascia;
+
+    const eventsFromIdRes = this.events.filter((event: any) =>
+      ((event.res_id == resourceId) && (event.data == data) && (event.fascia == fascia))
+    );
+
+    console.log(eventsFromIdRes, this.events, info);
+    this.bodyContent = JSON.stringify(eventsFromIdRes);
+    this.bodyContent += " start at: " + info.event.startStr;
+    this.bodyContent += " end at: " + info.event.endStr;
     this.visibleClickModal = true; // Mostra il modal
     this.visibleTooltip = false; // Nascondi il tooltip se era attivo
   }
