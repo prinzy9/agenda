@@ -12,18 +12,21 @@
             "id": "b", 
             "fname": "Luca Bianchi", 
             "iname": "120", 
+            "sede": "SW",
             "imobile": "+3934567890"
         },  
         {
             "id": "c", 
             "fname": "Giuseppe Verdi", 
             "iname": "250", 
+            "sede": "",
             "imobile": "+3934567890"
         },
         {
             "id": "d", 
             "fname": "Alessandro Gialli", 
             "iname": "396", 
+            "sede": "sede",
             "imobile": "+3934567890"
         },
         {
@@ -77,8 +80,8 @@
           "resourceId": "a",
           "res_id": "a",
           "title": "09.00 -13.00 Installazione software",
-          "start": "2024-09-18T09:00:00",
-          "end": "2024-09-18T13:00:00",
+          "start": "2024-09-18T00:00:00",
+          "end": "2024-09-18T12:00:00",
           "data": "2024-09-18",
           "fascia": "am"
         },
@@ -87,8 +90,8 @@
           "resourceId": "a",
           "res_id": "a",
           "title": "09.00 -13.00 Installazione software",
-          "start": "2024-09-18T09:00:00",
-          "end": "2024-09-18T13:00:00",
+          "start": "2024-09-18T12:01:00",
+          "end": "2024-09-18T00:00:00",
           "data": "2024-09-18",
           "fascia": "am"
         },
@@ -179,7 +182,7 @@
           "res_id": "f",
           "title": "09.00 -13.00 Installazione software",   
           "start": "2024-09-23T00:00:00",
-          "end": "2024-09-23T13:00:00",
+          "end": "2024-09-23T12:00:00",
           "data": "2024-09-23",
           "fascia": "am"
         },

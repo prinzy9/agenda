@@ -10,11 +10,21 @@
 
     <ng-template pTemplate="end" >
         <div class="flex align-items-center gap-2">
+            
+            <p-calendar 
+            [(ngModel)]="date1" 
+            [showIcon]="true" 
+            [showOnFocus]="false" 
+            inputId="buttondisplay" 
+            dateFormat="dd.mm.yy"
+            (onSelect)="onDateSelect()"
+            />
+
             <p-menu #menu2 [model]="utenti" [popup]="true" />
             <p-button (onClick)="menu2.toggle($event)" [rounded]="true" [text]="true" size="large" icon="pi pi-users"/>
 
-        <p-menu #menu [model]="giorni" [popup]="true" />
-            <p-button (onClick)="menu.toggle($event)" [rounded]="true" [text]="true" size="large" icon="pi pi-calendar-clock"/>
+            <p-menu #menu [model]="giorni" [popup]="true" />
+            <p-button (onClick)="menu.toggle($event)" [rounded]="true" [text]="true" size="large" icon="pi pi-bars"/>
     
        <app-toggle-theme />
         </div>

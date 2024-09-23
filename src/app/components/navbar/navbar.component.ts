@@ -3,16 +3,17 @@ import { MenubarModule } from 'primeng/menubar';
 import { MenuItem } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { ToggleThemeComponent } from '../toggle-theme/toggle-theme.component';
-import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MenuModule } from 'primeng/menu';
 import { ButtonModule } from 'primeng/button';
 import { CalendarviewService } from '../../services/calendarview.service';
+import { CalendarModule } from 'primeng/calendar';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [MenubarModule, ToggleThemeComponent, CommonModule, MenuModule, ToastModule, ButtonModule],
+  imports: [MenubarModule, ToggleThemeComponent, CommonModule, MenuModule, ToastModule, ButtonModule, CalendarModule, FormsModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
@@ -20,6 +21,7 @@ export class NavbarComponent implements OnInit {
   items: MenuItem[] = [];
   giorni: MenuItem[] = [];
   utenti: MenuItem[] = [];
+  date1: Date | undefined;
 
   constructor(private calendarViewService: CalendarviewService) { }
 
@@ -114,9 +116,6 @@ export class NavbarComponent implements OnInit {
         }
       ],
 
-
-
-
       this.items = [
         {
           label: 'Elmi Calendar',
@@ -124,5 +123,15 @@ export class NavbarComponent implements OnInit {
           route: '/Home',
         }
       ]
+  }
+  onDateSelect() {
+    if (this.date1) {
+      // Imposta l'ora della data a mezzogiorno (12:00) per evitare lo slittamento dovuto al fuso orario
+      const selectedDate = new Date(this.date1);
+      selectedDate.setHours(12, 0, 0, 0); // Imposta l'ora a 12:00:00
+
+      // Invia la data con l'ora modificata
+      this.calendarViewService.changeDate(selectedDate);
+    }
   }
 }

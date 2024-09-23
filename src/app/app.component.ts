@@ -30,11 +30,13 @@ export class AppComponent implements OnInit {
   hoveredEvent: any = null; // L'evento attualmente hoverato
   visibleTooltip: boolean = false; // Controlla la visibilità del tooltip
   visibleClickModal: boolean = false; // Controlla la visibilità del modal su click
-
   resourses: any = [];
   events: any = [];
 
   ngOnInit() {
+    this.calendarViewService.dateChange$.subscribe((date: Date) => {
+      this.scrollToDate(date);
+    });
 
     this.primengConfig.ripple = true;
     this.http.get('http://localhost:3000/resources').subscribe((resources) => {
@@ -94,12 +96,13 @@ export class AppComponent implements OnInit {
       //   }
       // },
 
-
-      nowIndicator: true,
+      contentHeight: '85vh',
+      expandRows: true,
+      nowIndicator: false,
       dayMaxEventRows: true,
       displayEventTime: false,
       eventOrderStrict: true,
-      dayMaxEvents: 2,
+      dayMaxEvents: 1,
       eventMaxStack: 1,
       eventDisplay: 'listItem',
       slotDuration: '24:00:00',
@@ -108,7 +111,6 @@ export class AppComponent implements OnInit {
       schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives', // licenza non commerciale per FullCalendar Scheduler
       timeZone: 'Europe/Rome',
       handleWindowResize: true,
-      contentHeight: '85vh',
       locale: itLocale, // seleziona la lingua Italiana
       aspectRatio: 2.5, // larghezza / altezza
       initialView: 'resourceTimelineDay', // vista iniziale
@@ -125,11 +127,19 @@ export class AppComponent implements OnInit {
 
         },
         {
+          field: 'sede',
+          headerContent: 'Sede',
+          cellClassNames: 'interno',
+          headerClassNames: 'interno',
+
+        },
+        {
           field: 'iname',
           headerClassNames: 'interno',
           cellClassNames: 'interno',
           headerContent: 'Int.'
         },
+
         {
           field: 'imobile',
           headerContent: 'Mobile',
@@ -147,7 +157,7 @@ export class AppComponent implements OnInit {
       views: {
         customWeek: {
           type: 'resourceTimeline',  // Può essere qualsiasi tipo di visualizzazione
-          duration: { days: 14 },
+          duration: { days: 7 },      // Mostra 7 giorni
           // duration: { days: this.getFineAnnoAsDays(2) },  // Mostra i 31 giorni a partire dalla data corrente
           buttonText: 'Settimana',
           // initialDate: new Date(),
@@ -155,11 +165,12 @@ export class AppComponent implements OnInit {
         customMonth: {
           type: 'resourceTimeline',
           //  duration: { days: 31 },
-          duration: { days: this.getFineAnnoAsDays(1) },
+          duration: { days: 31 },
           buttonText: 'Mese',
           // initialDate: this.getInizioAnno(),
           slotLabelFormat: [
-            { weekday: 'short', day: 'numeric' },]
+            { weekday: 'short', day: 'numeric' },],
+          initialView: "resourceTimelineMont",
         },
         customYear: {
           // initialDate: new Date(),
@@ -198,14 +209,24 @@ export class AppComponent implements OnInit {
     //   this.hoveredEvent = null;
 
     // }, 3000);
+    // console.log(" sasdads", mouseEnterInfo)
+    setTimeout(() => {
+      if (!this.visibleClickModal) {
+        this.hoveredEvent = mouseEnterInfo.event;
+        this.visibleTooltip = true;
+      }
+    }, 200);
+
     // // Solo se il modal su click non è visibile
     // // Mostra il tooltip
   };
 
   // Quando il mouse esce dall'evento
   handleMouseLeave() {
-    this.visibleTooltip = false; // Nascondi il tooltip
-    this.hoveredEvent = null;
+    setTimeout(() => {
+      this.visibleTooltip = false; // Nascondi il tooltip
+      // this.hoveredEvent = null;
+    }, 200);
   }
 
   // Quando clicchi su un evento
@@ -253,7 +274,6 @@ export class AppComponent implements OnInit {
     const primoGennaio = new Date(annoCorrente, 0, 1);
     return primoGennaio;
   }
-
   getFineAnno(n: number) {
     const fine = this.getInizioAnno();
     fine.setFullYear(fine.getFullYear() + n);
@@ -264,11 +284,10 @@ export class AppComponent implements OnInit {
     const msDay = 1000 * 60 * 60 * 24; // Millisecondi in un giorno
     return Math.floor(diff / msDay);
   }
-
-
-
-
-
+  scrollToDate(date: Date) {
+    const calendarApi = this.calendarComponent.getApi();
+    calendarApi.gotoDate(date);
+  }
 }
 
 
