@@ -6,3 +6,15 @@
     content: "🌙";
     transform: translateX(1.3rem);    
 }
+
+.tooltip {
+    position: absolute;
+    z-index: 9999;
+    background-color: rgb(55, 65, 81);
+    color: white;
+    border: solid #111827 1px;
+    width: 27vh;
+    border-radius: 1.3vh;
+    margin-top: 1.3vh;
+    padding: 2vh;
+}

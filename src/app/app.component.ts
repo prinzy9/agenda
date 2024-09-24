@@ -11,6 +11,7 @@ import { PrimeNGConfig } from 'primeng/api';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClient } from '@angular/common/http';
 import { CalendarviewService } from './services/calendarview.service';
+import Tooltip from 'tooltip.js'
 
 @Component({
   selector: 'app-root',
@@ -47,6 +48,7 @@ export class AppComponent implements OnInit {
     this.http.get('http://localhost:3000/events').subscribe((events: any) => {
       this.events = events;
       this.calendarOptions.events = events;
+
       // this.calendarOptions.events = events.map((event: any) => {
       //   if (event.fascia == "am")
       //     event.title = 'mattina';
@@ -75,8 +77,19 @@ export class AppComponent implements OnInit {
   constructor(private primengConfig: PrimeNGConfig, private http: HttpClient, private calendarViewService: CalendarviewService) {
     this.calendarOptions = {
 
-      eventMouseEnter: this.handleMouseEnter.bind(this), // Aggiungi l'evento
-      eventMouseLeave: this.handleMouseLeave.bind(this), // Nascondi il modal
+      eventMouseEnter: (info) => {
+        const tooltip = new Tooltip(info.el, {
+          title: info.event.title,
+          placement: 'bottom',
+          trigger: 'hover',
+          container: 'div'
+        })
+      },
+      eventMouseLeave: (info) => {
+        const tooltips = document.querySelectorAll('.tooltip');
+        tooltips.forEach(tooltips => tooltips.remove());
+      },
+
       eventClick: (info) => {
         this.onClickEvent(info);
       },
@@ -193,42 +206,6 @@ export class AppComponent implements OnInit {
     };
   }
 
-  // Quando il mouse entra sull'evento
-  handleMouseEnter(mouseEnterInfo: any) {
-
-    // setTimeout(() => {
-    //   if (!this.visibleClickModal) {
-    //     this.hoveredEvent = mouseEnterInfo.event;
-    //     this.visibleTooltip = true;
-    //   }
-    // }, 1000);
-
-    // setTimeout(() => {
-
-    //   this.visibleTooltip = false;
-    //   this.hoveredEvent = null;
-
-    // }, 3000);
-    // console.log(" sasdads", mouseEnterInfo)
-    setTimeout(() => {
-      if (!this.visibleClickModal) {
-        this.hoveredEvent = mouseEnterInfo.event;
-        this.visibleTooltip = true;
-      }
-    }, 200);
-
-    // // Solo se il modal su click non è visibile
-    // // Mostra il tooltip
-  };
-
-  // Quando il mouse esce dall'evento
-  handleMouseLeave() {
-    setTimeout(() => {
-      this.visibleTooltip = false; // Nascondi il tooltip
-      // this.hoveredEvent = null;
-    }, 200);
-  }
-
   // Quando clicchi su un evento
   onClickEvent(info: any) {
     // this.bodyContent = info.event.title;
@@ -274,6 +251,7 @@ export class AppComponent implements OnInit {
     const primoGennaio = new Date(annoCorrente, 0, 1);
     return primoGennaio;
   }
+
   getFineAnno(n: number) {
     const fine = this.getInizioAnno();
     fine.setFullYear(fine.getFullYear() + n);

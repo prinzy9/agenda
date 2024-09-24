@@ -37,3 +37,15 @@ button.fc-dayGridWeek-button.fc-button.fc-button-primary {
 .fc-customYear-button.fc-button.fc-button-primary {
     background-color: rgb(59, 130, 246);
 }
+
+.tooltip{
+    position: absolute;
+    z-index: 1070;
+    background-color: white;
+    border: solid rgb(59, 130, 246) 1px;
+    width: 27vh;
+    border-radius: 1.3vh;
+    margin-top: 1.3vh;
+    padding: 2vh;
+    box-shadow: grey 1px 3px 10px;
+}

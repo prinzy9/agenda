@@ -28,7 +28,6 @@ export class NavbarComponent implements OnInit {
   changeCalendarView(view: string) {
     this.calendarViewService.changeView(view);  // Emetti il cambiamento di vista
   }
-
   ngOnInit() {
 
     this.utenti = [

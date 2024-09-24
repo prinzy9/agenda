@@ -5,9 +5,9 @@
 <div class="container">
     <div class="wrap-calendar">
         <full-calendar #calendar [options]="calendarOptions" 
-        (eventMouseEnter)="handleMouseEnter($event)" 
-        (eventMouseLeave)="handleMouseLeave()"
         >></full-calendar> 
+        <!-- (eventMouseEnter)="handleMouseEnter($event)" 
+        (eventMouseLeave)="handleMouseLeave()" -->
     </div>
 </div>
 <!-- Rotte -->
@@ -26,7 +26,7 @@
             </p>
 </p-dialog>
  <!-- Modal per la visualizzazione degli eventi quando si passa il mouse sopra -->
- <p-dialog header="Dettagli Evento" 
+ <!-- <p-dialog header="Dettagli Evento" 
     [(visible)]="visibleTooltip" 
      modal="false" 
     [closable]="false">
@@ -35,7 +35,7 @@
       <p><strong>Data di inizio:</strong> {{hoveredEvent.start | date:'fullDate'}}</p>
       <p><strong>Data di fine:</strong> {{hoveredEvent.end | date:'fullDate'}}</p>
     </div>
-  </p-dialog>
+  </p-dialog> -->
 <!-- Tooltip che mostra i dettagli dell'evento -->
 
 </div>
