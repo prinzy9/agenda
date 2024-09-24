@@ -39,3 +39,7 @@ a.fc-timeline-slot-cushion.fc-scrollgrid-sync-inner {
    text-align: center;
    justify-content: center !important;
 }
+
+td.fc-datagrid-cell.fc-resource{
+    vertical-align: middle !important;
+}
