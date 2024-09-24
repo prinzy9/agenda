@@ -167,10 +167,9 @@ export class AppComponent implements OnInit {
           cellClassNames: 'interno',
           headerClassNames: 'interno',
           cellContent: (s) => {
-            console.log("sdfsf", this.i, s)
+            // console.log("sdfsf", this.i, s)
             const result = { html: '' };
             if (this.resources[this.i].sede == "sede") {
-              // console.log('blas')
               // this.i++;
               result.html = '<i class="pi pi-user"></i>';
               // return { html: '<i class="pi pi-user"></i>' }
