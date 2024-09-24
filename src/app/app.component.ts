@@ -102,7 +102,7 @@ export class AppComponent implements OnInit {
       eventClick: (info) => {
         this.onClickEvent(info);
       },
-      resourceAreaWidth: '30%',
+      resourceAreaWidth: '28%',
       // initialDate: new Date(),
       // initialDate: '2022-01-01', //<= prova per vedere se cambia quanlcosa....
 
@@ -166,13 +166,13 @@ export class AppComponent implements OnInit {
           headerContent: 'Sede',
           cellClassNames: 'interno',
           headerClassNames: 'interno',
-          cellContent: () => {
-            console.log("sdfsf", this.i)
+          cellContent: (s) => {
+            console.log("sdfsf", this.i, s)
             const result = { html: '' };
             if (this.resources[this.i].sede == "sede") {
               // console.log('blas')
               // this.i++;
-              result.html = '<i class="pi pi-home"></i>';
+              result.html = '<i class="pi pi-user"></i>';
               // return { html: '<i class="pi pi-user"></i>' }
             } else if (this.resources[this.i].sede == "SW") {
               // this.i++;
