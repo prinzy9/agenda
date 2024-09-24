@@ -11,7 +11,9 @@ import { PrimeNGConfig } from 'primeng/api';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClient } from '@angular/common/http';
 import { CalendarviewService } from './services/calendarview.service';
+import "primeicons/primeicons.css";
 import Tooltip from 'tooltip.js'
+import { h } from '@fullcalendar/core/preact'
 
 @Component({
   selector: 'app-root',
@@ -31,8 +33,10 @@ export class AppComponent implements OnInit {
   hoveredEvent: any = null; // L'evento attualmente hoverato
   visibleTooltip: boolean = false; // Controlla la visibilità del tooltip
   visibleClickModal: boolean = false; // Controlla la visibilità del modal su click
-  resourses: any = [];
+  resources: any = [];
   events: any = [];
+  tooltiptimeout: any;
+  i: number = 0;
 
   ngOnInit() {
     this.calendarViewService.dateChange$.subscribe((date: Date) => {
@@ -41,8 +45,9 @@ export class AppComponent implements OnInit {
 
     this.primengConfig.ripple = true;
     this.http.get('http://localhost:3000/resources').subscribe((resources) => {
-      this.resourses = resources;
+      this.resources = resources;
       this.calendarOptions.resources = resources;
+      console.log(this.resources)
     });
 
     this.http.get('http://localhost:3000/events').subscribe((events: any) => {
@@ -78,14 +83,18 @@ export class AppComponent implements OnInit {
     this.calendarOptions = {
 
       eventMouseEnter: (info) => {
-        const tooltip = new Tooltip(info.el, {
-          title: info.event.title,
-          placement: 'bottom',
-          trigger: 'hover',
-          container: 'div'
-        })
+        this.tooltiptimeout = setTimeout(() => {
+          const tooltip = new Tooltip(info.el, {
+            title: info.event.title,
+            placement: 'bottom',
+            trigger: 'hover',
+            container: 'div'
+          });
+          tooltip.show();
+        }, 1500);
       },
       eventMouseLeave: (info) => {
+        clearTimeout(this.tooltiptimeout);
         const tooltips = document.querySelectorAll('.tooltip');
         tooltips.forEach(tooltips => tooltips.remove());
       },
@@ -93,7 +102,7 @@ export class AppComponent implements OnInit {
       eventClick: (info) => {
         this.onClickEvent(info);
       },
-      resourceAreaWidth: '25%',
+      resourceAreaWidth: '30%',
       // initialDate: new Date(),
       // initialDate: '2022-01-01', //<= prova per vedere se cambia quanlcosa....
 
@@ -121,6 +130,20 @@ export class AppComponent implements OnInit {
       slotDuration: '24:00:00',
       scrollTime: '00:00:00',
 
+      // resourceLaneContent: function (arg) {
+      //   let italicEl = document.createElement('i')
+
+      //   if (arg.resource) {
+      //     italicEl.innerHTML = 'urgent event'
+      //   } else {
+      //     italicEl.innerHTML = 'normal event'
+      //   }
+
+      //   let arrayOfDomNodes = [italicEl]
+      //   return { domNodes: arrayOfDomNodes }
+      // },
+
+
       schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives', // licenza non commerciale per FullCalendar Scheduler
       timeZone: 'Europe/Rome',
       handleWindowResize: true,
@@ -137,13 +160,39 @@ export class AppComponent implements OnInit {
         {
           field: 'fname',
           headerContent: 'Dipendenti',
-
         },
         {
           field: 'sede',
           headerContent: 'Sede',
           cellClassNames: 'interno',
           headerClassNames: 'interno',
+          cellContent: () => {
+            console.log("sdfsf", this.i)
+            const result = { html: '' };
+            if (this.resources[this.i].sede == "sede") {
+              // console.log('blas')
+              // this.i++;
+              result.html = '<i class="pi pi-home"></i>';
+              // return { html: '<i class="pi pi-user"></i>' }
+            } else if (this.resources[this.i].sede == "SW") {
+              // this.i++;
+              result.html = '<i class="pi pi-desktop"></i>';
+              // return { html: '<i class="pi pi-desktop"></i>' }
+            } else {
+              // this.i++;
+              result.html = '<i class="pi pi-ban"></i>';
+              // return { html: '<i class="pi pi-ban"></i>' }
+            }
+
+            this.i++;
+            // resetta il counter se raggiunge la lunghezza di resources
+            if (this.i >= this.resources.length) {
+              this.i = 0;
+            }
+
+            return result;
+
+          }
 
         },
         {
@@ -152,11 +201,11 @@ export class AppComponent implements OnInit {
           cellClassNames: 'interno',
           headerContent: 'Int.'
         },
-
         {
           field: 'imobile',
           headerContent: 'Mobile',
-
+          cellClassNames: 'mobile',
+          headerClassNames: 'mobile',
         }
       ],
       headerToolbar: {

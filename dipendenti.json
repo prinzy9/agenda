@@ -13,6 +13,7 @@
             "fname": "Luca Bianchi", 
             "iname": "120", 
             "sede": "SW",
+            "area": "Amministrazione",
             "imobile": "+3934567890"
         },  
         {
@@ -20,6 +21,7 @@
             "fname": "Giuseppe Verdi", 
             "iname": "250", 
             "sede": "",
+            "area": "Progetti Speciali",
             "imobile": "+3934567890"
         },
         {
@@ -27,48 +29,63 @@
             "fname": "Alessandro Gialli", 
             "iname": "396", 
             "sede": "sede",
+            "area": "SAP",
             "imobile": "+3934567890"
         },
         {
             "id": "e", 
             "fname": "Marco Rosso", 
             "iname": "990", 
+            "sede": "sede",
+            "area": "SAP",
             "imobile": "+3934567890"
         },
         {
             "id": "f", 
             "fname": "Francesco Bianchi", 
             "iname": "100", 
+            "sede": "sede",
+            "area": "SAP",
             "imobile": "+3934567890"
         },
         {
             "id": "g", 
             "fname": "Alessandro Verdi", 
             "iname": "180", 
+            "sede": "",
+            "area": "SAP",
             "imobile": "+3934567890"
         },
         {
             "id": "h", 
             "fname": "Marco Gialli", 
             "iname": "940", 
+            "sede": "sede",
+            "area": "SAP",
             "imobile": "+3934567890"
         },
         {   
             "id": "i", 
             "fname": "Ignazio Sammarco", 
             "iname": "847", 
+            "sede": "",
+            "area": "RAP, Progetti Speciali",
             "imobile": "+3934567890"
         },
         {
             "id": "j", 
             "fname": "Marco Rossi", 
             "iname": "48", 
+            "sede": "sede",
+            "area": "SAP",
             "imobile": "+3934567890"
         },
         {
             "id": "k",  
             "fname": "Alessandro Bianchi", 
             "iname": "140", 
+            "sede": "sede",
+            "area": "SAP",
             "imobile": "+3934567890"   
         }
     

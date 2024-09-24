@@ -12,9 +12,9 @@
     z-index: 9999;
     background-color: rgb(55, 65, 81);
     color: white;
-    border: solid #111827 1px;
-    width: 27vh;
-    border-radius: 1.3vh;
-    margin-top: 1.3vh;
-    padding: 2vh;
+    border: solid rgb(227, 228, 230) 1px;
+    width: 12.96rem;
+    border-radius: 0.624rem;
+    margin-top: 0.624rem;
+    padding: 0.96rem;
 }
