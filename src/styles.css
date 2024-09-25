@@ -1,7 +1,6 @@
 @import "primeng/resources/primeng.css";
 @import "primeflex/primeflex.css";
 @import "primeicons/primeicons.css";
-@import "tippy.js/dist/tippy.css";
 
 
 /* Centra gli header del calendar */
@@ -23,6 +22,7 @@ a.fc-timeline-slot-cushion.fc-scrollgrid-sync-inner {
     text-transform: capitalize;
 }
 
+/* Centra interno */
 .interno {
     width: 3.125rem;
     text-align: center;
@@ -30,7 +30,7 @@ a.fc-timeline-slot-cushion.fc-scrollgrid-sync-inner {
 }
 
 .mobile {
-    width: 9.5rem;
+    width: 8.6rem;
     text-align: center;
     justify-content: center !important;
 }
@@ -38,8 +38,36 @@ a.fc-timeline-slot-cushion.fc-scrollgrid-sync-inner {
 .fc-datagrid-cell-frame {
    text-align: center;
    justify-content: center !important;
+   vertical-align: middle !important;
 }
 
 td.fc-datagrid-cell.fc-resource{
     vertical-align: middle !important;
+}
+th {
+    height: 3rem;
+    vertical-align: middle !important;
+    text-align: center;
+    justify-content: center !important;
+}
+tr {
+    height: 3.75rem;
+    vertical-align: middle !important;
+    text-align: center;
+    justify-content: center !important;
+}
+ .fc-event {
+    margin-top: 0.7rem;
+ }
+/* colori icons */
+.pi.pi-user{
+    color: rgb(98, 188, 92);
+}
+
+.pi.pi-desktop{
+    color: rgb(239, 130, 13)
+}
+
+.pi.pi-ban{
+    color: rgb(227, 30, 37)
 }

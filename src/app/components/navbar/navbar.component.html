@@ -18,13 +18,15 @@
             inputId="buttondisplay" 
             dateFormat="dd.mm.yy"
             (onSelect)="onDateSelect()"
+            [placeholder]="oggi"
             />
 
             <p-menu #menu2 [model]="utenti" [popup]="true" />
             <p-button (onClick)="menu2.toggle($event)" [rounded]="true" [text]="true" size="large" icon="pi pi-users"/>
 
             <p-menu #menu [model]="giorni" [popup]="true" />
-            <p-button (onClick)="menu.toggle($event)" [rounded]="true" [text]="true" size="large" icon="pi pi-bars"/>
+            <p-button (onClick)="menu.toggle($event)" [rounded]="true" [text]="true" [badge]="currentIcon" p-overlay-badge size="small" label="Giorni" icon="pi pi-calendar-clock">
+            </p-button>
     
        <app-toggle-theme />
         </div>

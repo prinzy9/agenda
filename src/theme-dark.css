@@ -18,3 +18,9 @@
     margin-top: 0.624rem;
     padding: 0.96rem;
 }
+.fc-popover-header {
+    background-color: rgb(55, 65, 81) !important;
+}
+.fc-popover-title {
+    color: white !important;
+}

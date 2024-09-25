@@ -13,7 +13,7 @@ import { HttpClient } from '@angular/common/http';
 import { CalendarviewService } from './services/calendarview.service';
 import "primeicons/primeicons.css";
 import Tooltip from 'tooltip.js'
-import { h } from '@fullcalendar/core/preact'
+
 
 @Component({
   selector: 'app-root',
@@ -37,6 +37,7 @@ export class AppComponent implements OnInit {
   events: any = [];
   tooltiptimeout: any;
   i: number = 0;
+
 
   ngOnInit() {
     this.calendarViewService.dateChange$.subscribe((date: Date) => {
@@ -102,7 +103,7 @@ export class AppComponent implements OnInit {
       eventClick: (info) => {
         this.onClickEvent(info);
       },
-      resourceAreaWidth: '28%',
+      resourceAreaWidth: '26%',
       // initialDate: new Date(),
       // initialDate: '2022-01-01', //<= prova per vedere se cambia quanlcosa....
 
@@ -166,33 +167,34 @@ export class AppComponent implements OnInit {
           headerContent: 'Sede',
           cellClassNames: 'interno',
           headerClassNames: 'interno',
+          /**
+           * Ritorna l'icona da visualizzare per ogni sede.
+           * L'icona dipende dal valore di this.resources[this.i].sede.
+           * Se il valore  "sede" allora viene visualizzata l'icona dell'utente,
+           * se il valore  "SW" allora viene visualizzata l'icona del computer,
+           * altrimenti viene visualizzata l'icona del blocco.
+           * Inoltre, incrementa this.i di 1 e, se raggiunge la lunghezza di resources,
+           * resetta this.i a 0.
+           * @param {Object} s l'oggetto che rappresenta la riga della tabella.
+           * @returns {Object} un oggetto con una propriet  html che rappresenta il contenuto della cella.
+           */
           cellContent: (s) => {
             // console.log("sdfsf", this.i, s)
             const result = { html: '' };
             if (this.resources[this.i].sede == "sede") {
-              // this.i++;
               result.html = '<i class="pi pi-user"></i>';
-              // return { html: '<i class="pi pi-user"></i>' }
             } else if (this.resources[this.i].sede == "SW") {
-              // this.i++;
               result.html = '<i class="pi pi-desktop"></i>';
-              // return { html: '<i class="pi pi-desktop"></i>' }
             } else {
-              // this.i++;
               result.html = '<i class="pi pi-ban"></i>';
-              // return { html: '<i class="pi pi-ban"></i>' }
             }
-
             this.i++;
             // resetta il counter se raggiunge la lunghezza di resources
             if (this.i >= this.resources.length) {
               this.i = 0;
             }
-
             return result;
-
           }
-
         },
         {
           field: 'iname',
@@ -210,7 +212,7 @@ export class AppComponent implements OnInit {
       headerToolbar: {
         left: 'prev,next today',
         center: 'title',
-        right: 'customYear'
+        // right: 'customYear'
       },
       plugins: [resourceTimelinePlugin], // plugin registrati
       editable: true,
@@ -283,7 +285,6 @@ export class AppComponent implements OnInit {
   scrollToToday() {
     const calendarApi = this.calendarComponent.getApi(); // Ottieni l'API del calendario
     const today = new Date();
-
     // Imposta lo scroll sulla data di oggi
     calendarApi.gotoDate(today);
   }
@@ -291,10 +292,8 @@ export class AppComponent implements OnInit {
   getInizioAnno() {
     // Ottieni la data di oggi
     const oggi = new Date();
-
     // Ottieni l'anno corrente
     const annoCorrente = oggi.getFullYear();
-
     // Crea una nuova data per il 1º gennaio dell'anno corrente
     const primoGennaio = new Date(annoCorrente, 0, 1);
     return primoGennaio;

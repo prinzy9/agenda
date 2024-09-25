@@ -49,3 +49,9 @@ button.fc-dayGridWeek-button.fc-button.fc-button-primary {
     padding: 0.96rem;
     box-shadow: grey 1px 3px 10px;
 }
+.fc-popover-header {
+    background-color: rgb(127, 174, 249) !important;
+}
+.fc-popover-title {
+    color: white !important;
+}

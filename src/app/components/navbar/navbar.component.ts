@@ -9,12 +9,15 @@ import { ButtonModule } from 'primeng/button';
 import { CalendarviewService } from '../../services/calendarview.service';
 import { CalendarModule } from 'primeng/calendar';
 import { FormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
+import { BadgeModule } from 'primeng/badge';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [MenubarModule, ToggleThemeComponent, CommonModule, MenuModule, ToastModule, ButtonModule, CalendarModule, FormsModule],
+  imports: [MenubarModule, ToggleThemeComponent, CommonModule, MenuModule, ToastModule, ButtonModule, CalendarModule, BadgeModule, FormsModule],
   templateUrl: './navbar.component.html',
+  providers: [DatePipe],
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements OnInit {
@@ -22,10 +25,33 @@ export class NavbarComponent implements OnInit {
   giorni: MenuItem[] = [];
   utenti: MenuItem[] = [];
   date1: Date | undefined;
+  oggi: string = '';
+  currentIcon: string = '1';
 
-  constructor(private calendarViewService: CalendarviewService) { }
+
+  constructor(private calendarViewService: CalendarviewService, private datePipe: DatePipe) {
+    // Usa DatePipe per formattare la data corrente come stringa
+    this.oggi = this.datePipe.transform(new Date(), 'dd.MM.yyyy') || '';
+  }
+  // Cambia l'icona in base alla vista selezionata
+  changeIcon(view: string) {
+    switch (view) {
+      case 'resourceTimelineDay':
+        this.currentIcon = '1'; // Icona per oggi
+        break;
+      case 'customWeek':
+        this.currentIcon = '7'; // Icona per settimana
+        break;
+      case 'customMonth':
+        this.currentIcon = '31'; // Icona per mese
+        break;
+      default:
+        this.currentIcon = '1'; // Icona di default
+    }
+  }
 
   changeCalendarView(view: string) {
+    this.changeIcon(view); // Cambia l'icona
     this.calendarViewService.changeView(view);  // Emetti il cambiamento di vista
   }
   ngOnInit() {
@@ -128,7 +154,6 @@ export class NavbarComponent implements OnInit {
       // Imposta l'ora della data a mezzogiorno (12:00) per evitare lo slittamento dovuto al fuso orario
       const selectedDate = new Date(this.date1);
       selectedDate.setHours(12, 0, 0, 0); // Imposta l'ora a 12:00:00
-
       // Invia la data con l'ora modificata
       this.calendarViewService.changeDate(selectedDate);
     }
