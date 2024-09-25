@@ -44,6 +44,14 @@ a.fc-timeline-slot-cushion.fc-scrollgrid-sync-inner {
 td.fc-datagrid-cell.fc-resource{
     vertical-align: middle !important;
 }
+.fc-resource .fc-datagrid-cell-frame{
+    display: flex;
+}
+
+.fc-resource .fc-datagrid-cell-frame > div{
+    align-self: center;
+}
+
 th {
     height: 3rem;
     vertical-align: middle !important;
