@@ -120,11 +120,11 @@ export class AppComponent implements OnInit {
       // },
 
       contentHeight: '85vh',
-      expandRows: true,
+      expandRows: false,
       nowIndicator: false,
       dayMaxEventRows: true,
       displayEventTime: false,
-      eventOrderStrict: true,
+      eventOrderStrict: false,
       dayMaxEvents: 1,
       eventMaxStack: 1,
       eventDisplay: 'listItem',
