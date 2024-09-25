@@ -9,7 +9,7 @@
     </ng-template>
 
     <ng-template pTemplate="end" >
-        <div class="flex align-items-center gap-2">
+        <div class="flex align-items-center gap-0">
             
             <p-calendar 
             [(ngModel)]="date1" 
@@ -25,7 +25,7 @@
             <p-button (onClick)="menu2.toggle($event)" [rounded]="true" [text]="true" size="large" icon="pi pi-users"/>
 
             <p-menu #menu [model]="giorni" [popup]="true" />
-            <p-button (onClick)="menu.toggle($event)" [rounded]="true" [text]="true" [badge]="currentIcon" p-overlay-badge size="small" label="Giorni" icon="pi pi-calendar-clock">
+            <p-button (onClick)="menu.toggle($event)" [rounded]="true" [text]="true" [badge]="currentIcon" p-overlay-badge size="small" label="Giorni:" icon="pi pi-calendar-clock">
             </p-button>
     
        <app-toggle-theme />

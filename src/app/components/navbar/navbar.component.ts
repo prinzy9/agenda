@@ -46,7 +46,7 @@ export class NavbarComponent implements OnInit {
         this.currentIcon = '31'; // Icona per mese
         break;
       default:
-        this.currentIcon = '1'; // Icona di default
+        this.currentIcon = ''; // Icona di default
     }
   }
 
