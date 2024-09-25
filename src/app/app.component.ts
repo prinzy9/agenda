@@ -269,6 +269,7 @@ export class AppComponent implements OnInit {
 
     console.log(eventsFromIdRes, this.events, info);
     this.bodyContent = JSON.stringify(eventsFromIdRes);
+    // this.bodyContent += " nome: " + this.events[resourceId];
     this.bodyContent += " start at: " + info.event.startStr;
     this.bodyContent += " end at: " + info.event.endStr;
     this.visibleClickModal = true; // Mostra il modal
