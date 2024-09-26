@@ -53,19 +53,22 @@ td.fc-datagrid-cell.fc-resource{
 }
 
 th {
-    height: 3rem;
+    height: 1rem;
     vertical-align: middle !important;
     text-align: center;
     justify-content: center !important;
 }
 tr {
-    height: 3.75rem;
+    height: 3.8rem;
     vertical-align: middle !important;
     text-align: center;
     justify-content: center !important;
 }
  .fc-event {
-    margin-top: 0.7rem;
+    margin-top: 0.5rem;
+    vertical-align: middle !important;
+    text-align: center;
+    justify-content: center !important;
  }
 /* colori icons */
 .pi.pi-user{
@@ -78,4 +81,25 @@ tr {
 
 .pi.pi-ban{
     color: rgb(227, 30, 37)
+}
+
+div.fc-datagrid-cell-frame {
+    vertical-align: middle !important;
+    text-align: center;
+    justify-content: center !important;
+    height: fit-content;
+
+}
+
+.fc-event-draggable, .fc-event-resizable, .fc-event-start, .fc-event-end, .fc-event-past, .fc-timeline-event, .fc-h {
+height: 2.12rem;
+justify-content: center !important;
+vertical-align: middle !important;
+}
+
+.-timeline-more-link-inner, .fc-sticky {
+    height: 1.3rem;
+    justify-content: center !important;
+    vertical-align: middle !important;
+   
 }

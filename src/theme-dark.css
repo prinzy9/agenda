@@ -24,3 +24,7 @@
 .fc-popover-title {
     color: white !important;
 }
+
+.fc-timeline-more-link-inner.fc-sticky {
+    color: black !important;
+}

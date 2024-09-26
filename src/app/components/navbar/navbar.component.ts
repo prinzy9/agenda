@@ -25,7 +25,7 @@ export class NavbarComponent implements OnInit {
   giorni: MenuItem[] = [];
   utenti: MenuItem[] = [];
   date1: Date | undefined;
-  oggi: string = '';
+  oggi: string = new Date().toDateString();
   currentIcon: string = '1';
 
 

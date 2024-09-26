@@ -103,7 +103,7 @@ export class AppComponent implements OnInit {
       eventClick: (info) => {
         this.onClickEvent(info);
       },
-      resourceAreaWidth: '26%',
+      resourceAreaWidth: '27%',
       // initialDate: new Date(),
       // initialDate: '2022-01-01', //<= prova per vedere se cambia quanlcosa....
 
@@ -119,12 +119,8 @@ export class AppComponent implements OnInit {
       //   }
       // },
 
-      contentHeight: '85vh',
-      expandRows: false,
-      nowIndicator: false,
+      contentHeight: 'auto',
       dayMaxEventRows: true,
-      displayEventTime: false,
-      eventOrderStrict: false,
       dayMaxEvents: 1,
       eventMaxStack: 1,
       eventDisplay: 'listItem',
@@ -212,7 +208,19 @@ export class AppComponent implements OnInit {
       headerToolbar: {
         left: 'prev,next today',
         center: 'title',
-        // right: 'customYear'
+        right: 'prev,next'
+      },
+      viewDidMount: (args) => {
+        // Aggiungi un listener sul pulsante "Oggi"
+        setTimeout(() => {
+          const todayButton = document.querySelector('.fc-today-button') as HTMLButtonElement;
+          if (todayButton) {
+            todayButton.addEventListener('click', () => {
+              // Ricarica la pagina attuale
+              window.location.reload(); // Simula un F5
+            });
+          }
+        }, 1000);
       },
       plugins: [resourceTimelinePlugin], // plugin registrati
       editable: true,
@@ -232,8 +240,8 @@ export class AppComponent implements OnInit {
           buttonText: 'Mese',
           // initialDate: this.getInizioAnno(),
           slotLabelFormat: [
-            { weekday: 'short', day: 'numeric' },],
-          initialView: "resourceTimelineMont",
+            { weekday: 'long', day: 'numeric' },],
+          initialView: "resourceTimelineMonth",
         },
         customYear: {
           // initialDate: new Date(),
