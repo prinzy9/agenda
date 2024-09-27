@@ -83,6 +83,24 @@ export class AppComponent implements OnInit {
   constructor(private primengConfig: PrimeNGConfig, private http: HttpClient, private calendarViewService: CalendarviewService) {
     this.calendarOptions = {
 
+      // metodo di prova per emettere un modal coi dati della risorsa
+
+      // resourceLaneContent: (arg) => {
+      //   const resourceId = arg.resource.id;
+      //   const resourceName = arg.resource.title;
+
+      //   const div = document.createElement('div');
+      //   div.innerHTML = `<span>${resourceName}</span>`;
+
+      // Aggiungi un listener per l'evento mouseenter
+      //   div.addEventListener('mouseenter', (event) => {
+      //     this.onResourceMouseEnter(event, resourceId, resourceName);
+      //   });
+
+      //   return { domNodes: [div] };
+      // },
+      // Altre opzioni
+
       eventMouseEnter: (info) => {
         this.tooltiptimeout = setTimeout(() => {
           const tooltip = new Tooltip(info.el, {
@@ -99,15 +117,12 @@ export class AppComponent implements OnInit {
         const tooltips = document.querySelectorAll('.tooltip');
         tooltips.forEach(tooltips => tooltips.remove());
       },
-
       eventClick: (info) => {
         this.onClickEvent(info);
       },
       resourceAreaWidth: '27%',
       // initialDate: new Date(),
       // initialDate: '2022-01-01', //<= prova per vedere se cambia quanlcosa....
-
-
       // eventContent: function (arg) {
       //   const eventStart = new Date(arg.event.startStr);
       //   const hour = eventStart.getHours();
@@ -118,7 +133,6 @@ export class AppComponent implements OnInit {
       //     return ['Pomeriggio']
       //   }
       // },
-
       contentHeight: 'auto',
       dayMaxEventRows: true,
       dayMaxEvents: 1,
@@ -126,7 +140,6 @@ export class AppComponent implements OnInit {
       eventDisplay: 'listItem',
       slotDuration: '24:00:00',
       scrollTime: '00:00:00',
-
       // resourceLaneContent: function (arg) {
       //   let italicEl = document.createElement('i')
 
@@ -139,8 +152,6 @@ export class AppComponent implements OnInit {
       //   let arrayOfDomNodes = [italicEl]
       //   return { domNodes: arrayOfDomNodes }
       // },
-
-
       schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives', // licenza non commerciale per FullCalendar Scheduler
       timeZone: 'Europe/Rome',
       handleWindowResize: true,
@@ -263,7 +274,6 @@ export class AppComponent implements OnInit {
       slotMaxTime: '24:00:00',
     };
   }
-
   // Quando clicchi su un evento
   onClickEvent(info: any) {
     // this.bodyContent = info.event.title;
@@ -283,13 +293,11 @@ export class AppComponent implements OnInit {
     this.visibleClickModal = true; // Mostra il modal
     this.visibleTooltip = false; // Nascondi il tooltip se era attivo
   }
-
   // Funzione per emettere il cambiamento di vista
   changeView(view: string) {
     let calendarApi = this.calendarComponent.getApi(); // Ottieni l'API del calendario
     calendarApi.changeView(view);
   }
-
   // Funzione per spostare la vista del calendario sulla data di oggi
   scrollToToday() {
     const calendarApi = this.calendarComponent.getApi(); // Ottieni l'API del calendario
@@ -297,7 +305,6 @@ export class AppComponent implements OnInit {
     // Imposta lo scroll sulla data di oggi
     calendarApi.gotoDate(today);
   }
-
   // getInizioAnno() {
   //   // Ottieni la data di oggi
   //   const oggi = new Date();
@@ -322,6 +329,20 @@ export class AppComponent implements OnInit {
     const calendarApi = this.calendarComponent.getApi();
     calendarApi.gotoDate(date);
   }
+
+  // Funzione di prova per il tooltip
+
+  // onResourceMouseEnter(event: MouseEvent, resourceId: string, resourceName: string) {
+  //   const tooltip = new Tooltip(event.target as HTMLElement, {
+  //     title: `Risorsa: ${resourceName}`,
+  //     placement: 'bottom',
+  //     trigger: 'hover',
+  //     container: 'div',
+  //   });
+  //   tooltip.show();
+  //   console.log(resourceId, resourceName);
+  // }
+
 }
 
 
