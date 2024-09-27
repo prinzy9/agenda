@@ -243,13 +243,13 @@ export class AppComponent implements OnInit {
             { weekday: 'long', day: 'numeric' },],
           initialView: "resourceTimelineMonth",
         },
-        customYear: {
-          // initialDate: new Date(),
-          type: 'resourceTimeline',  // Può essere resourceTimeline o il tipo di visualizzazione che preferisci
-          duration: { years: 1 },    // Mostra un anno intero
-          buttonText: 'Anno',
-          initialDate: this.getInizioAnno(),       // Testo del pulsante per la vista annuale
-        },
+        // customYear: {
+        //   // initialDate: new Date(),
+        //   type: 'resourceTimeline',  // Può essere resourceTimeline o il tipo di visualizzazione che preferisci
+        //   duration: { years: 1 },    // Mostra un anno intero
+        //   buttonText: 'Anno',
+        //   initialDate: this.getInizioAnno(),       // Testo del pulsante per la vista annuale
+        // },
         resourceTimelineFiveDays: {
           type: 'resourceTimeline',
           duration: { days: 5 },
@@ -298,26 +298,26 @@ export class AppComponent implements OnInit {
     calendarApi.gotoDate(today);
   }
 
-  getInizioAnno() {
-    // Ottieni la data di oggi
-    const oggi = new Date();
-    // Ottieni l'anno corrente
-    const annoCorrente = oggi.getFullYear();
-    // Crea una nuova data per il 1º gennaio dell'anno corrente
-    const primoGennaio = new Date(annoCorrente, 0, 1);
-    return primoGennaio;
-  }
+  // getInizioAnno() {
+  //   // Ottieni la data di oggi
+  //   const oggi = new Date();
+  //   // Ottieni l'anno corrente
+  //   const annoCorrente = oggi.getFullYear();
+  //   // Crea una nuova data per il 1º gennaio dell'anno corrente
+  //   const primoGennaio = new Date(annoCorrente, 0, 1);
+  //   return primoGennaio;
+  // }
 
-  getFineAnno(n: number) {
-    const fine = this.getInizioAnno();
-    fine.setFullYear(fine.getFullYear() + n);
-    return fine;
-  }
-  getFineAnnoAsDays(n: number) {
-    const diff = this.getFineAnno(n).getTime() - this.getInizioAnno().getTime();
-    const msDay = 1000 * 60 * 60 * 24; // Millisecondi in un giorno
-    return Math.floor(diff / msDay);
-  }
+  // getFineAnno(n: number) {
+  //   const fine = this.getInizioAnno();
+  //   fine.setFullYear(fine.getFullYear() + n);
+  //   return fine;
+  // }
+  // getFineAnnoAsDays(n: number) {
+  //   const diff = this.getFineAnno(n).getTime() - this.getInizioAnno().getTime();
+  //   const msDay = 1000 * 60 * 60 * 24; // Millisecondi in un giorno
+  //   return Math.floor(diff / msDay);
+  // }
   scrollToDate(date: Date) {
     const calendarApi = this.calendarComponent.getApi();
     calendarApi.gotoDate(date);
