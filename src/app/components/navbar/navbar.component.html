@@ -25,7 +25,7 @@
             <p-button (onClick)="menu2.toggle($event)" [rounded]="true" [text]="true" size="large" icon="pi pi-users"/>
 
             <p-menu #menu [model]="giorni" [popup]="true" />
-            <p-button (onClick)="menu.toggle($event)" [rounded]="true" [text]="true"  size="small">
+            <p-button (onClick)="menu.toggle($event)" [rounded]="true" [text]="true" size="small">
                 <span size="small" *ngIf="numeroDaVedere; else icon">{{ numeroDaVedere }}</span>
                 <ng-template #icon><i class="pi pi-bars"></i></ng-template>
                 <!-- [badge]="currentIcon"  label="Giorni:" icon="pi pi-calendar-clock" -->

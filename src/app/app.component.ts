@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { FullCalendarComponent, FullCalendarModule } from '@fullcalendar/angular'; // FullCalendar
-import { CalendarModule } from 'primeng/calendar'; // PrimeNG Calendar
+import { FullCalendarComponent, FullCalendarModule } from '@fullcalendar/angular';
+import { CalendarModule } from 'primeng/calendar';
 import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
 import itLocale from '@fullcalendar/core/locales/it';
 import { CalendarOptions } from '@fullcalendar/core';
@@ -121,6 +121,8 @@ export class AppComponent implements OnInit {
         this.onClickEvent(info);
       },
       resourceAreaWidth: '27%',
+      stickyHeaderDates: 'auto',
+      expandRows: false,
       // initialDate: new Date(),
       // initialDate: '2022-01-01', //<= prova per vedere se cambia quanlcosa....
       // eventContent: function (arg) {
@@ -238,24 +240,21 @@ export class AppComponent implements OnInit {
       selectable: true,
       views: {
         customWeek: {
-          type: 'resourceTimeline',  // Può essere qualsiasi tipo di visualizzazione
-          duration: { days: 7 },      // Mostra 7 giorni
-          // duration: { days: this.getFineAnnoAsDays(2) },  // Mostra i 31 giorni a partire dalla data corrente
+          type: 'resourceTimeline',
+          duration: { days: 7 },
           buttonText: 'Settimana',
-          // initialDate: new Date(),
         },
         customMonth: {
           type: 'resourceTimeline',
-          //  duration: { days: 31 },
           duration: { days: 31 },
           buttonText: 'Mese',
-          // initialDate: this.getInizioAnno(),
+
           slotLabelFormat: [
             { weekday: 'long', day: 'numeric' },],
           initialView: "resourceTimelineMonth",
         },
         // customYear: {
-        //   // initialDate: new Date(),
+        // initialDate: new Date(),
         //   type: 'resourceTimeline',  // Può essere resourceTimeline o il tipo di visualizzazione che preferisci
         //   duration: { years: 1 },    // Mostra un anno intero
         //   buttonText: 'Anno',
@@ -264,7 +263,6 @@ export class AppComponent implements OnInit {
         resourceTimelineFiveDays: {
           type: 'resourceTimeline',
           duration: { days: 5 },
-          // initialDate: new Date(),
         }
       },
       slotLabelFormat: [

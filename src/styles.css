@@ -2,7 +2,11 @@
 @import "primeflex/primeflex.css";
 @import "primeicons/primeicons.css";
 
-
+.wrap-calendar{
+    margin-left: 2rem !important;
+    margin-right: 2rem !important;
+    
+}
 /* Centra gli header del calendar */
 a.fc-timeline-slot-cushion.fc-scrollgrid-sync-inner {
  margin: auto !important
@@ -53,20 +57,26 @@ td.fc-datagrid-cell.fc-resource{
 }
 
 th {
-    height: 3.4rem;
+    height: 2rem !important;
     vertical-align: middle !important;
     text-align: center;
     justify-content: center !important;
 }
 tr {
-    height: 3.4rem;
+    height: 1.8rem !important;
+    max-height: 1.8rem !important;
     vertical-align: middle !important;
     text-align: center;
     justify-content: center !important;
 }
  .fc-event {
+    height: 0.7rem !important;
+    max-height: 0.7rem !important;
     margin-top: 0.5rem;
  }
+.fc-timeline-more-link.fc-more-link , .fc-timeline-more-link-inner.fc-sticky {
+    height: 0.8rem !important;
+}
 /* colori icons */
 .pi.pi-user{
     color: rgb(98, 188, 92);
@@ -100,3 +110,7 @@ vertical-align: middle !important;
     vertical-align: middle !important;
    
 } */
+
+.fc-datagrid-cell-cushion, .fc-scrollgrid-sync-inner {
+    font-size: 0.75rem !important;
+}

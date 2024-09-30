@@ -24,6 +24,7 @@
             "area": "Progetti Speciali",
             "imobile": "+393456027890"
         },
+        
         {
             "id": "d", 
             "fname": "Alessandro Gialli", 
@@ -87,6 +88,126 @@
             "sede": "sede",
             "area": "SAP",
             "imobile": "+393476567890"   
+        },
+        {
+            "id": "l", 
+            "fname": "Luca Verdi", 
+            "iname": "120", 
+            "sede": "sede",
+            "area": "SAP",
+            "imobile": "+393456027890"
+        },
+        {
+            "id": "m", 
+            "fname": "Alessandro Gialli", 
+            "iname": "250", 
+            "sede": "sede",
+            "area": "SAP",
+            "imobile": "+393456027890"
+        },
+        {
+            "id": "n", 
+            "fname": "Marco Rosso", 
+            "iname": "396", 
+            "sede": "sede",
+            "area": "SAP",
+            "imobile": "+393456027890"
+        },
+        {
+            "id": "o", 
+            "fname": "Francesco Bianchi", 
+            "iname": "100", 
+            "sede": "sede",
+            "area": "SAP",
+            "imobile": "+393456027890"
+        },
+        {
+            "id": "p", 
+            "fname": "Alessandro Verdi", 
+            "iname": "180",   
+            "sede": "sede",
+            "area": "SAP",
+            "imobile": "+393456027890"
+        },
+        {
+            "id": "q", 
+            "fname": "Marco Gialli", 
+            "iname": "940", 
+            "sede": "sede",
+            "area": "SAP",
+            "imobile": "+393456027890"
+        },
+        {
+            "id": "r", 
+            "fname": "Alessandro Verdi", 
+            "iname": "180", 
+            "sede": "sede",
+            "area": "SAP",
+            "imobile": "+393456027890"
+        },
+        {
+            "id": "s", 
+            "fname": "Marco Gialli", 
+            "iname": "940", 
+            "sede": "sede",
+            "area": "SAP",
+            "imobile": "+393456027890"
+        },
+        {
+            "id": "t", 
+            "fname": "Alessandro Verdi", 
+            "iname": "180", 
+            "sede": "sede",
+            "area": "SAP",
+            "imobile": "+393456027890"  
+        },
+        {
+            "id": "u", 
+            "fname": "Marco Gialli", 
+            "iname": "940", 
+            "sede": "sede",
+            "area": "SAP",
+            "imobile": "+393456027890"
+        },
+        {
+            "id": "v", 
+            "fname": "Alessandro Verdi", 
+            "iname": "180", 
+            "sede": "sede",
+            "area": "SAP",
+            "imobile": "+393456027890"
+        },
+        {
+            "id": "w", 
+            "fname": "Marco Gialli", 
+            "iname": "940", 
+            "sede": "sede",
+            "area": "SAP",
+            "imobile": "+393456027890"
+        },
+        {
+            "id": "x", 
+            "fname": "Alessandro Verdi", 
+            "iname": "180",
+            "sede": "sede",
+            "area": "SAP",
+            "imobile": "+393456027890"
+        },
+        {
+            "id": "y", 
+            "fname": "Marco Gialli", 
+            "iname": "940", 
+            "sede": "sede",
+            "area": "SAP",
+            "imobile": "+393456027890"
+        },
+        {
+            "id": "z", 
+            "fname": "Alessandro Verdi", 
+            "iname": "180", 
+            "sede": "sede",
+            "area": "SAP",
+            "imobile": "+393456027890"
         }
     
     ],
@@ -239,9 +360,39 @@
           "resourceId": "g",
           "res_id": "g",
           "title": "Installazione software",
-          "start": "2024-09-17T12:01:00",  
-          "end": "2024-09-17T24:00:00",
-          "data": "2024-09-17",
+          "start": "2024-09-25T00:00:00",  
+          "end": "2024-09-25T24:00:00",
+          "data": "2024-09-25",
+          "fascia": "full"
+        },
+        {
+          "id": "47",
+          "resourceId": "g",
+          "res_id": "g",
+          "title": "Installazione software",
+          "start": "2024-09-25T00:00:00",  
+          "end": "2024-09-25T24:00:00",
+          "data": "2024-09-25",
+          "fascia": "full"
+        },
+        {
+          "id": "47",
+          "resourceId": "g",
+          "res_id": "g",
+          "title": "Installazione software",
+          "start": "2024-09-25T00:00:00",  
+          "end": "2024-09-25T24:00:00",
+          "data": "2024-09-25",
+          "fascia": "full"
+        },
+        {
+          "id": "47",
+          "resourceId": "g",
+          "res_id": "g",
+          "title": "Installazione software",
+          "start": "2024-09-25T00:00:00",  
+          "end": "2024-09-25T24:00:00",
+          "data": "2024-09-25",
           "fascia": "full"
         },
         {
@@ -249,9 +400,9 @@
           "resourceId": "h",
           "res_id": "h",
           "title": "Installazione software",
-          "start": "2024-09-17T00:00:00",
-          "end": "2024-09-17T24:00:00",
-          "data": "2024-09-17",
+          "start": "2024-09-25T00:00:00",
+          "end": "2024-09-25T24:00:00",
+          "data": "2024-09-25",
           "fascia": "full"
         },
         {
@@ -259,9 +410,9 @@
           "resourceId": "i",
           "res_id": "i",
           "title": "Corso di formazione Angular",
-          "start": "2024-09-17T00:00:00",   
-          "end": "2024-09-17T24:00:00",
-          "data": "2024-09-17",
+          "start": "2024-09-25T00:00:00",   
+          "end": "2024-09-25T24:00:00",
+          "data": "2024-09-25",
           "fascia": "full"
         },
         
@@ -270,9 +421,9 @@
           "resourceId": "i",
           "res_id": "i",
           "title": "Intervento in Via Taldeitali",
-          "start": "2024-09-17T00:00:00",   
-          "end": "2024-09-17T24:00:00",
-          "data": "2024-09-17",
+          "start": "2024-09-25T00:00:00",   
+          "end": "2024-09-25T24:00:00",
+          "data": "2024-09-25",
           "fascia": "full"
         },
         {
@@ -280,9 +431,9 @@
           "resourceId": "j",
           "res_id": "j",
           "title": "Installazione software",
-          "start": "2024-09-17T00:00:00",
-          "end": "2024-09-17T24:00:00",
-          "data": "2024-09-17",
+          "start": "2024-09-25T00:00:00",
+          "end": "2024-09-25T24:00:00",
+          "data": "2024-09-25",
           "fascia": "full"
         },
         {
@@ -290,9 +441,159 @@
           "resourceId": "k",
           "res_id": "k",
           "title": "Installazione software",
-          "start": "2024-09-17T00:00:00",
-          "end": "2024-09-17T24:00:00",
-          "data": "2024-09-17",
+          "start": "2024-09-25T00:00:00",
+          "end": "2024-09-25T24:00:00",
+          "data": "2024-09-25",
+          "fascia": "full"
+        },
+        {
+          "id": "142",
+          "resourceId": "l",
+          "res_id": "l",
+          "title": "Installazione software",
+          "start": "2024-09-25T00:00:00",
+          "end": "2024-09-25T24:00:00",
+          "data": "2024-09-25",
+          "fascia": "full"
+        },
+        {
+          "id": "143",
+          "resourceId": "m",
+          "res_id": "m",
+          "title": "Installazione software",
+          "start": "2024-09-25T00:00:00",
+          "end": "2024-09-25T24:00:00",
+          "data": "2024-09-25",
+          "fascia": "full"
+        },
+        {
+          "id": "144",
+          "resourceId": "n",
+          "res_id": "n",
+          "title": "Installazione software",
+          "start": "2024-09-25T00:00:00",
+          "end": "2024-09-25T24:00:00",
+          "data": "2024-09-25",
+          "fascia": "full"
+        },
+        {
+          "id": "145",
+          "resourceId": "o",
+          "res_id": "o",
+          "title": "Installazione software",
+          "start": "2024-09-25T00:00:00",
+          "end": "2024-09-25T24:00:00",
+          "data": "2024-09-25",
+          "fascia": "full"
+        },
+        {
+          "id": "146",
+          "resourceId": "p",
+          "res_id": "p",
+          "title": "Installazione software",
+          "start": "2024-09-25T00:00:00",
+          "end": "2024-09-25T24:00:00",
+          "data": "2024-09-25",
+          "fascia": "full"
+        },
+        {
+          "id": "147",
+          "resourceId": "q",
+          "res_id": "q",
+          "title": "Installazione software",
+          "start": "2024-09-25T00:00:00",
+          "end": "2024-09-25T24:00:00",
+          "data": "2024-09-25",
+          "fascia": "full"
+        },
+        {
+          "id": "148",
+          "resourceId": "r",
+          "res_id": "r",
+          "title": "Installazione software",
+          "start": "2024-09-25T00:00:00",
+          "end": "2024-09-25T24:00:00",
+          "data": "2024-09-25",
+          "fascia": "full"
+        },
+        {
+          "id": "149",
+          "resourceId": "s",
+          "res_id": "s",
+          "title": "Installazione software",
+          "start": "2024-09-25T00:00:00",
+          "end": "2024-09-25T24:00:00",
+          "data": "2024-09-25",
+          "fascia": "full"
+        } ,
+        {
+          "id": "150",
+          "resourceId": "t",
+          "res_id": "t",
+          "title": "Installazione software",
+          "start": "2024-09-25T00:00:00",
+          "end": "2024-09-25T24:00:00",
+          "data": "2024-09-25",
+          "fascia": "full"
+        },
+        {
+          "id": "151",
+          "resourceId": "u",
+          "res_id": "u",
+          "title": "Installazione software",
+          "start": "2024-09-25T00:00:00",
+          "end": "2024-09-25T24:00:00",
+          "data": "2024-09-25",
+          "fascia": "full"
+        },
+        {
+          "id": "152",
+          "resourceId": "v",
+          "res_id": "v",
+          "title": "Installazione software",
+          "start": "2024-09-25T00:00:00",
+          "end": "2024-09-25T24:00:00",
+          "data": "2024-09-25",
+          "fascia": "full"
+        },
+        {
+          "id": "153",
+          "resourceId": "w",
+          "res_id": "w",
+          "title": "Installazione software",
+          "start": "2024-09-25T00:00:00",
+          "end": "2024-09-25T24:00:00",
+          "data": "2024-09-25",
+          "fascia": "full"
+        },
+        {
+          "id": "154",
+          "resourceId": "x",
+          "res_id": "x",
+          "title": "Installazione software",
+          "start": "2024-09-25T00:00:00",
+          "end": "2024-09-25T24:00:00",
+          "data": "2024-09-25",
+          "fascia": "full"
+        },
+        {
+          "id": "155",
+          "resourceId": "y",
+          "res_id": "y",
+          "title": "Installazione software",
+          "start": "2024-09-25T00:00:00",
+          "end": "2024-09-25T24:00:00",
+          "data": "2024-09-25",
+          "fascia": "full"
+        },
+        {
+          "id": "156",
+          "resourceId": "z",
+          "res_id": "z",
+          "title": "Installazione software",
+          "start": "2024-09-25T00:00:00",
+          "end": "2024-09-25T24:00:00",
+          "data": "2024-09-25",
           "fascia": "full"
         }
     ]

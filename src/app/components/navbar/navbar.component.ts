@@ -65,96 +65,83 @@ export class NavbarComponent implements OnInit {
 
     this.utenti = [
       {
-        label: 'Seleziona:',
-        items: [
-          {
-            label: 'Tutti',
-            command: () => {
-              this.calendarViewService.changeView('resourceTimelineDay');
-            }
-          },
-          {
-            label: 'ACG',
-            command: () => {
-              this.calendarViewService.changeView('resourceTimelineDay');
-            }
-          },
-          {
-            label: 'Amministrazione',
-            command: () => {
-              this.calendarViewService.changeView('resourceTimelineDay');
-            }
-          },
-          {
-            label: 'COGNOS BI MRO',
-            command: () => {
-              this.calendarViewService.changeView('resourceTimelineDay');
-            }
-          },
-          {
-            label: 'Progetti Speciali',
-            command: () => {
-              this.calendarViewService.changeView('resourceTimelineDay');
-            }
-          },
-          {
-            label: 'EDOC',
-            command: () => {
-              this.calendarViewService.changeView('resourceTimelineDay');
-            }
-          },
-          {
-            label: 'Infrastruttura',
-            command: () => {
-              this.calendarViewService.changeView('resourceTimelineDay');
-            }
-          },
-          {
-            label: 'SAP',
-            command: () => {
-              this.calendarViewService.changeView('resourceTimelineDay');
-            }
-          },
+        label: 'Tutti',
+        command: () => {
+          this.calendarViewService.changeView('resourceTimelineDay');
+        }
+      },
+      {
+        label: 'ACG',
+        command: () => {
+          this.calendarViewService.changeView('resourceTimelineDay');
+        }
+      },
+      {
+        label: 'Amministrazione',
+        command: () => {
+          this.calendarViewService.changeView('resourceTimelineDay');
+        }
+      },
+      {
+        label: 'COGNOS BI MRO',
+        command: () => {
+          this.calendarViewService.changeView('resourceTimelineDay');
+        }
+      },
+      {
+        label: 'Progetti Speciali',
+        command: () => {
+          this.calendarViewService.changeView('resourceTimelineDay');
+        }
+      },
+      {
+        label: 'EDOC',
+        command: () => {
+          this.calendarViewService.changeView('resourceTimelineDay');
+        }
+      },
+      {
+        label: 'Infrastruttura',
+        command: () => {
+          this.calendarViewService.changeView('resourceTimelineDay');
+        }
+      },
+      {
+        label: 'SAP',
+        command: () => {
+          this.calendarViewService.changeView('resourceTimelineDay');
+        }
+      },
+    ];
 
-        ]
+    this.giorni = [
+      {
+        label: 'Oggi',
+        command: () => {
+          this.changeCalendarView('resourceTimelineDay');
+        }
+      },
+      {
+        label: 'Settimana',
+        command: () => {
+          this.changeCalendarView('customWeek');
+        }
+      },
+      {
+        label: 'Mese',
+        command: () => {
+          this.changeCalendarView('customMonth');
+        }
+      },
+    ];
 
+    this.items = [
+      {
+        label: 'Elmi Calendar',
+        icon: 'pi pi-home',
+        route: '/Home',
       }
-    ],
-
-      this.giorni = [
-        {
-          label: 'giorni:',
-          items: [
-            {
-              label: 'Oggi',
-              command: () => {
-                this.changeCalendarView('resourceTimelineDay');
-              }
-            },
-            {
-              label: 'Settimana',
-              command: () => {
-                this.changeCalendarView('customWeek');
-              }
-            },
-            {
-              label: 'Mese',
-              command: () => {
-                this.changeCalendarView('customMonth');
-              }
-            },
-          ]
-
-        }
-      ],
-
-      this.items = [
-        {
-          label: 'Elmi Calendar',
-          icon: 'pi pi-home',
-          route: '/Home',
-        }
-      ]
+    ]
   }
   onDateSelect() {
     if (this.date1) {
