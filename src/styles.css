@@ -28,26 +28,32 @@ a.fc-timeline-slot-cushion.fc-scrollgrid-sync-inner {
 
 /* Centra interno */
 .interno {
-    width: 3.125rem;
+    width: 1.5rem;
     text-align: center;
-    justify-content: center !important;
+    /* justify-content: center !important; */
+}
+
+.dipendenti {
+    width: 5.5rem;
+    text-align: center;
 }
 
 .mobile {
-    width: 8.75rem;
-    text-align: center;
-    justify-content: center !important;
+    width: 4.3rem;
+    /* text-align: center; */
+    /* justify-content: center !important; */
 }
+
 .fc-datagrid-cell,
 .fc-datagrid-cell-frame {
    text-align: center;
    justify-content: center !important;
-   vertical-align: middle !important;
+   /* vertical-align: middle !important; */
 }
 
-td.fc-datagrid-cell.fc-resource{
-    vertical-align: middle !important;
-}
+/* td.fc-datagrid-cell.fc-resource{ */
+    /* vertical-align: middle !important; */
+/* } */
 .fc-resource .fc-datagrid-cell-frame{
     display: flex;
 }
@@ -59,23 +65,24 @@ td.fc-datagrid-cell.fc-resource{
 th {
     height: 2rem !important;
     vertical-align: middle !important;
-    text-align: center;
-    justify-content: center !important;
+    /* text-align: center; */
+    /* justify-content: center !important; */
 }
 tr {
     height: 1.8rem !important;
     max-height: 1.8rem !important;
-    vertical-align: middle !important;
+    /* vertical-align: middle !important; */
     text-align: center;
-    justify-content: center !important;
+    /* justify-content: center !important; */
 }
  .fc-event {
-    height: 0.7rem !important;
-    max-height: 0.7rem !important;
-    margin-top: 0.5rem;
+    height: 2rem !important;
+    max-height: 1.2rem !important;
+    margin-top: 0.1rem;
  }
 .fc-timeline-more-link.fc-more-link , .fc-timeline-more-link-inner.fc-sticky {
-    height: 0.8rem !important;
+    height: 0.9rem !important;
+
 }
 /* colori icons */
 .pi.pi-user{

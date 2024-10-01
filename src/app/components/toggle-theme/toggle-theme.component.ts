@@ -2,6 +2,8 @@ import { DOCUMENT } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { FormsModule } from '@angular/forms';
+
+
 @Component({
   selector: 'app-toggle-theme',
   standalone: true,
@@ -11,7 +13,6 @@ import { FormsModule } from '@angular/forms';
 })
 export class ToggleThemeComponent {
   checked: boolean = true;
-
   #document = inject(DOCUMENT);
   isDarkMode = false;
 

@@ -29,7 +29,7 @@
             "id": "d", 
             "fname": "Alessandro Gialli", 
             "iname": "396", 
-            "sede": "sede",
+            "sede": "SW",
             "area": "SAP",
             "imobile": "+393402567890"
         },
@@ -77,7 +77,7 @@
             "id": "j", 
             "fname": "Marco Rossi", 
             "iname": "48", 
-            "sede": "sede",
+            "sede": "SW",
             "area": "SAP",
             "imobile": "+393457667890"
         },
@@ -101,7 +101,7 @@
             "id": "m", 
             "fname": "Alessandro Gialli", 
             "iname": "250", 
-            "sede": "sede",
+            "sede": "SW",
             "area": "SAP",
             "imobile": "+393456027890"
         },
@@ -125,7 +125,7 @@
             "id": "p", 
             "fname": "Alessandro Verdi", 
             "iname": "180",   
-            "sede": "sede",
+            "sede": "SW",
             "area": "SAP",
             "imobile": "+393456027890"
         },
@@ -149,7 +149,7 @@
             "id": "s", 
             "fname": "Marco Gialli", 
             "iname": "940", 
-            "sede": "sede",
+            "sede": "SW",
             "area": "SAP",
             "imobile": "+393456027890"
         },
@@ -157,7 +157,7 @@
             "id": "t", 
             "fname": "Alessandro Verdi", 
             "iname": "180", 
-            "sede": "sede",
+            "sede": "",
             "area": "SAP",
             "imobile": "+393456027890"  
         },
@@ -173,7 +173,7 @@
             "id": "v", 
             "fname": "Alessandro Verdi", 
             "iname": "180", 
-            "sede": "sede",
+            "sede": "SW",
             "area": "SAP",
             "imobile": "+393456027890"
         },
@@ -181,7 +181,7 @@
             "id": "w", 
             "fname": "Marco Gialli", 
             "iname": "940", 
-            "sede": "sede",
+            "sede": "SW",
             "area": "SAP",
             "imobile": "+393456027890"
         },
@@ -219,7 +219,7 @@
           "res_id": "a",
           "title": "Installazione software",
           "start": "2024-09-25T00:00:00",
-          "end": "2024-09-25T23:59:00",
+          "end": "2024-09-25T24:00:00",
           "data": "2024-09-25",
           "fascia": "am"
         },
@@ -229,7 +229,7 @@
           "res_id": "a",
           "title": "Installazione software",
           "start": "2024-09-25T00:00:00",
-          "end": "2024-09-25T23:59:00",
+          "end": "2024-09-25T24:00:00",
           "data": "2024-09-25",
           "fascia": "am"
         },
@@ -239,7 +239,7 @@
           "res_id": "a",
           "title": "Installazione software",
           "start": "2024-09-25T00:00:00",
-          "end": "2024-09-25T23:59:00",
+          "end": "2024-09-25T24:00:00",
           "data": "2024-09-25",
           "fascia": "pm"
         },
@@ -309,7 +309,7 @@
           "resourceId": "f",
           "res_id": "f",
           "title": "Installazione software",   
-          "start": "2024-09-260T12:01:00",
+          "start": "2024-09-260T00:00:00",
           "end": "2024-09-260T24:00:00",
           "data": "2024-09-20",
           "fascia": "full"
@@ -320,7 +320,7 @@
           "res_id": "f",
           "title": "Installazione software",   
           "start": "2024-09-23T00:00:00",
-          "end": "2024-09-23T12:00:00",
+          "end": "2024-09-23T24:00:00",
           "data": "2024-09-23",
           "fascia": "am"
         },
@@ -330,7 +330,7 @@
           "res_id": "f",
           "title": "Installazione software",   
           "start": "2024-09-24T00:00:00",
-          "end": "2024-09-24T12:00:00",
+          "end": "2024-09-24T24:00:00",
           "data": "2024-09-24",
           "fascia": "full"
         },
@@ -339,7 +339,7 @@
           "resourceId": "f",
           "res_id": "f",
           "title": "Installazione software",   
-          "start": "2024-09-23T12:01:00",
+          "start": "2024-09-23T00:00:00",
           "end": "2024-09-23T24:00:00",
           "data": "2024-09-23",
           "fascia": "full"
@@ -349,7 +349,7 @@
           "resourceId": "f",
           "res_id": "f",
           "title": "Installazione software",   
-          "start": "2024-09-24T12:01:00",
+          "start": "2024-09-24T00:00:00",
           "end": "2024-09-24T24:00:00",
           "data": "2024-09-24",
           "fascia": "full"

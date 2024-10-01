@@ -120,7 +120,7 @@ export class AppComponent implements OnInit {
       eventClick: (info) => {
         this.onClickEvent(info);
       },
-      resourceAreaWidth: '27%',
+      resourceAreaWidth: '25%',
       stickyHeaderDates: 'auto',
       expandRows: false,
       // initialDate: new Date(),
@@ -159,7 +159,7 @@ export class AppComponent implements OnInit {
       handleWindowResize: true,
       locale: itLocale, // seleziona la lingua Italiana
       aspectRatio: 2.5, // larghezza / altezza
-      initialView: 'resourceTimelineDay', // vista iniziale
+      initialView: 'resourceTimelineWeek', // vista iniziale
       businessHours: {
         // days of week. an array of zero-based day of week integers (0=Sunday)
         daysOfWeek: [1, 2, 3, 4, 5], // Lunedì - Venerdì
@@ -170,6 +170,8 @@ export class AppComponent implements OnInit {
         {
           field: 'fname',
           headerContent: 'Dipendenti',
+          cellClassNames: 'dipendenti',
+          headerClassNames: 'dipendenti',
         },
         {
           field: 'sede',
@@ -219,7 +221,7 @@ export class AppComponent implements OnInit {
         }
       ],
       headerToolbar: {
-        left: 'prev,next today',
+        left: 'today',
         center: 'title',
         right: 'prev,next'
       },

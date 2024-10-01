@@ -55,3 +55,7 @@ button.fc-dayGridWeek-button.fc-button.fc-button-primary {
 .fc-popover-title {
     color: white !important;
 }
+
+th {
+    border: solid 1px black!important;
+}

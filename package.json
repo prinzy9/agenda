@@ -27,6 +27,7 @@
     "@fullcalendar/resource-timegrid": "^6.1.15",
     "@fullcalendar/resource-timeline": "^6.1.15",
     "@fullcalendar/timegrid": "^6.1.15",
+    "@ngx-translate/core": "^15.0.0",
     "fullcalendar": "^6.1.15",
     "fullcalendar-scheduler": "^6.1.15",
     "jquery": "^3.7.1",

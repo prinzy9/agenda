@@ -3,7 +3,7 @@
 
 .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider:before {
     background-color: rgb(55, 65, 81);
-    content: "🌙";
+    /* content: "🌙"; */
     transform: translateX(1.3rem);    
 }
 
@@ -27,4 +27,8 @@
 
 .fc-timeline-more-link-inner.fc-sticky {
     color: black !important;
+}
+
+th {
+    border: solid 1px white!important;
 }
