@@ -15,7 +15,7 @@ a.fc-timeline-slot-cushion.fc-scrollgrid-sync-inner {
 /* Crea un padding tra la Navbar ed il Calendar */
 .wrap-calendar {
     
-    padding-top: 1.5rem;
+    padding-top: 0.5rem;
   
 }
 
@@ -60,6 +60,9 @@ a.fc-timeline-slot-cushion.fc-scrollgrid-sync-inner {
 
 .fc-resource .fc-datagrid-cell-frame > div{
     align-self: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 th {
@@ -121,3 +124,10 @@ vertical-align: middle !important;
 .fc-datagrid-cell-cushion, .fc-scrollgrid-sync-inner {
     font-size: 0.75rem !important;
 }
+
+.fc .fc-toolbar.fc-header-toolbar {
+    margin-bottom: 0.5em;
+}
+
+
+

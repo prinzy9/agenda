@@ -43,11 +43,12 @@ button.fc-dayGridWeek-button.fc-button.fc-button-primary {
     z-index: 1070;
     background-color: white;
     border: solid rgb(59, 130, 246) 1px;
-    width: 12.96rem;
+    width: fit-content;
     border-radius: 0.624rem;
     margin-top: 0.624rem;
     padding: 0.96rem;
     box-shadow: grey 1px 3px 10px;
+    font-size: 11px;
 }
 .fc-popover-header {
     background-color: rgb(127, 174, 249) !important;
@@ -57,5 +58,18 @@ button.fc-dayGridWeek-button.fc-button.fc-button-primary {
 }
 
 th {
-    border: solid 1px black!important;
+    border: solid 1px grey!important;
 }
+
+.custom-tooltip {
+    position: absolute;
+    z-index: 1070;
+    background-color: white;
+    border: solid rgb(59, 130, 246) 1px;
+    width: fit-content;
+    border-radius: 0.624rem;
+    margin-top: 0.624rem;
+    padding: 0.96rem;
+    box-shadow: grey 1px 3px 10px;
+    font-size: 11px;
+  }

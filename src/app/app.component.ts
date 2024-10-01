@@ -36,6 +36,8 @@ export class AppComponent implements OnInit {
   resources: any = [];
   events: any = [];
   tooltiptimeout: any;
+  tooltiptimeout2: any;
+  currentTooltip: HTMLElement | null = null;
   i: number = 0;
 
 
@@ -48,58 +50,37 @@ export class AppComponent implements OnInit {
     this.http.get('http://localhost:3000/resources').subscribe((resources) => {
       this.resources = resources;
       this.calendarOptions.resources = resources;
-      console.log(this.resources)
     });
 
     this.http.get('http://localhost:3000/events').subscribe((events: any) => {
       this.events = events;
       this.calendarOptions.events = events;
-
-      // this.calendarOptions.events = events.map((event: any) => {
-      //   if (event.fascia == "am")
-      //     event.title = 'mattina';
-      //   else
-      //     event.title = 'pomeriggio';
-      //   return {
-      //     id: event.id,
-      //     resourceId: event.res_id,
-      //     title: event.title,
-      //     start: event.start,
-      //     end: event.end,
-      //     data: event.data,
-      //     fascia: event.fascia
-      //   };
-      // });
     });
 
     this.calendarViewService.viewChange$.subscribe((view: any) => {
       this.changeView(view);
     });
-    // Una volta che il calendario è inizializzato, scorri fino a oggi
     setTimeout(() => {
       this.scrollToToday();
-    }, 100);  // Un piccolo ritardo per assicurarsi che il calendario sia pronto
+    }, 100);
   }
   constructor(private primengConfig: PrimeNGConfig, private http: HttpClient, private calendarViewService: CalendarviewService) {
     this.calendarOptions = {
 
-      // metodo di prova per emettere un modal coi dati della risorsa
+      // metodo per aggiungere un tooltip personalizzato alle risorse //
+      resourceLabelDidMount: (info) => {
+        info.el.addEventListener('mouseenter', () => {
+          this.showTooltip(info.resource.extendedProps['fname'], info.resource.extendedProps['email'], info.el);
+        });
 
-      // resourceLaneContent: (arg) => {
-      //   const resourceId = arg.resource.id;
-      //   const resourceName = arg.resource.title;
-
-      //   const div = document.createElement('div');
-      //   div.innerHTML = `<span>${resourceName}</span>`;
-
-      // Aggiungi un listener per l'evento mouseenter
-      //   div.addEventListener('mouseenter', (event) => {
-      //     this.onResourceMouseEnter(event, resourceId, resourceName);
-      //   });
-
-      //   return { domNodes: [div] };
-      // },
-      // Altre opzioni
+        info.el.addEventListener('mouseleave', () => {
+          this.hideTooltip();
+        });
+      },
+      datesSet: () => {
+        // Eventuali altri aggiornamenti legati alla vista
+      },
+      // fine metodo per aggiungere un tooltip personalizzato alle risorse //
 
       eventMouseEnter: (info) => {
         this.tooltiptimeout = setTimeout(() => {
@@ -123,18 +104,6 @@ export class AppComponent implements OnInit {
       resourceAreaWidth: '25%',
       stickyHeaderDates: 'auto',
       expandRows: false,
-      // initialDate: new Date(),
-      // initialDate: '2022-01-01', //<= prova per vedere se cambia quanlcosa....
-      // eventContent: function (arg) {
-      //   const eventStart = new Date(arg.event.startStr);
-      //   const hour = eventStart.getHours();
-
-      //   if (hour < 12) {
-      //     return ['Mattina']
-      //   } else {
-      //     return ['Pomeriggio']
-      //   }
-      // },
       contentHeight: 'auto',
       dayMaxEventRows: true,
       dayMaxEvents: 1,
@@ -142,24 +111,12 @@ export class AppComponent implements OnInit {
       eventDisplay: 'listItem',
       slotDuration: '24:00:00',
       scrollTime: '00:00:00',
-      // resourceLaneContent: function (arg) {
-      //   let italicEl = document.createElement('i')
-
-      //   if (arg.resource) {
-      //     italicEl.innerHTML = 'urgent event'
-      //   } else {
-      //     italicEl.innerHTML = 'normal event'
-      //   }
-
-      //   let arrayOfDomNodes = [italicEl]
-      //   return { domNodes: arrayOfDomNodes }
-      // },
       schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives', // licenza non commerciale per FullCalendar Scheduler
       timeZone: 'Europe/Rome',
       handleWindowResize: true,
       locale: itLocale, // seleziona la lingua Italiana
       aspectRatio: 2.5, // larghezza / altezza
-      initialView: 'resourceTimelineWeek', // vista iniziale
+      initialView: 'customWeek', // vista iniziale
       businessHours: {
         // days of week. an array of zero-based day of week integers (0=Sunday)
         daysOfWeek: [1, 2, 3, 4, 5], // Lunedì - Venerdì
@@ -220,6 +177,7 @@ export class AppComponent implements OnInit {
           headerClassNames: 'mobile',
         }
       ],
+
       headerToolbar: {
         left: 'today',
         center: 'title',
@@ -255,13 +213,6 @@ export class AppComponent implements OnInit {
             { weekday: 'long', day: 'numeric' },],
           initialView: "resourceTimelineMonth",
         },
-        // customYear: {
-        // initialDate: new Date(),
-        //   type: 'resourceTimeline',  // Può essere resourceTimeline o il tipo di visualizzazione che preferisci
-        //   duration: { years: 1 },    // Mostra un anno intero
-        //   buttonText: 'Anno',
-        //   initialDate: this.getInizioAnno(),       // Testo del pulsante per la vista annuale
-        // },
         resourceTimelineFiveDays: {
           type: 'resourceTimeline',
           duration: { days: 5 },
@@ -276,7 +227,7 @@ export class AppComponent implements OnInit {
   }
   // Quando clicchi su un evento
   onClickEvent(info: any) {
-    // this.bodyContent = info.event.title;
+
     const resourceId = info.event._def.extendedProps.res_id;
     const data = info.event._def.extendedProps.data;
     const fascia = info.event._def.extendedProps.fascia;
@@ -285,8 +236,6 @@ export class AppComponent implements OnInit {
       ((event.res_id == resourceId) && (event.data == data) && (event.fascia == fascia))
     );
 
-    console.log(eventsFromIdRes, this.events, info);
-    // this.bodyContent = JSON.stringify(eventsFromIdRes);
     this.bodyContent += " " + info.event.title;
     this.bodyContent += " start at: " + info.event.startStr;
     this.bodyContent += " end at: " + info.event.endStr;
@@ -305,45 +254,38 @@ export class AppComponent implements OnInit {
     // Imposta lo scroll sulla data di oggi
     calendarApi.gotoDate(today);
   }
-  // getInizioAnno() {
-  //   // Ottieni la data di oggi
-  //   const oggi = new Date();
-  //   // Ottieni l'anno corrente
-  //   const annoCorrente = oggi.getFullYear();
-  //   // Crea una nuova data per il 1º gennaio dell'anno corrente
-  //   const primoGennaio = new Date(annoCorrente, 0, 1);
-  //   return primoGennaio;
-  // }
 
-  // getFineAnno(n: number) {
-  //   const fine = this.getInizioAnno();
-  //   fine.setFullYear(fine.getFullYear() + n);
-  //   return fine;
-  // }
-  // getFineAnnoAsDays(n: number) {
-  //   const diff = this.getFineAnno(n).getTime() - this.getInizioAnno().getTime();
-  //   const msDay = 1000 * 60 * 60 * 24; // Millisecondi in un giorno
-  //   return Math.floor(diff / msDay);
-  // }
   scrollToDate(date: Date) {
     const calendarApi = this.calendarComponent.getApi();
     calendarApi.gotoDate(date);
   }
 
-  // Funzione di prova per il tooltip
+  // Funzione per mostrare il Modal su risorsa //
+  showTooltip(resourceName: string, resourceEmail: string, element: HTMLElement) {
+    this.tooltiptimeout2 = setTimeout(() => {
+      const tooltip = document.createElement('div');
+      tooltip.className = 'custom-tooltip';
+      tooltip.innerHTML = `<strong>Nome:</strong> ${resourceName}<br><strong>Email:</strong> ${resourceEmail}`;
 
-  // onResourceMouseEnter(event: MouseEvent, resourceId: string, resourceName: string) {
-  //   const tooltip = new Tooltip(event.target as HTMLElement, {
-  //     title: `Risorsa: ${resourceName}`,
-  //     placement: 'bottom',
-  //     trigger: 'hover',
-  //     container: 'div',
-  //   });
-  //   tooltip.show();
-  //   console.log(resourceId, resourceName);
-  // }
+      const rect = element.getBoundingClientRect();
+      tooltip.style.top = `${rect.bottom + window.scrollY - 10}px`;
+      tooltip.style.left = `${rect.left + window.scrollX + rect.width / 1000}px`;
+
+      document.body.appendChild(tooltip);
+      this.currentTooltip = tooltip;
+
+    }, 500);
+
+  }
+
+  // Funzione per nascondere il tooltip
+  hideTooltip() {
+    clearTimeout(this.tooltiptimeout2);
+    if (this.currentTooltip) {
+      document.body.removeChild(this.currentTooltip);
+      this.currentTooltip = null;
+    }
+  }
 
 }
-
-
 

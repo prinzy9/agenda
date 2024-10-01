@@ -2,11 +2,12 @@
     "resources": [
         {
             "id": "a", 
-            "fname": "Mario Rossi", 
+            "fname": "Mario Francesco Maria Rossi", 
             "iname": "140",
             "sede": "sede",
             "area": "Amministrazione", 
-            "imobile": "+393456702890"
+            "imobile": "+393456702890",
+            "email": "bO8pR@example.com"
         },
         {
             "id": "b", 
@@ -14,7 +15,8 @@
             "iname": "120", 
             "sede": "SW",
             "area": "Amministrazione",
-            "imobile": "+302934567890"
+            "imobile": "+302934567890",
+            "email": "bO8pR@example.com"
         },  
         {
             "id": "c", 
@@ -22,7 +24,8 @@
             "iname": "250", 
             "sede": "",
             "area": "Progetti Speciali",
-            "imobile": "+393456027890"
+            "imobile": "+393456027890",
+            "email": "bO8pR@example.com"
         },
         
         {
@@ -31,7 +34,8 @@
             "iname": "396", 
             "sede": "SW",
             "area": "SAP",
-            "imobile": "+393402567890"
+            "imobile": "+393402567890",
+            "email": "bO8pR@example.com"
         },
         {
             "id": "e", 
@@ -39,7 +43,8 @@
             "iname": "990", 
             "sede": "sede",
             "area": "SAP",
-            "imobile": "+393450267890"
+            "imobile": "+393450267890",
+            "email": "bO8pR@example.com"
         },
         {
             "id": "f", 
@@ -47,7 +52,8 @@
             "iname": "100", 
             "sede": "sede",
             "area": "SAP",
-            "imobile": "+393456027890"
+            "imobile": "+393456027890",
+            "email": "bO8pR@example.com"
         },
         {
             "id": "g", 
@@ -55,7 +61,8 @@
             "iname": "180", 
             "sede": "",
             "area": "SAP",
-            "imobile": "+393456780290"
+            "imobile": "+393456780290",
+            "email": "bO8pR@example.com"
         },
         {
             "id": "h", 
@@ -63,7 +70,8 @@
             "iname": "940", 
             "sede": "sede",
             "area": "SAP",
-            "imobile": "+393456789020"
+            "imobile": "+393456789020",
+            "email": "bO8pR@example.com"
         },
         {   
             "id": "i", 
@@ -71,7 +79,8 @@
             "iname": "847", 
             "sede": "",
             "area": "RAP, Progetti Speciali",
-            "imobile": "+393928304080"
+            "imobile": "+393928304080",
+            "email": "bO8pR@example.com"
         },
         {
             "id": "j", 
@@ -79,7 +88,8 @@
             "iname": "48", 
             "sede": "SW",
             "area": "SAP",
-            "imobile": "+393457667890"
+            "imobile": "+393457667890",
+            "email": "bO8pR@example.com"
         },
         {
             "id": "k",  
@@ -87,7 +97,8 @@
             "iname": "140", 
             "sede": "sede",
             "area": "SAP",
-            "imobile": "+393476567890"   
+            "imobile": "+393476567890",
+            "email": "bO8pR@example.com"  
         },
         {
             "id": "l", 
@@ -95,7 +106,8 @@
             "iname": "120", 
             "sede": "sede",
             "area": "SAP",
-            "imobile": "+393456027890"
+            "imobile": "+393456027890",
+            "email": "bO8pR@example.com"
         },
         {
             "id": "m", 
@@ -103,7 +115,8 @@
             "iname": "250", 
             "sede": "SW",
             "area": "SAP",
-            "imobile": "+393456027890"
+            "imobile": "+393456027890",
+            "email": "bO8pR@example.com"
         },
         {
             "id": "n", 
@@ -111,7 +124,8 @@
             "iname": "396", 
             "sede": "sede",
             "area": "SAP",
-            "imobile": "+393456027890"
+            "imobile": "+393456027890",
+            "email": "bO8pR@example.com"
         },
         {
             "id": "o", 
@@ -119,7 +133,8 @@
             "iname": "100", 
             "sede": "sede",
             "area": "SAP",
-            "imobile": "+393456027890"
+            "imobile": "+393456027890",
+            "email": "bO8pR@example.com"
         },
         {
             "id": "p", 
@@ -127,7 +142,8 @@
             "iname": "180",   
             "sede": "SW",
             "area": "SAP",
-            "imobile": "+393456027890"
+            "imobile": "+393456027890",
+            "email": "bO8pR@example.com"
         },
         {
             "id": "q", 
@@ -135,7 +151,8 @@
             "iname": "940", 
             "sede": "sede",
             "area": "SAP",
-            "imobile": "+393456027890"
+            "imobile": "+393456027890",
+            "email": "bO8pR@example.com"
         },
         {
             "id": "r", 
@@ -143,7 +160,8 @@
             "iname": "180", 
             "sede": "sede",
             "area": "SAP",
-            "imobile": "+393456027890"
+            "imobile": "+393456027890",
+            "email": "bO8pR@example.com"
         },
         {
             "id": "s", 
@@ -151,7 +169,8 @@
             "iname": "940", 
             "sede": "SW",
             "area": "SAP",
-            "imobile": "+393456027890"
+            "imobile": "+393456027890",
+            "email": "bO8pR@example.com"
         },
         {
             "id": "t", 
@@ -159,7 +178,8 @@
             "iname": "180", 
             "sede": "",
             "area": "SAP",
-            "imobile": "+393456027890"  
+            "imobile": "+393456027890",
+            "email": "bO8pR@example.com"  
         },
         {
             "id": "u", 
@@ -167,7 +187,8 @@
             "iname": "940", 
             "sede": "sede",
             "area": "SAP",
-            "imobile": "+393456027890"
+            "imobile": "+393456027890",
+            "email": "bO8pR@example.com"
         },
         {
             "id": "v", 
@@ -175,7 +196,8 @@
             "iname": "180", 
             "sede": "SW",
             "area": "SAP",
-            "imobile": "+393456027890"
+            "imobile": "+393456027890",
+            "email": "bO8pR@example.com"
         },
         {
             "id": "w", 
@@ -183,7 +205,8 @@
             "iname": "940", 
             "sede": "SW",
             "area": "SAP",
-            "imobile": "+393456027890"
+            "imobile": "+393456027890",
+            "email": "bO8pR@example.com"
         },
         {
             "id": "x", 
@@ -191,7 +214,8 @@
             "iname": "180",
             "sede": "sede",
             "area": "SAP",
-            "imobile": "+393456027890"
+            "imobile": "+393456027890",
+            "email": "bO8pR@example.com"
         },
         {
             "id": "y", 
@@ -199,7 +223,8 @@
             "iname": "940", 
             "sede": "sede",
             "area": "SAP",
-            "imobile": "+393456027890"
+            "imobile": "+393456027890",
+            "email": "bO8pR@example.com"
         },
         {
             "id": "z", 
@@ -207,7 +232,8 @@
             "iname": "180", 
             "sede": "sede",
             "area": "SAP",
-            "imobile": "+393456027890"
+            "imobile": "+393456027890",
+            "email": "bO8pR@example.com"
         }
     
     ],

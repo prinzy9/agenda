@@ -116,7 +116,7 @@ export class NavbarComponent implements OnInit {
 
     this.giorni = [
       {
-        label: 'Oggi',
+        label: 'Giorno',
         command: () => {
           this.changeCalendarView('resourceTimelineDay');
         }
