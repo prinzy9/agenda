@@ -40,7 +40,6 @@ export class AppComponent implements OnInit {
   currentTooltip: HTMLElement | null = null;
   i: number = 0;
 
-
   ngOnInit() {
     this.calendarViewService.dateChange$.subscribe((date: Date) => {
       this.scrollToDate(date);
@@ -81,7 +80,6 @@ export class AppComponent implements OnInit {
         // Eventuali altri aggiornamenti legati alla vista
       },
       // fine metodo per aggiungere un tooltip personalizzato alle risorse //
-
       eventMouseEnter: (info) => {
         this.tooltiptimeout = setTimeout(() => {
           const tooltip = new Tooltip(info.el, {
