@@ -2,6 +2,9 @@
 @import "primeflex/primeflex.css";
 @import "primeicons/primeicons.css";
 
+body {
+    min-width: 90rem !important;
+}
 .wrap-calendar{
     margin-left: 2rem !important;
     margin-right: 2rem !important;
@@ -129,5 +132,13 @@ vertical-align: middle !important;
     margin-bottom: 0.5em;
 }
 
-
-
+.p-inputswitch .p-inputswitch-slider:before {
+    content: '🔅'; /* Luna per il tema scuro */
+    position: absolute;
+    display: flex;
+    line-height: 1.2em;
+    text-align: center;
+    vertical-align: middle;
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra orizzontalmente */
+  }
