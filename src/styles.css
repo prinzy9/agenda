@@ -103,27 +103,6 @@ tr {
     color: rgb(227, 30, 37)
 }
 
-/* div.fc-datagrid-cell-frame {
-    vertical-align: middle !important;
-    text-align: center;
-    justify-content: center !important;
-    height: fit-content;
-
-} */
-
-/* .fc-event-draggable, .fc-event-resizable, .fc-event-start, .fc-event-end, .fc-event-past, .fc-timeline-event, .fc-h {
-height: 2.12rem;
-justify-content: center !important;
-vertical-align: middle !important;
-}
-
-.-timeline-more-link-inner, .fc-sticky {
-    height: 1.3rem;
-    justify-content: center !important;
-    vertical-align: middle !important;
-   
-} */
-
 .fc-datagrid-cell-cushion, .fc-scrollgrid-sync-inner {
     font-size: 0.75rem !important;
 }
@@ -133,12 +112,12 @@ vertical-align: middle !important;
 }
 
 .p-inputswitch .p-inputswitch-slider:before {
-    content: '🔅'; /* Luna per il tema scuro */
+    content: '🔅'; 
     position: absolute;
     display: flex;
     line-height: 1.2em;
     text-align: center;
     vertical-align: middle;
-    align-items: center; /* Centra verticalmente */
-    justify-content: center; /* Centra orizzontalmente */
+    align-items: center; 
+    justify-content: center; 
   }
