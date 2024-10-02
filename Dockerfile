@@ -21,7 +21,7 @@ RUN npm run build --prod
 # RUN npx json-server dipendenti.json
 
 # 7. Espone la porta su cui l'app sarà eseguita
-EXPOSE 4200
+EXPOSE 4200 3000
 
 CMD ["npm", "run", "play"]
 # 8. Comando per avviare l'app

@@ -46,12 +46,12 @@ export class AppComponent implements OnInit {
     });
 
     this.primengConfig.ripple = true;
-    this.http.get('http://localhost:3000/resources').subscribe((resources) => {
+    this.http.get('http://127.0.0.1:3000/resources').subscribe((resources) => {
       this.resources = resources;
       this.calendarOptions.resources = resources;
     });
 
-    this.http.get('http://localhost:3000/events').subscribe((events: any) => {
+    this.http.get('http://127.0.0.1:3000/events').subscribe((events: any) => {
       this.events = events;
       this.calendarOptions.events = events;
     });

@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "play": "concurrently --kill-others \"npx json-server dipendenti.json\" \"ng serve --host 0.0.0.0\""
+    "play": "concurrently --kill-others \"npx json-server --host 127.0.0.1 dipendenti.json\" \"ng serve --host 0.0.0.0\""
   },
   "private": true,
   "dependencies": {
