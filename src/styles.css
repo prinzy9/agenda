@@ -33,7 +33,6 @@ a.fc-timeline-slot-cushion.fc-scrollgrid-sync-inner {
 .interno {
     width: 1.5rem;
     text-align: center;
-    /* justify-content: center !important; */
 }
 
 .dipendenti {
@@ -43,20 +42,14 @@ a.fc-timeline-slot-cushion.fc-scrollgrid-sync-inner {
 
 .mobile {
     width: 4.3rem;
-    /* text-align: center; */
-    /* justify-content: center !important; */
 }
 
 .fc-datagrid-cell,
 .fc-datagrid-cell-frame {
    text-align: center;
    justify-content: center !important;
-   /* vertical-align: middle !important; */
 }
 
-/* td.fc-datagrid-cell.fc-resource{ */
-    /* vertical-align: middle !important; */
-/* } */
 .fc-resource .fc-datagrid-cell-frame{
     display: flex;
 }
@@ -71,15 +64,11 @@ a.fc-timeline-slot-cushion.fc-scrollgrid-sync-inner {
 th {
     height: 2rem !important;
     vertical-align: middle !important;
-    /* text-align: center; */
-    /* justify-content: center !important; */
 }
 tr {
     height: 1.8rem !important;
     max-height: 1.8rem !important;
-    /* vertical-align: middle !important; */
     text-align: center;
-    /* justify-content: center !important; */
 }
  .fc-event {
     height: 2rem !important;

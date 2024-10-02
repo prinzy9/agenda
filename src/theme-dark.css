@@ -9,8 +9,8 @@
     line-height: 1.2em;
     text-align: center;
     vertical-align: middle;
-    align-items: center; /* Centra verticalmente */
-    justify-content: center; /* Centra orizzontalmente */
+    align-items: center;
+    justify-content: center;
     transform: translateX(1.3rem) !important;    
 }
 
