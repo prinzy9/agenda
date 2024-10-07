@@ -91,6 +91,9 @@ tr {
 .pi.pi-ban{
     color: rgb(227, 30, 37)
 }
+.marginsearch{
+    margin-left: 1rem;
+}
 
 .fc-datagrid-cell-cushion, .fc-scrollgrid-sync-inner {
     font-size: 0.75rem !important;
@@ -109,4 +112,20 @@ tr {
     vertical-align: middle;
     align-items: center; 
     justify-content: center; 
+  }
+
+  .fc-toolbar-title {
+    font-size: 16px !important;
+  }
+  .p-menubar {
+    padding: 2px !important;
+  }
+
+  .p-calendar {
+    height: 35px !important;
+    width: 160px !important;
+  }
+  .p-icon-field-left > .p-inputtext {
+    height: 35px;
+    width: 170px;
   }

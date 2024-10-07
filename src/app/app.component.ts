@@ -62,6 +62,11 @@ export class AppComponent implements OnInit {
     setTimeout(() => {
       this.scrollToToday();
     }, 100);
+
+    // Filtra le risorse in base alla ricerca utente
+    this.calendarViewService.search$.subscribe((query) => {
+      this.filterResources(query);
+    });
   }
   constructor(private primengConfig: PrimeNGConfig, private http: HttpClient, private calendarViewService: CalendarviewService) {
     this.calendarOptions = {
@@ -152,7 +157,7 @@ export class AppComponent implements OnInit {
             } else if (this.resources[this.i].sede == "SW") {
               result.html = '<i class="pi pi-desktop"></i>';
             } else {
-              result.html = '<i class="pi pi-ban"></i>';
+              result.html = '';
             }
             this.i++;
             // resetta il counter se raggiunge la lunghezza di resources
@@ -283,6 +288,21 @@ export class AppComponent implements OnInit {
       document.body.removeChild(this.currentTooltip);
       this.currentTooltip = null;
     }
+  }
+  filterResources(query: string) {
+    // Filtra le risorse in base alla query di ricerca
+    if (query) {
+      this.calendarOptions.resources = this.resources.filter((resource: any) =>
+        resource.fname.toLowerCase().includes(query.toLowerCase())
+      );
+    } else {
+      // Se non c'è nessuna query, visualizza tutte le risorse
+      this.calendarOptions.resources = this.resources;
+    }
+
+    // Aggiorna la vista del calendario
+    let calendarApi = this.calendarComponent.getApi();
+    calendarApi.refetchResources();
   }
 
 }

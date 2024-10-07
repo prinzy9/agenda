@@ -53,3 +53,35 @@ th {
     padding: 0.96rem;
     font-size: 11px;
   }
+
+  button.fc-today-button.fc-button.fc-button-primary{
+    padding: 3px 5px 3px 5px !important;
+  }
+  
+button.fc-next-button.fc-button.fc-button-primary {
+    padding: 3px 5px 3px 5px !important;
+}
+
+button.fc-prev-button.fc-button.fc-button-primary {
+    padding: 3px 5px 3px 5px !important;
+}
+
+button.fc-dayGridMonth-button.fc-button.fc-button-primary {
+    padding: 3px 5px 3px 5px !important;
+}
+
+button.fc-dayGridWeek-button.fc-button.fc-button-primary.fc-button-active , .fc-customYear-button.fc-button.fc-button-primary.fc-button-active{
+    padding: 3px 5px 3px 5px !important;
+}
+
+button.fc-dayGridDay-button.fc-button.fc-button-primary {
+    padding: 3px 5px 3px 5px !important;
+}
+
+button.fc-dayGridDay-button.fc-button.fc-button-primary.fc-button-active {
+    padding: 3px 5px 3px 5px !important;
+}
+
+button.fc-dayGridWeek-button.fc-button.fc-button-primary {
+    padding: 3px 5px 3px 5px !important;
+}

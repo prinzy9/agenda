@@ -1,12 +1,12 @@
-<p-menubar [model]="items">
-    <ng-template pTemplate="item" let-item >
-        <ng-container *ngIf="item.route">
-            <a [routerLink]="item.route" class="p-menuitem-link">
-                <span [class]="item.icon"></span>
-                <span class="ml-2">{{ item.label }}</span>
-            </a>
-        </ng-container>
+<p-menubar>
+
+    <ng-template pTemplate="start">
+        <p-iconField iconPosition="left" size="small">
+            <p-inputIcon styleClass="pi pi-search" />
+            <input (input)="searchUser($event)" size="small" type="text" pInputText placeholder="Cerca Utente..." />
+        </p-iconField>
     </ng-template>
+
 
     <ng-template pTemplate="end" >
         <div class="flex align-items-center gap-1">

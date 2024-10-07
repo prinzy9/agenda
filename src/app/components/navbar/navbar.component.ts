@@ -11,11 +11,16 @@ import { CalendarModule } from 'primeng/calendar';
 import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { BadgeModule } from 'primeng/badge';
+import { InputTextModule } from 'primeng/inputtext';
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputIconModule } from 'primeng/inputicon';
+
+
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [MenubarModule, ToggleThemeComponent, CommonModule, MenuModule, ToastModule, ButtonModule, CalendarModule, BadgeModule, FormsModule],
+  imports: [MenubarModule, ToggleThemeComponent, CommonModule, MenuModule, ToastModule, ButtonModule, CalendarModule, BadgeModule, FormsModule, InputTextModule, IconFieldModule, InputIconModule],
   templateUrl: './navbar.component.html',
   providers: [DatePipe],
   styleUrl: './navbar.component.css'
@@ -28,6 +33,7 @@ export class NavbarComponent implements OnInit {
   oggi: string = new Date().toDateString();
   // currentIcon: string = '1';
   numeroDaVedere: number | null = 0;
+  searchQuery: string = '';
 
   constructor(private calendarViewService: CalendarviewService, private datePipe: DatePipe) {
     // Usa DatePipe per formattare la data corrente come stringa
@@ -151,5 +157,9 @@ export class NavbarComponent implements OnInit {
       // Invia la data con l'ora modificata
       this.calendarViewService.changeDate(selectedDate);
     }
+  }
+  searchUser(event: any) {
+    const query = event.target.value;  // Prendi il valore dell'input
+    this.calendarViewService.updateSearch(query);  // Passa la query al service
   }
 }

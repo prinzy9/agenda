@@ -4,38 +4,47 @@
 
 button.fc-today-button.fc-button.fc-button-primary{
     background-color: rgb(59, 130, 246);
+    padding: 3px 5px 3px 5px !important;
 }
 
 button.fc-next-button.fc-button.fc-button-primary {
     background-color: rgb(59, 130, 246);
+    padding: 3px 5px 3px 5px !important;
 }
 
 button.fc-prev-button.fc-button.fc-button-primary {
     background-color: rgb(59, 130, 246);
+    padding: 3px 5px 3px 5px !important;
 }
 
 button.fc-dayGridMonth-button.fc-button.fc-button-primary {
     background-color: rgb(59, 130, 246); 
+    padding: 3px 5px 3px 5px !important;
 }
 
 button.fc-dayGridWeek-button.fc-button.fc-button-primary.fc-button-active , .fc-customYear-button.fc-button.fc-button-primary.fc-button-active{
     background-color: rgb(59, 130, 246); 
+    padding: 3px 5px 3px 5px !important;
 }
 
 button.fc-dayGridDay-button.fc-button.fc-button-primary {
     background-color: rgb(59, 130, 246); 
+    padding: 3px 5px 3px 5px !important;
 }
 
 button.fc-dayGridDay-button.fc-button.fc-button-primary.fc-button-active {
     background-color: rgb(59, 130, 246);
+    padding: 3px 5px 3px 5px !important;
 }
 
 button.fc-dayGridWeek-button.fc-button.fc-button-primary {
     background-color: rgb(59, 130, 246);
+    padding: 3px 5px 3px 5px !important;
 }
 
 .fc-customYear-button.fc-button.fc-button-primary {
     background-color: rgb(59, 130, 246);
+    padding: 3px 5px 3px 5px !important;
 }
 
 .tooltip{
