@@ -39,11 +39,18 @@ export class AppComponent implements OnInit {
   tooltiptimeout2: any;
   currentTooltip: HTMLElement | null = null;
   i: number = 0;
+  resourceAreaWidth: string = '25%';
+
+
 
   ngOnInit() {
+    this.primengConfig.ripple = true;
+
+
     this.calendarViewService.dateChange$.subscribe((date: Date) => {
       this.scrollToDate(date);
     });
+
 
     this.primengConfig.ripple = true;
     this.http.get('http://127.0.0.1:3000/resources').subscribe((resources) => {
@@ -70,6 +77,7 @@ export class AppComponent implements OnInit {
   }
   constructor(private primengConfig: PrimeNGConfig, private http: HttpClient, private calendarViewService: CalendarviewService) {
     this.calendarOptions = {
+      ...this.calendarOptions,
 
       // metodo per aggiungere un tooltip personalizzato alle risorse //
       resourceLabelDidMount: (info) => {
@@ -104,21 +112,21 @@ export class AppComponent implements OnInit {
       eventClick: (info) => {
         this.onClickEvent(info);
       },
-      resourceAreaWidth: '25%',
+      resourceAreaWidth: this.resourceAreaWidth,
       stickyHeaderDates: 'auto',
-      expandRows: false,
+      expandRows: true,
       contentHeight: 'auto',
       dayMaxEventRows: true,
       dayMaxEvents: 1,
       eventMaxStack: 1,
       eventDisplay: 'listItem',
+      handleWindowResize: true,
       slotDuration: '24:00:00',
       scrollTime: '00:00:00',
       schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives', // licenza non commerciale per FullCalendar Scheduler
       timeZone: 'Europe/Rome',
-      handleWindowResize: true,
       locale: itLocale, // seleziona la lingua Italiana
-      aspectRatio: 2.5, // larghezza / altezza
+      aspectRatio: 9.16, // larghezza / altezza
       initialView: 'customWeek', // vista iniziale
       businessHours: {
         // days of week. an array of zero-based day of week integers (0=Sunday)
@@ -136,7 +144,7 @@ export class AppComponent implements OnInit {
         {
           field: 'sede',
           headerContent: 'Sede',
-          cellClassNames: 'interno',
+          cellClassNames: 'sede',
           headerClassNames: 'interno',
           /**
            * Ritorna l'icona da visualizzare per ogni sede.
@@ -151,6 +159,7 @@ export class AppComponent implements OnInit {
            */
           cellContent: (s) => {
             // console.log("sdfsf", this.i, s)
+
             const result = { html: '' };
             if (this.resources[this.i].sede == "sede") {
               result.html = '<i class="pi pi-user"></i>';

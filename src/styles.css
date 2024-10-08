@@ -2,9 +2,6 @@
 @import "primeflex/primeflex.css";
 @import "primeicons/primeicons.css";
 
-body {
-    min-width: 90rem !important;
-}
 .wrap-calendar{
     margin-left: 2rem !important;
     margin-right: 2rem !important;
@@ -33,6 +30,12 @@ a.fc-timeline-slot-cushion.fc-scrollgrid-sync-inner {
 .interno {
     width: 1.5rem;
     text-align: center;
+}
+
+.sede {
+    width: 1.5rem;
+    text-align: center;
+
 }
 
 .dipendenti {
@@ -115,17 +118,50 @@ tr {
   }
 
   .fc-toolbar-title {
-    font-size: 16px !important;
+    font-size: 1rem !important;
   }
   .p-menubar {
-    padding: 2px !important;
+    padding: 0.125rem !important;
   }
 
   .p-calendar {
-    height: 35px !important;
-    width: 160px !important;
+    height: 2.188rem !important;
+    width: 9.7rem !important;
   }
   .p-icon-field-left > .p-inputtext {
-    height: 35px;
-    width: 170px;
+    height: 2.188rem !important;
+    width: 6.7rem !important;
+  }
+
+  @media only screen and (max-width: 768px) {
+        .wrap-calendar{
+            margin-left: 0rem !important;
+            margin-right: 0rem !important;
+        }
+        .p-calendar {
+            height: 2.188rem !important;
+            width: 6.8rem !important;
+            font-size: 0.5rem !important;
+        }
+        .p-icon-field-left > .p-inputtext {
+            height: 2.188rem !important;
+            width: 4.5rem !important;
+            font-size: 0.5rem !important;
+        }
+
+        .dipendenti {
+            width: 4rem;
+            text-align: center;
+        }
+
+        
+        /* .interno {
+           visibility: hidden !important;
+        }      
+        .mobile {
+            visibility: hidden !important;
+        } */
+
+    
+
   }
