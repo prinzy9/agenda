@@ -31,6 +31,7 @@
     "@fullcalendar/timegrid": "^6.1.15",
     "@ngx-translate/core": "^15.0.0",
     "@ngx-translate/http-loader": "^8.0.0",
+    "axios": "^1.7.7",
     "concurrently": "^9.0.1",
     "fullcalendar": "^6.1.15",
     "fullcalendar-scheduler": "^6.1.15",

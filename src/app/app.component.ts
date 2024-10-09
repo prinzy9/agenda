@@ -1,3 +1,4 @@
+import { RequestsService } from './services/requests.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FullCalendarComponent, FullCalendarModule } from '@fullcalendar/angular';
@@ -13,6 +14,7 @@ import { HttpClient } from '@angular/common/http';
 import { CalendarviewService } from './services/calendarview.service';
 import "primeicons/primeicons.css";
 import Tooltip from 'tooltip.js'
+
 
 
 @Component({
@@ -40,6 +42,9 @@ export class AppComponent implements OnInit {
   currentTooltip: HTMLElement | null = null;
   i: number = 0;
   resourceAreaWidth: string = '25%';
+  users: any[] = [];
+
+
 
 
 
@@ -53,15 +58,22 @@ export class AppComponent implements OnInit {
 
 
     this.primengConfig.ripple = true;
-    this.http.get('http://127.0.0.1:3000/resources').subscribe((resources) => {
-      this.resources = resources;
-      this.calendarOptions.resources = resources;
-    });
+    this.requestsService.getResources();
+    this.requestsService.resources$.subscribe((data: any[]) => {
+      this.resources = data;
+      this.calendarOptions.resources = data;
+      this.users = data;
+    })
 
-    this.http.get('http://127.0.0.1:3000/events').subscribe((events: any) => {
-      this.events = events;
-      this.calendarOptions.events = events;
-    });
+    // this.http.get('http://127.0.0.1:3000/resources').subscribe((resources) => {
+    //   this.resources = resources;
+    //   this.calendarOptions.resources = resources;
+    // });
+
+    // this.http.get('http://127.0.0.1:3000/events').subscribe((events: any) => {
+    //   this.events = events;
+    //   this.calendarOptions.events = events;
+    // });
 
     this.calendarViewService.viewChange$.subscribe((view: any) => {
       this.changeView(view);
@@ -75,9 +87,9 @@ export class AppComponent implements OnInit {
       this.filterResources(query);
     });
   }
-  constructor(private primengConfig: PrimeNGConfig, private http: HttpClient, private calendarViewService: CalendarviewService) {
+  constructor(private primengConfig: PrimeNGConfig, private http: HttpClient, private calendarViewService: CalendarviewService, private requestsService: RequestsService) {
     this.calendarOptions = {
-      ...this.calendarOptions,
+
 
       // metodo per aggiungere un tooltip personalizzato alle risorse //
       resourceLabelDidMount: (info) => {
@@ -298,6 +310,7 @@ export class AppComponent implements OnInit {
       this.currentTooltip = null;
     }
   }
+
   filterResources(query: string) {
     // Filtra le risorse in base alla query di ricerca
     if (query) {
@@ -309,9 +322,28 @@ export class AppComponent implements OnInit {
       this.calendarOptions.resources = this.resources;
     }
 
-    // Aggiorna la vista del calendario
-    let calendarApi = this.calendarComponent.getApi();
-    calendarApi.refetchResources();
+    // Controlla se calendarComponent è inizializzato prima di chiamare getApi()
+    if (this.calendarComponent && this.calendarComponent.getApi()) {
+      // Aggiorna la vista del calendario
+      this.calendarComponent.getApi().refetchResources();
+    } else {
+      console.error('calendarComponent non è ancora pronto');
+    }
+  }
+  onAreaSelected(area: string) {
+    // Filtra gli utenti in base all'area selezionata
+    if (area) {
+      this.requestsService.getUsersByArea(area).subscribe((filteredUsers) => {
+        this.users = filteredUsers;
+        this.calendarOptions.resources = filteredUsers;
+      });
+    } else {
+      // Se non c'è filtro, mostra tutti gli utenti
+      this.requestsService.resources$.subscribe((data) => {
+        this.users = data;
+        this.calendarOptions.resources = data;
+      });
+    }
   }
 
 }

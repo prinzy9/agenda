@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MenubarModule } from 'primeng/menubar';
 import { MenuItem } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
@@ -26,6 +26,7 @@ import { InputIconModule } from 'primeng/inputicon';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements OnInit {
+  @Output() areaSelected = new EventEmitter<string>();
   items: MenuItem[] = [];
   giorni: MenuItem[] = [];
   utenti: MenuItem[] = [];
@@ -73,50 +74,50 @@ export class NavbarComponent implements OnInit {
       {
         label: 'Tutti',
         command: () => {
-          this.calendarViewService.changeView('resourceTimelineDay');
-        }
+          this.selectArea(''); // Se non c'è filtro, passa una stringa vuota
+        },
       },
       {
-        label: 'ACG',
+        label: 'AS/400, ACG, Sintesi',
         command: () => {
-          this.calendarViewService.changeView('resourceTimelineDay');
-        }
+          this.selectArea('ACG');
+        },
       },
       {
         label: 'Amministrazione',
         command: () => {
-          this.calendarViewService.changeView('resourceTimelineDay');
-        }
+          this.selectArea('AMM');
+        },
       },
       {
-        label: 'COGNOS BI MRO',
+        label: 'Consulenza BI MRO',
         command: () => {
-          this.calendarViewService.changeView('resourceTimelineDay');
-        }
+          this.selectArea('CONSUL');
+        },
       },
       {
-        label: 'Progetti Speciali',
+        label: 'eDoc',
         command: () => {
-          this.calendarViewService.changeView('resourceTimelineDay');
-        }
-      },
-      {
-        label: 'EDOC',
-        command: () => {
-          this.calendarViewService.changeView('resourceTimelineDay');
-        }
+          this.selectArea('EDOC');
+        },
       },
       {
         label: 'Infrastruttura',
         command: () => {
-          this.calendarViewService.changeView('resourceTimelineDay');
-        }
+          this.selectArea('INFRA');
+        },
+      },
+      {
+        label: 'Progetti Speciali',
+        command: () => {
+          this.selectArea('PRGSW');
+        },
       },
       {
         label: 'SAP',
         command: () => {
-          this.calendarViewService.changeView('resourceTimelineDay');
-        }
+          this.selectArea('SAP');
+        },
       },
     ];
 
@@ -161,5 +162,9 @@ export class NavbarComponent implements OnInit {
   searchUser(event: any) {
     const query = event.target.value;  // Prendi il valore dell'input
     this.calendarViewService.updateSearch(query);  // Passa la query al service
+  }
+  // Emetti l'area selezionata
+  selectArea(value: string) {
+    this.areaSelected.emit(value);
   }
 }
