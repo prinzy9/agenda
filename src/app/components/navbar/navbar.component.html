@@ -5,11 +5,8 @@
             <input (input)="searchUser($event)" size="small" type="text" pInputText placeholder="Cerca..." />
         </p-iconField>
     </ng-template>
-
-
     <ng-template pTemplate="end" >
         <div class="flex align-items-center gap-1">
-            
             <p-calendar 
             [(ngModel)]="date1" 
             [showIcon]="true" 
@@ -19,11 +16,8 @@
             (onSelect)="onDateSelect()"
             [placeholder]="oggi"
             />
-            
             <p-menu #menu2 [model]="utenti" [popup]="true" />
             <p-button (onClick)="menu2.toggle($event)" [rounded]="true" [text]="true" size="large" icon="pi pi-users"/>
-            
-
             <p-menu #menu [model]="giorni" [popup]="true" />
             <p-button (onClick)="menu.toggle($event)" [rounded]="true" [text]="true" size="small">
                 <span size="small" *ngIf="numeroDaVedere; else icon">{{ numeroDaVedere }}</span>
