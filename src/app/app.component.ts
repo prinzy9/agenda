@@ -1,3 +1,4 @@
+import { catchError, Subject, tap } from 'rxjs';
 import { RequestsService } from './services/requests.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
@@ -36,7 +37,7 @@ export class AppComponent implements OnInit {
   visibleTooltip: boolean = false; // Controlla la visibilità del tooltip
   visibleClickModal: boolean = false; // Controlla la visibilità del modal su click
   resources: any = [];
-  events: any = [];
+  events: any[] = [];
   tooltiptimeout: any;
   tooltiptimeout2: any;
   currentTooltip: HTMLElement | null = null;
@@ -48,13 +49,17 @@ export class AppComponent implements OnInit {
 
 
 
+
   ngOnInit() {
+    this.loadEventsForResource();
+
     this.primengConfig.ripple = true;
 
 
     this.calendarViewService.dateChange$.subscribe((date: Date) => {
       this.scrollToDate(date);
     });
+
 
 
     this.primengConfig.ripple = true;
@@ -64,16 +69,6 @@ export class AppComponent implements OnInit {
       this.calendarOptions.resources = data;
       this.users = data;
     })
-
-    // this.http.get('http://127.0.0.1:3000/resources').subscribe((resources) => {
-    //   this.resources = resources;
-    //   this.calendarOptions.resources = resources;
-    // });
-
-    // this.http.get('http://127.0.0.1:3000/events').subscribe((events: any) => {
-    //   this.events = events;
-    //   this.calendarOptions.events = events;
-    // });
 
     this.calendarViewService.viewChange$.subscribe((view: any) => {
       this.changeView(view);
@@ -86,9 +81,16 @@ export class AppComponent implements OnInit {
     this.calendarViewService.search$.subscribe((query) => {
       this.filterResources(query);
     });
+
+
   }
   constructor(private primengConfig: PrimeNGConfig, private http: HttpClient, private calendarViewService: CalendarviewService, private requestsService: RequestsService) {
     this.calendarOptions = {
+
+      // eventContent: function (arg) {
+      //   return { html: arg.event.title };  // Visualizza il titolo degli eventi
+      // },
+      // events: this.events,
 
 
       // metodo per aggiungere un tooltip personalizzato alle risorse //
@@ -344,6 +346,24 @@ export class AppComponent implements OnInit {
         this.calendarOptions.resources = data;
       });
     }
+  }
+  loadEventsForResource() {
+
+    // Svuota la lista corrente degli eventi prima di aggiungere i nuovi
+    this.calendarOptions.events = [];
+
+    // Chiama il service per recuperare gli eventi
+    this.requestsService.getEvents().pipe(
+      tap((events: any[]) => {
+        this.events = events;  // Assegna gli eventi ottenuti
+        this.calendarOptions.events = this.events;  // Aggiorna gli eventi del calendario
+      }),
+      catchError((error: any) => {
+        console.error('Errore nel caricamento degli eventi', error);
+        return [];  // Ritorna un array vuoto in caso di errore
+      })
+    ).subscribe();
+
   }
 
 }
