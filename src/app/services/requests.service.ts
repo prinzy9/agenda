@@ -24,11 +24,11 @@ export class RequestsService {
         response.map(res => ({
           id: res.codiceSistemista,
           fname: res.nomeUtente,
-          iname: res.interno,
+          iname: res.interno || '',
           sede: res.posizione || '',
           area: res.businessUnit,
           imobile: res.cellulare || '',
-          email: res.email
+          email: res.email || ''
         }))
       )
     ).subscribe(data => this.resourcesSubject.next(data));
