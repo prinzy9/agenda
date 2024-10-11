@@ -32,7 +32,6 @@ export class NavbarComponent implements OnInit {
   utenti: MenuItem[] = [];
   date1: Date | undefined;
   oggi: string = new Date().toDateString();
-  // currentIcon: string = '1';
   numeroDaVedere: number | null = 0;
   searchQuery: string = '';
 
@@ -40,23 +39,6 @@ export class NavbarComponent implements OnInit {
     // Usa DatePipe per formattare la data corrente come stringa
     this.oggi = this.datePipe.transform(new Date(), 'dd.MM.yyyy') || '';
   }
-  // Cambia l'icona in base alla vista selezionata, versione 1
-  // changeIcon(view: string) {
-  //   switch (view) {
-  //     case 'resourceTimelineDay':
-  //       this.currentIcon = '1'; // Icona per oggi
-  //       break;
-  //     case 'customWeek':
-  //       this.currentIcon = '7'; // Icona per settimana
-  //       break;
-  //     case 'customMonth':
-  //       this.currentIcon = '31'; // Icona per mese
-  //       break;
-  //     default:
-  //       this.currentIcon = ''; // Icona di default
-  //   }
-  // }
-
   changeCalendarView(view: string) {
     // this.changeIcon(view); // Cambia l'icona
     if (view === 'resourceTimelineDay') {
@@ -142,13 +124,6 @@ export class NavbarComponent implements OnInit {
       },
     ];
 
-    this.items = [
-      {
-        label: 'Elmi Calendar',
-        icon: 'pi pi-home',
-        route: '/Home',
-      }
-    ]
   }
   onDateSelect() {
     if (this.date1) {
