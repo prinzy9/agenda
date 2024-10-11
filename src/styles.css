@@ -150,38 +150,19 @@ tr {
             width: 6.8rem !important;
             font-size: 0.5rem !important;
         }
+        .p-calendar-w-btn .p-inputtext {
+            font-size: 0.5rem !important;
+        }
         .p-icon-field-left > .p-inputtext {
             height: 2.188rem !important;
             width: 4.5rem !important;
             font-size: 0.5rem !important;
         }
 
-        .dipendenti {
-            width: 5.5rem;
-            text-align: center;
-        }
-
         .p-icon-field-left > .p-inputtext {
             height: 2.188rem !important;
             width: 4.7rem !important;
         }
-
-        .sede {
-            
-            text-align: center;
-        
-        }
-
-        .mobile {
-            width: 0rem !important;
-        }
-
-        .interno {
-            width: 0rem !important;
-            text-align: center;
-        }
-
-        
-        
+       
 
   }

@@ -42,26 +42,14 @@ export class AppComponent implements OnInit {
   tooltiptimeout2: any;
   currentTooltip: HTMLElement | null = null;
   i: number = 0;
-  resourceAreaWidth: string = '23%';
   users: any[] = [];
-
-
-
-
-
 
   ngOnInit() {
     this.loadEventsForResource();
-
     this.primengConfig.ripple = true;
-
-
     this.calendarViewService.dateChange$.subscribe((date: Date) => {
       this.scrollToDate(date);
     });
-
-
-
     this.primengConfig.ripple = true;
     this.requestsService.getResources();
     this.requestsService.resources$.subscribe((data: any[]) => {
@@ -69,42 +57,46 @@ export class AppComponent implements OnInit {
       this.calendarOptions.resources = data;
       this.users = data;
     })
-
     this.calendarViewService.viewChange$.subscribe((view: any) => {
       this.changeView(view);
     });
     setTimeout(() => {
       this.scrollToToday();
     }, 100);
-
     // Filtra le risorse in base alla ricerca utente
     this.calendarViewService.search$.subscribe((query) => {
       this.filterResources(query);
     });
-
-
   }
   constructor(private primengConfig: PrimeNGConfig, private http: HttpClient, private calendarViewService: CalendarviewService, private requestsService: RequestsService) {
     this.calendarOptions = {
-
-      // eventContent: function (arg) {
-      //   return { html: arg.event.title };  // Visualizza il titolo degli eventi
-      // },
-      // events: this.events,
-
-
+      //Metodo per un resize in base al dispositivo
+      windowResize: (view) => {
+        if (window.innerWidth < 576) {
+          // Per schermi molto piccoli come smartphone
+          this.calendarOptions.resourceAreaWidth = '60%';
+        } else if (window.innerWidth < 768) {
+          // Per smartphone e dispositivi mobili
+          this.calendarOptions.resourceAreaWidth = '50%';
+        } else if (window.innerWidth < 1024) {
+          // Per tablet
+          this.calendarOptions.resourceAreaWidth = '30%';
+        } else if (window.innerWidth < 1440) {
+          // Per laptop piccoli
+          this.calendarOptions.resourceAreaWidth = '25%';
+        } else {
+          // Per desktop
+          this.calendarOptions.resourceAreaWidth = '23%';
+        }
+      },
       // metodo per aggiungere un tooltip personalizzato alle risorse //
       resourceLabelDidMount: (info) => {
         info.el.addEventListener('mouseenter', () => {
           this.showTooltip(info.resource.extendedProps['fname'], info.resource.extendedProps['email'], info.el);
         });
-
         info.el.addEventListener('mouseleave', () => {
           this.hideTooltip();
         });
-      },
-      datesSet: () => {
-        // Eventuali altri aggiornamenti legati alla vista
       },
       // fine metodo per aggiungere un tooltip personalizzato alle risorse //
       eventMouseEnter: (info) => {
@@ -126,7 +118,7 @@ export class AppComponent implements OnInit {
       eventClick: (info) => {
         this.onClickEvent(info);
       },
-      resourceAreaWidth: this.resourceAreaWidth,
+      // resourceAreaWidth: '23%',
       stickyHeaderDates: 'auto',
       expandRows: true,
       contentHeight: 'auto',
@@ -160,20 +152,8 @@ export class AppComponent implements OnInit {
           headerContent: 'Sede',
           cellClassNames: 'sede',
           headerClassNames: 'interno',
-          /**
-           * Ritorna l'icona da visualizzare per ogni sede.
-           * L'icona dipende dal valore di this.resources[this.i].sede.
-           * Se il valore  "sede" allora viene visualizzata l'icona dell'utente,
-           * se il valore  "SW" allora viene visualizzata l'icona del computer,
-           * altrimenti viene visualizzata l'icona del blocco.
-           * Inoltre, incrementa this.i di 1 e, se raggiunge la lunghezza di resources,
-           * resetta this.i a 0.
-           * @param {Object} s l'oggetto che rappresenta la riga della tabella.
-           * @returns {Object} un oggetto con una propriet  html che rappresenta il contenuto della cella.
-           */
-          cellContent: (s) => {
-            // console.log("sdfsf", this.i, s)
 
+          cellContent: (s) => {
             const result = { html: '' };
             if (this.resources[this.i].sede == "sede") {
               result.html = '<i class="pi pi-user"></i>';
@@ -253,17 +233,13 @@ export class AppComponent implements OnInit {
   }
   // Quando clicchi su un evento
   onClickEvent(info: any) {
-
     const resourceId = info.event._def.extendedProps.res_id;
     const data = info.event._def.extendedProps.data;
-
     const eventsFromIdRes = this.events.filter((event: any) =>
       ((event.res_id == resourceId) && (event.data == data))
     );
     this.bodyContent = "";
     this.bodyContent = info.event.title;
-    // this.bodyContent += " start at: " + info.event.startStr;
-    // this.bodyContent += " end at: " + info.event.endStr;
     this.visibleClickModal = true; // Mostra il modal
     this.visibleTooltip = false; // Nascondi il tooltip se era attivo
   }
@@ -279,12 +255,10 @@ export class AppComponent implements OnInit {
     // Imposta lo scroll sulla data di oggi
     calendarApi.gotoDate(today);
   }
-
   scrollToDate(date: Date) {
     const calendarApi = this.calendarComponent.getApi();
     calendarApi.gotoDate(date);
   }
-
   // Funzione per mostrare il Modal su risorsa //
   showTooltip(resourceName: string, resourceEmail: string, element: HTMLElement) {
     this.tooltiptimeout2 = setTimeout(() => {

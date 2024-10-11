@@ -25,7 +25,7 @@ export class RequestsService {
           id: res.codiceSistemista,
           fname: res.nomeUtente,
           iname: res.interno,
-          sede: res.posizione || 'sede',
+          sede: res.posizione || '',
           area: res.businessUnit,
           imobile: res.cellulare || '',
           email: res.email
