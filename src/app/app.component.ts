@@ -42,7 +42,7 @@ export class AppComponent implements OnInit {
   tooltiptimeout2: any;
   currentTooltip: HTMLElement | null = null;
   i: number = 0;
-  resourceAreaWidth: string = '25%';
+  resourceAreaWidth: string = '23%';
   users: any[] = [];
 
 

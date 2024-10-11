@@ -81,7 +81,7 @@ export class RequestsService {
   // Metodo per calcolare la fine dell'evento (fine giornata)
   calculateEndTime(startDate: string): string {
     const endDate = new Date(startDate);
-    endDate.setHours(24, 110, 110, 110);  // Imposta la fine della giornata
+    endDate.setHours(24, 115, 115, 115);  // Imposta la fine della giornata
     return endDate.toISOString();
   }
 }
