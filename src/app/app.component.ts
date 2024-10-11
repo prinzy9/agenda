@@ -256,15 +256,14 @@ export class AppComponent implements OnInit {
 
     const resourceId = info.event._def.extendedProps.res_id;
     const data = info.event._def.extendedProps.data;
-    const fascia = info.event._def.extendedProps.fascia;
 
     const eventsFromIdRes = this.events.filter((event: any) =>
-      ((event.res_id == resourceId) && (event.data == data) && (event.fascia == fascia))
+      ((event.res_id == resourceId) && (event.data == data))
     );
-
-    this.bodyContent += " " + info.event.title;
-    this.bodyContent += " start at: " + info.event.startStr;
-    this.bodyContent += " end at: " + info.event.endStr;
+    this.bodyContent = "";
+    this.bodyContent = info.event.title;
+    // this.bodyContent += " start at: " + info.event.startStr;
+    // this.bodyContent += " end at: " + info.event.endStr;
     this.visibleClickModal = true; // Mostra il modal
     this.visibleTooltip = false; // Nascondi il tooltip se era attivo
   }
@@ -348,10 +347,8 @@ export class AppComponent implements OnInit {
     }
   }
   loadEventsForResource() {
-
     // Svuota la lista corrente degli eventi prima di aggiungere i nuovi
     this.calendarOptions.events = [];
-
     // Chiama il service per recuperare gli eventi
     this.requestsService.getEvents().pipe(
       tap((events: any[]) => {
@@ -363,7 +360,7 @@ export class AppComponent implements OnInit {
         return [];  // Ritorna un array vuoto in caso di errore
       })
     ).subscribe();
-
+    // return { unsubscribe() { } };
   }
 
 }
