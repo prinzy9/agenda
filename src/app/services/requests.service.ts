@@ -41,7 +41,7 @@ export class RequestsService {
   }
   getEvents(): Observable<any[]> {
     const body = {
-      "startDate": "2024-10-11T12:31:29.202Z",
+      "startDate": "2024-10-14T12:20:43.690Z",
       "daysrange": 7
     };
 

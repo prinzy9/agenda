@@ -84,6 +84,12 @@ export class AppComponent implements OnInit {
         } else if (window.innerWidth < 1440) {
           // Per laptop piccoli
           this.calendarOptions.resourceAreaWidth = '25%';
+        } else if (window.innerWidth < 360) {
+          // Per smartphone e dispositivi mobili
+          this.calendarOptions.resourceAreaWidth = '50%';
+        } else if (window.innerWidth < 768) {
+          // Per smartphone e dispositivi mobili
+          this.calendarOptions.resourceAreaWidth = '50%';
         } else {
           // Per desktop
           this.calendarOptions.resourceAreaWidth = '23%';
@@ -160,7 +166,7 @@ export class AppComponent implements OnInit {
             } else if (this.resources[this.i].sede == "SW") {
               result.html = '<i class="pi pi-desktop"></i>';
             } else {
-              result.html = '';
+              result.html = '<i class="pi pi-question-mark"></i>';
             }
             this.i++;
             // resetta il counter se raggiunge la lunghezza di resources
