@@ -87,9 +87,6 @@ export class AppComponent implements OnInit {
         } else if (window.innerWidth < 360) {
           // Per smartphone e dispositivi mobili
           this.calendarOptions.resourceAreaWidth = '50%';
-        } else if (window.innerWidth < 768) {
-          // Per smartphone e dispositivi mobili
-          this.calendarOptions.resourceAreaWidth = '50%';
         } else {
           // Per desktop
           this.calendarOptions.resourceAreaWidth = '23%';
